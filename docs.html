@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning Center — QuantiVector by OB Matrix</title>
+<meta name="description" content="A simple, visual guide to using QuantiVector.">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body class="docs-body">
+
+<!-- ============ TOP BAR ============ -->
+<header class="docs-topbar">
+  <div class="docs-topbar-left">
+    <button class="docs-menu-btn" id="docsMenuBtn" aria-label="Open navigation"><span></span></button>
+    <a href="index.html" class="docs-brand"><span class="dot"></span> QuantiVector <span class="maker">Learning Center · by OB Matrix</span></a>
+  </div>
+  <div class="docs-topbar-right">
+    <a href="index.html">Overview</a>
+    <a href="features.html">Features</a>
+    <a href="index.html#pricing" class="docs-cta">Get Access</a>
+  </div>
+</header>
+
+<div class="docs-backdrop" id="docsBackdrop"></div>
+
+<div class="docs-shell">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="docs-sidebar" id="docsSidebar">
+    <span class="docs-nav-label">Learning Center</span>
+    <nav class="docs-nav" id="docsNav">
+      <a href="#tutorials" data-target="tutorials"><span class="n">▸</span> Tutorial Videos</a>
+      <a href="#getting-started" data-target="getting-started"><span class="n">·</span> Getting Started</a>
+      <a href="#identify-asset" data-target="identify-asset"><span class="n">1</span> Identify the Asset</a>
+      <a href="#identify-timeframe" data-target="identify-timeframe"><span class="n">2</span> Identify the Timeframe</a>
+      <a href="#find-signal" data-target="find-signal"><span class="n">3</span> Find a Valid Signal</a>
+      <a href="#validate-signal" data-target="validate-signal"><span class="n">4</span> Validate the Signal</a>
+      <a href="#plan-entry" data-target="plan-entry"><span class="n">5</span> Plan the Entry</a>
+      <a href="#stop-loss" data-target="stop-loss"><span class="n">6</span> Stop Loss</a>
+      <a href="#targets-risk-reward" data-target="targets-risk-reward"><span class="n">7</span> Targets &amp; Risk/Reward</a>
+      <a href="#manage-trade" data-target="manage-trade"><span class="n">8</span> Trade Management</a>
+      <a href="#exit-trade" data-target="exit-trade"><span class="n">9</span> Exit the Trade</a>
+      <a href="#review-trade" data-target="review-trade"><span class="n">10</span> Review the Trade</a>
+      <a href="#risk-management" data-target="risk-management"><span class="n">11</span> Risk Management</a>
+      <a href="#complete-workflow" data-target="complete-workflow"><span class="n">12</span> Complete Workflow</a>
+    </nav>
+  </aside>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <main class="docs-main">
+
+    <div class="docs-intro">
+      <span class="kicker">Learning Center</span>
+      <h1>QuantiVector Workflow Guide</h1>
+      <p>1 path. 13 steps.</p>
+    </div>
+
+    <!-- ============ TUTORIAL VIDEOS ============ -->
+    <section class="doc-section" id="tutorials" style="border-top:none;padding-top:0;">
+      <div class="doc-section-head"><span class="num">▸</span><h2>Tutorial Videos</h2></div>
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="vh">
+            <span>Live Market Usage</span>
+            <a class="video-ext" href="https://www.youtube.com/watch?v=LdYkQ3BCM5Y" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+          </div>
+          <div class="video-frame" data-id="LdYkQ3BCM5Y" onclick="playDocVideo(this)" role="button" tabindex="0" aria-label="Play Live Market Usage video">
+            <img class="video-thumb-img" src="https://i.ytimg.com/vi/LdYkQ3BCM5Y/hqdefault.jpg" alt="Live Market Usage video thumbnail" loading="lazy">
+            <span class="video-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </div>
+        </div>
+        <div class="video-card">
+          <div class="vh">
+            <span>Find Best Timeframe &amp; Asset</span>
+            <a class="video-ext" href="https://www.youtube.com/watch?v=yhCPfIpeBfY" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+          </div>
+          <div class="video-frame" data-id="yhCPfIpeBfY" onclick="playDocVideo(this)" role="button" tabindex="0" aria-label="Play Find Best Timeframe & Asset video">
+            <img class="video-thumb-img" src="https://i.ytimg.com/vi/yhCPfIpeBfY/hqdefault.jpg" alt="Find Best Timeframe & Asset video thumbnail" loading="lazy">
+            <span class="video-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 -->
+    <section class="doc-section" id="getting-started">
+      <div class="doc-section-head"><span class="num">01</span><h2>Getting Started</h2></div>
+      <div class="icon-row">
+        <span class="icon-pill"><span class="dot"></span> Signal</span>
+        <span class="icon-pill"><span class="dot"></span> Strength</span>
+        <span class="icon-pill"><span class="dot"></span> Trade Zone</span>
+        <span class="icon-pill"><span class="dot"></span> SL &amp; Targets</span>
+        <span class="icon-pill"><span class="dot"></span> Win Rate</span>
+      </div>
+
+      <div class="doc-visual">
+        <svg viewBox="0 0 400 150">
+          <defs>
+            <pattern id="g01" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#fff" stroke-opacity="0.04"/></pattern>
+            <linearGradient id="c01" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a4f5c"/><stop offset="1" stop-color="#2a2d34"/></linearGradient>
+          </defs>
+          <rect width="400" height="150" fill="url(#g01)"/>
+          <g stroke="#6b7080" stroke-width="1.1">
+            <line x1="30" y1="95" x2="30" y2="112"/><rect x="25" y="98" width="10" height="10" fill="url(#c01)"/>
+            <line x1="55" y1="80" x2="55" y2="100"/><rect x="50" y="83" width="10" height="12" fill="url(#c01)"/>
+            <line x1="80" y1="65" x2="80" y2="85"/><rect x="75" y="68" width="10" height="12" fill="url(#c01)"/>
+          </g>
+          <rect x="95" y="70" width="46" height="42" rx="4" fill="#e0102a" fill-opacity="0.12" stroke="#e0102a" stroke-width="1.2" stroke-dasharray="3 2"/>
+          <g stroke="#0a0a0a" stroke-width="1.2"><line x1="150" y1="45" x2="150" y2="95"/><rect x="145" y="50" width="10" height="42" fill="url(#c01)"/></g>
+          <circle cx="150" cy="38" r="12" fill="none" stroke="#e0102a" stroke-width="1.6" class="doc-ping"/>
+          <g transform="translate(150,38)"><rect x="-18" y="-11" width="36" height="18" rx="5" fill="#e0102a"/><text x="0" y="4" text-anchor="middle" font-size="9.5" font-weight="800" fill="#fff" font-family="Arial">BUY</text></g>
+          <g stroke="#6b7080" stroke-width="1.1">
+            <line x1="180" y1="35" x2="180" y2="55"/><rect x="175" y="38" width="10" height="12" fill="url(#c01)"/>
+            <line x1="205" y1="25" x2="205" y2="45"/><rect x="200" y="28" width="10" height="12" fill="url(#c01)"/>
+          </g>
+          <line x1="140" y1="95" x2="380" y2="95" stroke="#0a0a0a" stroke-width="1"/>
+          <text x="375" y="91" text-anchor="end" font-size="8" font-weight="700" fill="#9a9dab" font-family="Arial">ENTRY</text>
+          <line x1="140" y1="112" x2="380" y2="112" stroke="#ef4444" stroke-width="0.8" stroke-dasharray="2 2"/>
+          <text x="375" y="124" text-anchor="end" font-size="7.5" font-weight="700" fill="#f87171" font-family="Arial">SL</text>
+          <line x1="140" y1="55" x2="380" y2="55" stroke="#22c55e" stroke-width="1.6" stroke-dasharray="2 2"/>
+          <text x="375" y="51" text-anchor="end" font-size="9" font-weight="800" fill="#4ade80" font-family="Arial">TARGET</text>
+          <g transform="translate(150,128)"><rect x="-20" y="-10" width="40" height="18" rx="5" fill="#131519" stroke="#2a2d34"/><text x="0" y="3" text-anchor="middle" font-size="9" font-weight="800" fill="#fff" font-family="Arial">91%</text></g>
+        </svg>
+        <p class="cap">Signal · Strength · Trade Zone · Stop Loss · Target — one view</p>
+      </div>
+
+      <div class="term-grid">
+        <div class="term-chip"><b>Signal</b><span>BUY / SELL mark</span></div>
+        <div class="term-chip"><b>Strength</b><span>Score per signal</span></div>
+        <div class="term-chip"><b>Win Rate</b><span>Historical %</span></div>
+        <div class="term-chip"><b>Avg Win Score</b><span>Avg strength of wins</span></div>
+        <div class="term-chip"><b>Trade Zone</b><span>Entry area</span></div>
+        <div class="term-chip"><b>Timeframe</b><span>Chart interval</span></div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="doc-section" id="identify-asset">
+      <div class="doc-section-head"><span class="num">02</span><h2>Identify the Asset</h2></div>
+      <div class="doc-flow-h">
+        <span class="fh-step">Asset</span><span class="fh-arrow">→</span>
+        <span class="fh-step">History</span><span class="fh-arrow">→</span>
+        <span class="fh-step">Timeframe</span><span class="fh-arrow">→</span>
+        <span class="fh-step">Analyze</span>
+      </div>
+      <div class="icon-row">
+        <span class="icon-pill"><span class="dot"></span> Real history</span>
+        <span class="icon-pill"><span class="dot"></span> Fits your time</span>
+        <span class="icon-pill"><span class="dot"></span> Fits your risk</span>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="doc-section" id="identify-timeframe">
+      <div class="doc-section-head"><span class="num">03</span><h2>Identify the Right Timeframe</h2></div>
+      <div class="doc-flow-v">
+        <div class="fv-step">Select Stock</div>
+        <div class="fv-arrow">↓</div>
+        <div class="fv-step">Test Timeframe</div>
+        <div class="fv-arrow">↓ &lt; 55% → try another</div>
+        <div class="fv-step">Trade Highest Win Rate ≥ 55%</div>
+      </div>
+
+      <div class="doc-visual-row">
+        <div class="doc-visual">
+          <svg viewBox="0 0 220 110">
+            <defs><pattern id="g03a" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M18 0H0V18" fill="none" stroke="#fff" stroke-opacity="0.04"/></pattern></defs>
+            <rect width="220" height="110" fill="url(#g03a)"/>
+            <polyline points="10,70 30,50 45,75 60,40 75,80 90,45 105,72 120,50 135,78 150,55" fill="none" stroke="#9a9dab" stroke-width="1.6"/>
+            <text x="12" y="18" font-size="10" font-weight="800" fill="#f87171" font-family="Arial">TIMEFRAME A · CHOPPY</text>
+            <text x="12" y="98" font-size="10" font-weight="800" fill="#f87171" font-family="Arial">41.5% Win Rate</text>
+          </svg>
+          <p class="cap">Below 55% — skip</p>
+        </div>
+        <div class="doc-visual">
+          <svg viewBox="0 0 220 110">
+            <defs><pattern id="g03b" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M18 0H0V18" fill="none" stroke="#fff" stroke-opacity="0.04"/></pattern></defs>
+            <rect width="220" height="110" fill="url(#g03b)"/>
+            <polyline points="10,85 30,75 50,78 70,60 90,63 110,42 130,45 150,25" fill="none" stroke="#4ade80" stroke-width="1.8"/>
+            <text x="12" y="18" font-size="10" font-weight="800" fill="#4ade80" font-family="Arial">TIMEFRAME B · CLEAN</text>
+            <text x="12" y="98" font-size="10" font-weight="800" fill="#4ade80" font-family="Arial">61.4% Win Rate</text>
+          </svg>
+          <p class="cap">Above 55% — ★ trade this</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="doc-section" id="find-signal">
+      <div class="doc-section-head"><span class="num">04</span><h2>Find a Valid Signal</h2></div>
+      <div class="doc-flow-h">
+        <span class="fh-step">Signal Appears</span><span class="fh-arrow">→</span>
+        <span class="fh-step">Strength Shown</span><span class="fh-arrow">→</span>
+        <span class="fh-step">Trade Zone Shown</span>
+      </div>
+      <div class="doc-visual">
+        <svg viewBox="0 0 400 110">
+          <defs>
+            <pattern id="g04" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#fff" stroke-opacity="0.04"/></pattern>
+            <linearGradient id="c04" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a4f5c"/><stop offset="1" stop-color="#2a2d34"/></linearGradient>
+          </defs>
+          <rect width="400" height="110" fill="url(#g04)"/>
+          <g stroke="#6b7080" stroke-width="1.1">
+            <line x1="30" y1="65" x2="30" y2="82"/><rect x="25" y="68" width="10" height="10" fill="url(#c04)"/>
+            <line x1="55" y1="55" x2="55" y2="72"/><rect x="50" y="58" width="10" height="10" fill="url(#c04)"/>
+            <line x1="80" y1="45" x2="80" y2="62"/><rect x="75" y="48" width="10" height="10" fill="url(#c04)"/>
+          </g>
+          <g stroke="#0a0a0a" stroke-width="1.2"><line x1="115" y1="20" x2="115" y2="60"/><rect x="110" y="24" width="10" height="34" fill="url(#c04)"/></g>
+          <circle cx="115" cy="14" r="12" fill="none" stroke="#e0102a" stroke-width="1.6" class="doc-ping"/>
+          <g transform="translate(115,14)"><rect x="-18" y="-11" width="36" height="18" rx="5" fill="#e0102a"/><text x="0" y="4" text-anchor="middle" font-size="9.5" font-weight="800" fill="#fff" font-family="Arial">BUY</text></g>
+          <g transform="translate(115,80)"><rect x="-24" y="-10" width="48" height="18" rx="5" fill="#131519" stroke="#2a2d34"/><text x="0" y="3" text-anchor="middle" font-size="9" font-weight="800" fill="#fff" font-family="Arial">72% ★</text></g>
+          <text x="150" y="45" font-size="9.5" fill="#9a9dab" font-family="Arial">↑ Strength shown next to the signal</text>
+        </svg>
+        <p class="cap">Where a signal appears — with its Strength score</p>
+      </div>
+      <div class="icon-row"><span class="icon-pill"><span class="dot"></span> Signal ≠ Trade</span></div>
+    </section>
+
+    <!-- 06 -->
+    <section class="doc-section" id="validate-signal">
+      <div class="doc-section-head"><span class="num">05</span><h2>Validate the Signal</h2></div>
+
+      <div class="doc-visual" style="max-width:320px;">
+        <svg viewBox="0 0 220 120">
+          <path d="M20 100 A80 80 0 0 1 200 100" fill="none" stroke="#2a2d34" stroke-width="12" stroke-linecap="round"/>
+          <path d="M20 100 A80 80 0 0 1 148 27" fill="none" stroke="#e0102a" stroke-width="12" stroke-linecap="round"/>
+          <line x1="110" y1="100" x2="148" y2="27" stroke="#f5a623" stroke-width="1.4" stroke-dasharray="3 2"/>
+          <circle cx="148" cy="27" r="3" fill="#f5a623"/>
+          <text x="148" y="18" text-anchor="middle" font-size="8.5" font-weight="800" fill="#f5a623" font-family="Arial">Avg Win Score</text>
+          <circle cx="110" cy="100" r="4" fill="#fff"/>
+          <line x1="110" y1="100" x2="168" y2="42" stroke="#fff" stroke-width="2"/>
+          <text x="110" y="90" text-anchor="middle" font-size="15" font-weight="900" fill="#fff" font-family="Arial">46%</text>
+        </svg>
+        <p class="cap">Strength needle past the Avg Win Score marker</p>
+      </div>
+
+      <div class="verdict-grid">
+        <div class="verdict-card ok">
+          <div class="ex-label">Example A</div>
+          <div class="verdict-row"><span>Strength</span><b>46%</b></div>
+          <div class="verdict-row"><span>Avg Win Score</span><b>43.3%</b></div>
+          <div class="verdict-compare">46% &gt; 43.3%</div>
+          <div class="verdict-result">✓ Qualified</div>
+        </div>
+        <div class="verdict-card no">
+          <div class="ex-label">Example B</div>
+          <div class="verdict-row"><span>Strength</span><b>38%</b></div>
+          <div class="verdict-row"><span>Avg Win Score</span><b>43.3%</b></div>
+          <div class="verdict-compare">38% &lt; 43.3%</div>
+          <div class="verdict-result">✕ Not Qualified</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="doc-section" id="plan-entry">
+      <div class="doc-section-head"><span class="num">06</span><h2>Plan the Trade Entry</h2></div>
+      <ol class="doc-steps">
+        <li><b>Confirm Signal</b></li>
+        <li><b>Check Trade Zone</b></li>
+        <li><b>Check Structure</b></li>
+        <li><b>Pick Entry</b></li>
+        <li><b>Confirm Risk OK</b></li>
+      </ol>
+    </section>
+
+    <!-- 08 -->
+    <section class="doc-section" id="stop-loss">
+      <div class="doc-section-head"><span class="num">07</span><h2>Set Stop Loss</h2></div>
+
+      <div class="doc-visual" style="max-width:320px;">
+        <svg viewBox="0 0 260 110">
+          <defs><pattern id="g07" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M18 0H0V18" fill="none" stroke="#fff" stroke-opacity="0.04"/></pattern></defs>
+          <rect width="260" height="110" fill="url(#g07)"/>
+          <rect x="20" y="45" width="220" height="18" fill="#ef4444" fill-opacity="0.12"/>
+          <line x1="20" y1="45" x2="240" y2="45" stroke="#fff" stroke-width="1.4"/>
+          <text x="26" y="40" font-size="9.5" font-weight="800" fill="#fff" font-family="Arial">ENTRY</text>
+          <line x1="20" y1="63" x2="240" y2="63" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="2 2"/>
+          <text x="26" y="78" font-size="9.5" font-weight="800" fill="#f87171" font-family="Arial">STOP LOSS — close by</text>
+        </svg>
+        <p class="cap">Small, fixed distance from Entry</p>
+      </div>
+
+      <div class="icon-row">
+        <span class="icon-pill"><span class="dot"></span> Set before entry</span>
+        <span class="icon-pill"><span class="dot"></span> Sets position size</span>
+      </div>
+      <div class="doc-callout rule"><div class="ic">→</div><p><strong>Never widen it.</strong></p></div>
+    </section>
+
+    <!-- 09 -->
+    <section class="doc-section" id="targets-risk-reward">
+      <div class="doc-section-head"><span class="num">08</span><h2>Targets &amp; Risk/Reward</h2></div>
+      <div class="trade-diagram">
+        <div class="td-row t3"><span class="lbl">TARGET 3</span><span>+R</span></div>
+        <div class="td-row t2"><span class="lbl">TARGET 2</span><span>+R</span></div>
+        <div class="td-row t1"><span class="lbl">TARGET 1</span><span>+R</span></div>
+        <div class="td-row entry"><span class="lbl">ENTRY</span><span>—</span></div>
+        <div class="td-row sl"><span class="lbl">STOP LOSS</span><span>−R</span></div>
+      </div>
+
+      <div class="doc-visual">
+        <svg viewBox="0 0 340 130">
+          <defs><pattern id="g08" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M18 0H0V18" fill="none" stroke="#fff" stroke-opacity="0.04"/></pattern></defs>
+          <rect width="340" height="130" fill="url(#g08)"/>
+          <line x1="20" y1="90" x2="320" y2="90" stroke="#fff" stroke-width="1.2"/><text x="24" y="85" font-size="8.5" font-weight="800" fill="#fff" font-family="Arial">ENTRY</text>
+          <line x1="20" y1="108" x2="320" y2="108" stroke="#ef4444" stroke-width="1" stroke-dasharray="2 2"/><text x="24" y="120" font-size="8" font-weight="700" fill="#f87171" font-family="Arial">SL</text>
+          <line x1="20" y1="65" x2="320" y2="65" stroke="#22c55e" stroke-width="0.8" stroke-dasharray="2 2" opacity=".6"/><text x="290" y="61" font-size="8" font-weight="700" fill="#4ade80" font-family="Arial">T1</text>
+          <line x1="20" y1="42" x2="320" y2="42" stroke="#22c55e" stroke-width="0.8" stroke-dasharray="2 2" opacity=".8"/><text x="290" y="38" font-size="8" font-weight="700" fill="#4ade80" font-family="Arial">T2</text>
+          <line x1="20" y1="18" x2="320" y2="18" stroke="#22c55e" stroke-width="1" stroke-dasharray="2 2"/><text x="288" y="14" font-size="8" font-weight="700" fill="#4ade80" font-family="Arial">T3</text>
+          <polyline points="30,90 70,88 110,70 150,72 190,46 230,50 270,22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="270" cy="22" r="3.5" fill="#4ade80"/>
+        </svg>
+        <p class="cap">Price moving from Entry through targets — example only</p>
+      </div>
+
+      <div class="icon-row"><span class="icon-pill"><span class="dot"></span> SELL = flipped</span><span class="icon-pill"><span class="dot"></span> No target guaranteed</span></div>
+    </section>
+
+    <!-- 10 -->
+    <section class="doc-section" id="manage-trade">
+      <div class="doc-section-head"><span class="num">09</span><h2>Manage the Trade</h2></div>
+      <div class="doc-card-row" style="grid-template-columns:1fr 1fr;">
+        <div class="doc-def">
+          <h4>Before</h4>
+          <div class="icon-row" style="margin-top:8px;">
+            <span class="icon-pill"><span class="dot"></span> Entry</span>
+            <span class="icon-pill"><span class="dot"></span> Stop Loss</span>
+            <span class="icon-pill"><span class="dot"></span> Targets</span>
+          </div>
+        </div>
+        <div class="doc-def">
+          <h4>After</h4>
+          <div class="icon-row" style="margin-top:8px;">
+            <span class="icon-pill"><span class="dot"></span> Watch price</span>
+            <span class="icon-pill"><span class="dot"></span> Take partials</span>
+            <span class="icon-pill"><span class="dot"></span> Move SL per plan</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="doc-section" id="exit-trade">
+      <div class="doc-section-head"><span class="num">10</span><h2>Exit the Trade</h2></div>
+      <div class="icon-row">
+        <span class="icon-pill"><span class="dot"></span> SL Hit</span>
+        <span class="icon-pill"><span class="dot"></span> Target 1</span>
+        <span class="icon-pill"><span class="dot"></span> Target 2</span>
+        <span class="icon-pill"><span class="dot"></span> Target 3</span>
+        <span class="icon-pill"><span class="dot"></span> Manual</span>
+        <span class="icon-pill"><span class="dot"></span> Breakeven</span>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section class="doc-section" id="review-trade">
+      <div class="doc-section-head"><span class="num">11</span><h2>Review the Trade</h2></div>
+      <div class="icon-row">
+        <span class="icon-pill"><span class="dot"></span> Asset / Timeframe</span>
+        <span class="icon-pill"><span class="dot"></span> Win Rate / Strength</span>
+        <span class="icon-pill"><span class="dot"></span> Entry / SL / Targets</span>
+        <span class="icon-pill"><span class="dot"></span> Outcome</span>
+        <span class="icon-pill"><span class="dot"></span> Rules Followed?</span>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section class="doc-section" id="risk-management">
+      <div class="doc-section-head"><span class="num">12</span><h2>Risk Management</h2></div>
+      <div class="doc-card-row cols-4">
+        <div class="doc-callout danger" style="margin:0;"><div class="ic">!</div><p><strong>Risk only what you can lose</strong></p></div>
+        <div class="doc-callout danger" style="margin:0;"><div class="ic">!</div><p><strong>Define risk first</strong></p></div>
+        <div class="doc-callout danger" style="margin:0;"><div class="ic">!</div><p><strong>Always use Stop Loss</strong></p></div>
+        <div class="doc-callout danger" style="margin:0;"><div class="ic">!</div><p><strong>Avoid heavy leverage</strong></p></div>
+        <div class="doc-callout danger" style="margin:0;"><div class="ic">!</div><p><strong>No emotional sizing</strong></p></div>
+        <div class="doc-callout danger" style="margin:0;"><div class="ic">!</div><p><strong>No revenge trading</strong></p></div>
+        <div class="doc-callout danger" style="margin:0;"><div class="ic">!</div><p><strong>Rules stay fixed</strong></p></div>
+        <div class="doc-callout danger" style="margin:0;"><div class="ic">!</div><p><strong>Backtests ≠ future</strong></p></div>
+      </div>
+    </section>
+
+    <!-- 14 -->
+    <section class="doc-section" id="complete-workflow">
+      <div class="doc-section-head"><span class="num">13</span><h2>Complete Workflow</h2></div>
+      <ol class="master-flow">
+        <li class="mf-item"><b>Identify Asset</b></li>
+        <li class="mf-item"><b>Identify Timeframe</b></li>
+        <li class="mf-item"><b>Highest Win Rate ≥55%</b></li>
+        <li class="mf-item"><b>Find Signal</b></li>
+        <li class="mf-item"><b>Strength &gt; Avg Win Score</b></li>
+        <li class="mf-item"><b>Validate Signal</b></li>
+        <li class="mf-item"><b>Plan Entry</b></li>
+        <li class="mf-item"><b>Set Stop Loss</b></li>
+        <li class="mf-item"><b>Set Targets</b></li>
+        <li class="mf-item"><b>Check Risk/Reward</b></li>
+        <li class="mf-item"><b>Enter Trade</b></li>
+        <li class="mf-item"><b>Manage Position</b></li>
+        <li class="mf-item"><b>Exit</b></li>
+        <li class="mf-item"><b>Review</b></li>
+      </ol>
+      <div class="docs-pagenav">
+        <a href="#getting-started" data-target="getting-started"><span class="pn-dir">↑ Start</span><span class="pn-title">Getting Started</span></a>
+        <a href="features.html" class="next"><span class="pn-dir">Explore</span><span class="pn-title">Features →</span></a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ ON THIS PAGE ============ -->
+  <aside class="docs-toc">
+    <span class="toc-label">On This Page</span>
+    <a href="#tutorials" data-target="tutorials">Tutorial Videos</a>
+    <a href="#getting-started" data-target="getting-started">Getting Started</a>
+    <a href="#identify-asset" data-target="identify-asset">1. Identify the Asset</a>
+    <a href="#identify-timeframe" data-target="identify-timeframe">2. Identify the Timeframe</a>
+    <a href="#find-signal" data-target="find-signal">3. Find a Valid Signal</a>
+    <a href="#validate-signal" data-target="validate-signal">4. Validate the Signal</a>
+    <a href="#plan-entry" data-target="plan-entry">5. Plan the Entry</a>
+    <a href="#stop-loss" data-target="stop-loss">6. Stop Loss</a>
+    <a href="#targets-risk-reward" data-target="targets-risk-reward">7. Targets &amp; R/R</a>
+    <a href="#manage-trade" data-target="manage-trade">8. Trade Management</a>
+    <a href="#exit-trade" data-target="exit-trade">9. Exit the Trade</a>
+    <a href="#review-trade" data-target="review-trade">10. Review the Trade</a>
+    <a href="#risk-management" data-target="risk-management">11. Risk Management</a>
+    <a href="#complete-workflow" data-target="complete-workflow">12. Complete Workflow</a>
+  </aside>
+
+</div>
+
+<script>
+/* ---- Tutorial video player (YouTube IFrame API with graceful fallback) ---- */
+var docVideoQueue = [];
+var docVideoApiLoading = false;
+var docVideoCounter = 0;
+
+function showVideoFallback(el, id){
+  el.innerHTML =
+    '<div class="video-fallback">' +
+      '<svg viewBox="0 0 24 24" class="vf-icon"><path d="M8 5v14l11-7z"/></svg>' +
+      '<p>Playback isn\'t available in this preview.</p>' +
+      '<a href="https://www.youtube.com/watch?v=' + id + '" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a>' +
+    '</div>';
+  el.style.cursor = 'default';
+  el.removeAttribute('onclick');
+  el.removeAttribute('role');
+  el.removeAttribute('tabindex');
+}
+
+function mountDocPlayer(el, id){
+  var mountId = 'yt-mount-' + (++docVideoCounter);
+  el.innerHTML = '<div id="' + mountId + '"></div>';
+  el.style.cursor = 'default';
+  el.removeAttribute('onclick');
+  el.removeAttribute('role');
+  el.removeAttribute('tabindex');
+
+  var failTimer = setTimeout(function(){ showVideoFallback(el, id); }, 6000);
+
+  try {
+    new YT.Player(mountId, {
+      videoId: id,
+      playerVars: { autoplay: 1, rel: 0 },
+      events: {
+        onReady: function(){ clearTimeout(failTimer); },
+        onError: function(){ clearTimeout(failTimer); showVideoFallback(el, id); }
+      }
+    });
+  } catch(err){
+    clearTimeout(failTimer);
+    showVideoFallback(el, id);
+  }
+}
+
+function playDocVideo(el){
+  var id = el.getAttribute('data-id');
+  if(!id) return;
+  if(window.YT && window.YT.Player){
+    mountDocPlayer(el, id);
+    return;
+  }
+  docVideoQueue.push({ el: el, id: id });
+  if(!docVideoApiLoading){
+    docVideoApiLoading = true;
+    var tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    tag.onerror = function(){
+      docVideoQueue.forEach(function(item){ showVideoFallback(item.el, item.id); });
+      docVideoQueue = [];
+    };
+    document.head.appendChild(tag);
+    setTimeout(function(){
+      if(!window.YT || !window.YT.Player){
+        docVideoQueue.forEach(function(item){ showVideoFallback(item.el, item.id); });
+        docVideoQueue = [];
+      }
+    }, 6000);
+  }
+}
+
+window.onYouTubeIframeAPIReady = function(){
+  docVideoQueue.forEach(function(item){ mountDocPlayer(item.el, item.id); });
+  docVideoQueue = [];
+};
+
+document.addEventListener('keydown', function(e){
+  if(e.key !== 'Enter' && e.key !== ' ') return;
+  var el = e.target;
+  if(el && el.classList && el.classList.contains('video-frame')){
+    e.preventDefault();
+    playDocVideo(el);
+  }
+});
+(function(){
+  var menuBtn = document.getElementById('docsMenuBtn');
+  var sidebar = document.getElementById('docsSidebar');
+  var backdrop = document.getElementById('docsBackdrop');
+  function openNav(){ sidebar.classList.add('open'); backdrop.classList.add('open'); }
+  function closeNav(){ sidebar.classList.remove('open'); backdrop.classList.remove('open'); }
+  if(menuBtn){ menuBtn.addEventListener('click', function(){
+    sidebar.classList.contains('open') ? closeNav() : openNav();
+  }); }
+  if(backdrop){ backdrop.addEventListener('click', closeNav); }
+  document.querySelectorAll('#docsNav a').forEach(function(a){
+    a.addEventListener('click', closeNav);
+  });
+
+  var sections = Array.prototype.slice.call(document.querySelectorAll('.doc-section[id]'));
+  var navLinks = document.querySelectorAll('.docs-nav a[data-target], .docs-toc a[data-target]');
+  function setActive(id){
+    navLinks.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('data-target') === id);
+    });
+  }
+  if('IntersectionObserver' in window && sections.length){
+    var current = sections[0].id;
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ current = entry.target.id; }
+      });
+      setActive(current);
+    }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+    sections.forEach(function(s){ observer.observe(s); });
+    setActive(current);
+  }
+})();
+</script>
+
+</body>
+</html>

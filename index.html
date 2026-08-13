@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuantiVector — High-Accuracy Buy/Sell Signal Indicator for TradingView</title>
+<meta name="description" content="QuantiVector is a Pine Script v6 TradingView indicator that pinpoints high-accuracy trend-continuation BUY/SELL signals, auto-plots your trade plan, and scores every signal with an AI-style confidence score — backed by a live, on-chart backtest.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="dot"></span> QuantiVector</a>
+    <nav class="navlinks">
+      <a href="index.html" class="active">Home</a>
+      <a href="features.html">Features</a>
+      <a href="docs.html">Learn</a>
+      <a href="index.html#how-it-works">How It Works</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#pricing" class="btn btn-ghost-nav">Pricing</a>
+      <a href="#" class="btn btn-red btn-sm">Get Access</a>
+    </div>
+    <label for="nav-toggle" class="nav-toggle-btn" aria-label="Open menu"><span></span><span></span><span></span></label>
+  </div>
+</header>
+<label for="nav-toggle" class="mobile-backdrop" aria-hidden="true"></label>
+<div class="mobile-panel">
+  <div class="mp-head">
+    <span class="brand"><span class="dot"></span> QuantiVector</span>
+    <label for="nav-toggle" class="mp-close" aria-label="Close menu">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+    </label>
+  </div>
+  <div class="mp-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="features.html">Features</a>
+    <a href="docs.html">Learn</a>
+    <a href="index.html#how-it-works">How It Works</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="#" class="btn btn-red btn-block">Get Access</a>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-blob hero-blob-a"></div>
+  <div class="hero-blob hero-blob-b"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow">Pine Script v6 &middot; TradingView Indicator</span>
+      <h1>Catch the trend's next leg with
+        <span class="underline-scribble">high-accuracy
+          <svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M2 14 C 40 4, 80 18, 120 9 C 160 2, 200 16, 240 8 C 265 4, 285 12, 298 7" fill="none" stroke="#e0102a" stroke-width="6" stroke-linecap="round"/></svg>
+        </span>
+        BUY &amp; SELL signals</h1>
+      <p class="sub">QuantiVector reads every market reaction, waits for real confirmation, and marks the exact moment price turns back in the trend's favor — then hands you a complete trade plan, a confidence score, and a live scoreboard of its own results.</p>
+      <div class="hero-cta-row">
+        <a href="#" class="btn btn-red">Get Instant Access</a>
+        <a href="features.html" class="btn btn-outline">Explore All Features</a>
+      </div>
+      <p class="hero-micro">Works on any market &amp; timeframe · Non-repainting signals · One-click TradingView alerts</p>
+      <div class="hero-badges">
+        <span class="hero-badge"><span class="dotcheck"><svg width="9" height="9" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Non-Repainting</span>
+        <span class="hero-badge"><span class="dotcheck"><svg width="9" height="9" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Any Market, Any Timeframe</span>
+        <span class="hero-badge"><span class="dotcheck"><svg width="9" height="9" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Live Self-Updating Backtest</span>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="scribble-wrap"><b>8</b>
+            <svg viewBox="0 0 60 40"><ellipse cx="30" cy="20" rx="26" ry="16" fill="none" stroke="#e0102a" stroke-width="2.5" stroke-dasharray="5 4" transform="rotate(-4 30 20)"/></svg>
+          </span>
+          <span>Confluence Factors Scored</span>
+        </div>
+        <div class="hero-stat"><b>1</b><span>Trade Open at a Time</span></div>
+        <div class="hero-stat"><b>Live</b><span>Self-Updating Backtest</span></div>
+        <div class="hero-stat"><b>0</b><span>Repainted Signals</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="chart-card">
+        <div class="float-chip float-chip-top">
+          <div class="fc-ic" style="background:linear-gradient(135deg,#ff4d63,#a10d1e);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 16l5-6 4 4 7-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><b>91%</b><span>Confidence</span></div>
+        </div>
+        <div class="float-chip float-chip-bottom">
+          <div class="fc-ic" style="background:linear-gradient(135deg,#26272b,#0a0a0a);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 20h16M7 20V10M12 20V4M17 20v-7" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg></div>
+          <div><b>73.4%</b><span>Win Rate</span></div>
+        </div>
+        <div class="cc-inner">
+        <div class="cc-head">
+          <div class="cc-title"><span class="dotx"></span> QuantiVector — BTCUSD · 1H</div>
+          <span class="cc-badge">● Live</span>
+        </div>
+        <svg viewBox="0 0 520 380" width="100%" style="height:auto;">
+          <!-- grid -->
+          <defs>
+            <pattern id="gridPattern" width="26" height="26" patternUnits="userSpaceOnUse">
+              <path d="M 26 0 L 0 0 0 26" fill="none" stroke="#0a0a0a" stroke-opacity="0.04" stroke-width="1"/>
+            </pattern>
+            <linearGradient id="heroCandle" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c2c2f"/><stop offset="1" stop-color="#020202"/></linearGradient>
+            <linearGradient id="heroBuy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff4d63"/><stop offset="1" stop-color="#a10d1e"/></linearGradient>
+            <linearGradient id="heroZone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e0102a" stop-opacity=".16"/><stop offset="1" stop-color="#e0102a" stop-opacity=".04"/></linearGradient>
+          </defs>
+          <rect width="520" height="380" fill="url(#gridPattern)"/>
+
+          <!-- candles: uptrend -->
+          <g stroke="#0a0a0a" stroke-width="1.2">
+            <line x1="35" y1="295" x2="35" y2="310"/><rect x="30" y="296" width="10" height="10" rx="1.2" fill="url(#heroCandle)"/>
+            <line x1="65" y1="278" x2="65" y2="296"/><rect x="60" y="280" width="10" height="12" rx="1.2" fill="url(#heroCandle)"/>
+            <line x1="95" y1="252" x2="95" y2="272"/><rect x="90" y="255" width="10" height="13" rx="1.2" fill="url(#heroCandle)"/>
+            <line x1="125" y1="228" x2="125" y2="248"/><rect x="120" y="231" width="10" height="12" rx="1.2" fill="url(#heroCandle)"/>
+          </g>
+
+          <!-- reaction / setup zone box -->
+          <rect x="140" y="225" width="90" height="70" rx="5" fill="url(#heroZone)" stroke="#e0102a" stroke-width="1.4" stroke-dasharray="4 3"/>
+          <text x="185" y="217" text-anchor="middle" font-size="10.5" font-weight="700" fill="#a10d1e" font-family="Arial">SETUP ZONE</text>
+
+          <!-- reaction candles inside zone -->
+          <g stroke="#e0102a" stroke-width="1.3">
+            <line x1="155" y1="248" x2="155" y2="268"/><rect x="150" y="250" width="10" height="13" fill="#fff" stroke="#e0102a"/>
+            <line x1="185" y1="258" x2="185" y2="280"/><rect x="180" y="261" width="10" height="14" fill="#fff" stroke="#e0102a"/>
+            <line x1="215" y1="242" x2="215" y2="264"/><rect x="210" y="245" width="10" height="14" fill="#fff" stroke="#e0102a"/>
+          </g>
+
+          <!-- confirmation candle breaking out -->
+          <g stroke="#0a0a0a" stroke-width="1.3">
+            <line x1="245" y1="140" x2="245" y2="245"/>
+            <rect x="240" y="148" width="10" height="90" rx="1.2" fill="url(#heroCandle)"/>
+          </g>
+
+          <!-- BUY signal label -->
+          <g class="ping" style="transform-origin:245px 120px;"><circle cx="245" cy="120" r="20" fill="none" stroke="#e0102a" stroke-width="2"/></g>
+          <g transform="translate(245,120)" class="glow-badge">
+            <rect x="-27" y="-20" width="54" height="24" rx="6" fill="url(#heroBuy)"/>
+            <text x="0" y="-3" text-anchor="middle" font-size="12" font-weight="800" fill="#fff" font-family="Arial">BUY</text>
+            <path d="M0 5 L -7 -4 L 7 -4 Z" fill="#a10d1e"/>
+          </g>
+
+          <!-- continuation candles -->
+          <g stroke="#0a0a0a" stroke-width="1.2">
+            <line x1="295" y1="108" x2="295" y2="128"/><rect x="290" y="110" width="10" height="12" rx="1.2" fill="url(#heroCandle)"/>
+            <line x1="335" y1="85" x2="335" y2="105"/><rect x="330" y="88" width="10" height="12" rx="1.2" fill="url(#heroCandle)"/>
+            <line x1="375" y1="65" x2="375" y2="85"/><rect x="370" y="68" width="10" height="12" rx="1.2" fill="url(#heroCandle)"/>
+            <line x1="415" y1="50" x2="415" y2="70"/><rect x="410" y="53" width="10" height="12" rx="1.2" fill="url(#heroCandle)"/>
+            <line x1="455" y1="40" x2="455" y2="58"/><rect x="450" y="42" width="10" height="12" rx="1.2" fill="url(#heroCandle)"/>
+          </g>
+
+          <!-- Entry / TP lines -->
+          <line x1="235" y1="150" x2="510" y2="150" stroke="#0a0a0a" stroke-width="1.2" stroke-dasharray="3 3"/>
+          <text x="500" y="146" text-anchor="end" font-size="9.5" font-weight="700" fill="#0a0a0a" font-family="Arial">ENTRY 64,220</text>
+
+          <line x1="235" y1="195" x2="510" y2="195" stroke="#a10d1e" stroke-width="0.8" stroke-dasharray="3 3"/>
+          <text x="500" y="207" text-anchor="end" font-size="8" font-weight="700" fill="#a10d1e" font-family="Arial">SL 63,410</text>
+
+          <line x1="235" y1="55" x2="510" y2="55" stroke="#0a7a3d" stroke-width="1.8" stroke-dasharray="3 3"/>
+          <text x="500" y="50" text-anchor="end" font-size="11.5" font-weight="800" fill="#0a7a3d" font-family="Arial">TP1 65,340</text>
+
+          <line x1="235" y1="20" x2="510" y2="20" stroke="#0a7a3d" stroke-width="1.8" stroke-dasharray="3 3"/>
+          <text x="500" y="15" text-anchor="end" font-size="11.5" font-weight="800" fill="#0a7a3d" font-family="Arial">TP3 66,900</text>
+
+          <!-- confidence badge -->
+          <g transform="translate(245,300)" class="glow-badge-dark">
+            <rect x="-34" y="-14" width="68" height="26" rx="7" fill="#0a0a0a"/>
+            <text x="0" y="4" text-anchor="middle" font-size="12.5" font-weight="800" fill="#fff" font-family="Arial">91% ★</text>
+          </g>
+        </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0 40 C 240 90, 480 0, 720 30 C 960 60, 1200 10, 1440 45 L1440 90 L0 90 Z" fill="#0a0a0a"/></svg>
+  </div>
+</section>
+
+<!-- ============ LIVE TICKER MARQUEE ============ -->
+<section class="ticker-band">
+  <span class="ticker-label"><span style="width:6px;height:6px;border-radius:50%;background:#ff4d63;display:inline-block;" class="live-dot"></span> Sample Signal Feed</span>
+  <div class="ticker-viewport">
+  <div class="ticker-track">
+    <span class="ticker-item">BTCUSD <span class="tk-up">▲ BUY 91%</span></span><span class="ticker-sep"></span>
+    <span class="ticker-item">EURUSD <span class="tk-dn">▼ SELL 84%</span></span><span class="ticker-sep"></span>
+    <span class="ticker-item">XAUUSD <span class="tk-up">▲ BUY 88%</span></span><span class="ticker-sep"></span>
+    <span class="ticker-item">AAPL <span class="tk-up">▲ BUY 76%</span></span><span class="ticker-sep"></span>
+    <span class="ticker-item">ETHUSD <span class="tk-dn">▼ SELL 69%</span></span><span class="ticker-sep"></span>
+    <span class="ticker-item">US30 <span class="tk-up">▲ BUY 93%</span></span><span class="ticker-sep"></span>
+    <span class="ticker-item">GBPUSD <span class="tk-dn">▼ SELL 71%</span></span><span class="ticker-sep"></span>
+    <span class="ticker-item">SOLUSD <span class="tk-up">▲ BUY 85%</span></span><span class="ticker-sep"></span>
+    <!-- duplicate set for seamless loop -->
+    <span class="ticker-item">BTCUSD <span class="tk-up">▲ BUY 91%</span></span><span class="ticker-sep"></span>
+    <span class="ticker-item">EURUSD <span class="tk-dn">▼ SELL 84%</span></span><span class="ticker-sep"></span>
+    <span class="ticker-item">XAUUSD <span class="tk-up">▲ BUY 88%</span></span><span class="ticker-sep"></span>
+    <span class="ticker-item">AAPL <span class="tk-up">▲ BUY 76%</span></span><span class="ticker-sep"></span>
+    <span class="ticker-item">ETHUSD <span class="tk-dn">▼ SELL 69%</span></span><span class="ticker-sep"></span>
+    <span class="ticker-item">US30 <span class="tk-up">▲ BUY 93%</span></span><span class="ticker-sep"></span>
+    <span class="ticker-item">GBPUSD <span class="tk-dn">▼ SELL 71%</span></span><span class="ticker-sep"></span>
+    <span class="ticker-item">SOLUSD <span class="tk-up">▲ BUY 85%</span></span><span class="ticker-sep"></span>
+  </div>
+  </div>
+</section>
+
+<!-- ============ DIVIDER: candlestick skyline ============ -->
+<div class="sec-divider div-candles">
+  <div class="dc-row">
+    <div class="dc-bar" style="height:12px;background:#0a0a0a;"></div>
+    <div class="dc-bar" style="height:16px;background:#e0102a;"></div>
+    <div class="dc-bar" style="height:14px;background:#0a0a0a;"></div>
+    <div class="dc-bar" style="height:20px;background:#0a0a0a;"></div>
+    <div class="dc-bar" style="height:17px;background:#e0102a;"></div>
+    <div class="dc-bar" style="height:25px;background:#0a0a0a;"></div>
+    <div class="dc-bar" style="height:21px;background:#e0102a;"></div>
+    <div class="dc-bar" style="height:29px;background:#0a0a0a;"></div>
+    <div class="dc-bar" style="height:24px;background:#0a0a0a;"></div>
+    <div class="dc-bar" style="height:33px;background:#e0102a;"></div>
+    <div class="dc-bar" style="height:28px;background:#0a0a0a;"></div>
+    <div class="dc-bar" style="height:38px;background:#0a0a0a;"></div>
+    <div class="dc-bar" style="height:31px;background:#e0102a;"></div>
+    <div class="dc-bar" style="height:44px;background:#0a0a0a;"></div>
+  </div>
+  <div class="dc-cap"><span><span class="dcdot"></span>Signal engine — scanning every candle</span><span>24/7 · Non-repainting</span></div>
+</div>
+
+<!-- ============ KEY FEATURES (SALES-CRITICAL HIGHLIGHTS) ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The 6 reasons traders buy QuantiVector</span>
+      <h2>Built to <span class="mark">find the trade</span>, not just draw lines</h2>
+      <p>These are the core engines doing the work while you watch — every one of them fully automated, updating live on your chart.</p>
+    </div>
+
+    <div class="key-grid">
+
+      <!-- 1. Automated Buy/Sell Signal -->
+      <div class="key-card">
+        <span class="badge-star glow-badge"><svg viewBox="0 0 24 24" fill="#ffd400"><path d="M12 2l2.9 6.6L22 9.3l-5 4.9 1.2 7-6.2-3.6L5.8 21 7 14 2 9.3l7.1-.7z"/></svg> Top Feature</span>
+        <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="#fff"/></svg></div>
+        <div class="kf-demo">
+          <svg viewBox="0 0 340 120" width="100%" style="height:auto;">
+            <defs>
+              <linearGradient id="kf1c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2a2d"/><stop offset="1" stop-color="#050505"/></linearGradient>
+              <linearGradient id="kf1s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff4d63"/><stop offset="1" stop-color="#a10d1e"/></linearGradient>
+              <pattern id="kf1g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#0a0a0a" stroke-opacity="0.045"/></pattern>
+            </defs>
+            <rect width="340" height="120" fill="url(#kf1g)"/>
+            <polyline class="draw-line" points="10,95 40,84 70,64 100,74 130,48 160,58 190,32 220,22 250,12 300,10" fill="none" stroke="#0a0a0a" stroke-opacity="0.22" stroke-width="2.2"/>
+            <g stroke="#0a0a0a" stroke-width="1.2"><line x1="128" y1="40" x2="128" y2="76"/><rect x="122" y="44" width="12" height="28" rx="1.5" fill="url(#kf1c)"/></g>
+            <g class="ping" style="transform-origin:128px 26px;"><circle cx="128" cy="26" r="15" fill="none" stroke="#e0102a" stroke-width="2"/></g>
+            <g transform="translate(128,26)" class="glow-badge"><rect x="-23" y="-15" width="46" height="22" rx="7" fill="url(#kf1s)"/><text x="0" y="0" text-anchor="middle" font-size="11" font-weight="800" fill="#fff" font-family="Arial">BUY</text></g>
+            <g stroke="#0a0a0a" stroke-width="1.2"><line x1="220" y1="34" x2="220" y2="14"/><rect x="214" y="14" width="12" height="18" rx="1.5" fill="#fff" stroke="#0a0a0a"/></g>
+            <g class="ping d2" style="transform-origin:220px 8px;"><circle cx="220" cy="8" r="14" fill="none" stroke="#0a0a0a" stroke-width="2"/></g>
+            <g transform="translate(220,8)" class="glow-badge-dark"><rect x="-25" y="-15" width="50" height="22" rx="7" fill="#0a0a0a"/><text x="0" y="0" text-anchor="middle" font-size="11" font-weight="800" fill="#fff" font-family="Arial">SELL</text></g>
+          </svg>
+        </div>
+        <h3>Automated <span class="mark">Buy &amp; Sell</span> Signals</h3>
+        <p>No manual chart-reading. QuantiVector confirms and labels every entry the instant price proves it — automatically, on any chart you open.</p>
+        <a href="features.html#signal-engine" class="kf-link">See it in action →</a>
+      </div>
+
+      <!-- 2. Automated Fibonacci TP/SL -->
+      <div class="key-card">
+        <span class="badge-star glow-badge"><svg viewBox="0 0 24 24" fill="#ffd400"><path d="M12 2l2.9 6.6L22 9.3l-5 4.9 1.2 7-6.2-3.6L5.8 21 7 14 2 9.3l7.1-.7z"/></svg> Top Feature</span>
+        <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.5" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="1.4" fill="#fff"/></svg></div>
+        <div class="kf-demo">
+          <svg viewBox="0 0 340 120" width="100%" style="height:auto;">
+            <defs>
+              <linearGradient id="kf2g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a7a3d" stop-opacity=".18"/><stop offset="1" stop-color="#0a7a3d" stop-opacity="0"/></linearGradient>
+              <linearGradient id="kf2r" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e0102a" stop-opacity="0"/><stop offset="1" stop-color="#e0102a" stop-opacity=".18"/></linearGradient>
+            </defs>
+            <rect x="26" y="10" width="288" height="34" fill="url(#kf2g)"/>
+            <rect x="26" y="78" width="288" height="34" fill="url(#kf2r)"/>
+            <line x1="26" y1="18" x2="314" y2="18" stroke="#0a7a3d" stroke-width="1.4" stroke-dasharray="1 0" class="draw-line"/><text x="30" y="14" font-size="9.5" font-weight="800" fill="#0a7a3d" font-family="Arial">TP3 · fib 1.618</text>
+            <line x1="26" y1="30" x2="314" y2="30" stroke="#0a7a3d" stroke-width="1" stroke-dasharray="2 2" opacity=".65"/><text x="272" y="27" font-size="8.5" font-weight="700" fill="#0a7a3d" font-family="Arial">TP2</text>
+            <line x1="26" y1="40" x2="314" y2="40" stroke="#0a7a3d" stroke-width="1" stroke-dasharray="2 2" opacity=".55"/><text x="272" y="37" font-size="8.5" font-weight="700" fill="#0a7a3d" font-family="Arial">TP1</text>
+            <g class="glow-badge-dark"><line x1="26" y1="58" x2="314" y2="58" stroke="#0a0a0a" stroke-width="1.8"/></g>
+            <rect x="140" y="49" width="42" height="18" rx="5" fill="#0a0a0a"/><text x="161" y="62" text-anchor="middle" font-size="9.5" font-weight="800" fill="#fff" font-family="Arial">ENTRY</text>
+            <line x1="26" y1="94" x2="314" y2="94" stroke="#a10d1e" stroke-width="1.4" stroke-dasharray="3 3"/><text x="30" y="110" font-size="9.5" font-weight="800" fill="#a10d1e" font-family="Arial">STOP LOSS</text>
+            <g stroke="#0a0a0a" stroke-width="1.2"><line x1="161" y1="30" x2="161" y2="86"/></g>
+          </svg>
+        </div>
+        <h3>Automated <span class="mark">Fibonacci</span> Target &amp; Stop Loss</h3>
+        <p>Entry, Stop Loss, and three Fibonacci-projected take-profits are calculated and placed for you the second a signal fires. No ruler, no guesswork.</p>
+        <a href="features.html#entry-system" class="kf-link">See it in action →</a>
+      </div>
+
+      <!-- 3. Auto-Drawn Trade Zone -->
+      <div class="key-card">
+        <span class="badge-star glow-badge"><svg viewBox="0 0 24 24" fill="#ffd400"><path d="M12 2l2.9 6.6L22 9.3l-5 4.9 1.2 7-6.2-3.6L5.8 21 7 14 2 9.3l7.1-.7z"/></svg> Top Feature</span>
+        <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h4M4 4v4M20 4h-4M20 4v4M4 20h4M4 20v-4M20 20h-4M20 20v-4" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+        <div class="kf-demo">
+          <svg viewBox="0 0 340 120" width="100%" style="height:auto;">
+            <defs><linearGradient id="kf3z" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e0102a" stop-opacity=".16"/><stop offset="1" stop-color="#e0102a" stop-opacity=".04"/></linearGradient></defs>
+            <rect x="26" y="20" width="130" height="80" rx="6" fill="url(#kf3z)" stroke="#e0102a" stroke-width="1.4"/>
+            <rect x="156" y="20" width="70" height="80" rx="6" fill="#e0102a" fill-opacity=".05" stroke="#e0102a" stroke-opacity=".35" stroke-dasharray="4 3"/>
+            <g class="ping" style="transform-origin:226px 20px;"><circle cx="226" cy="20" r="10" fill="none" stroke="#e0102a" stroke-width="2"/></g>
+            <circle cx="226" cy="20" r="4" fill="#e0102a"/>
+            <path d="M232 60 L 268 60" stroke="#a10d1e" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M260 53 L270 60 L260 67" fill="none" stroke="#a10d1e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="234" y="48" font-size="9" font-weight="800" fill="#a10d1e" font-family="Arial">grows live</text>
+            <g stroke="#0a0a0a" stroke-width="1.2"><line x1="70" y1="46" x2="70" y2="72"/><rect x="64" y="49" width="12" height="20" rx="1.5" fill="#0a0a0a"/></g>
+            <g stroke="#0a0a0a" stroke-width="1.2"><line x1="110" y1="60" x2="110" y2="86"/><rect x="104" y="63" width="12" height="20" rx="1.5" fill="#0a0a0a"/></g>
+            <g transform="translate(278,100)" class="glow-badge-dark"><rect x="-32" y="-14" width="64" height="22" rx="7" fill="#0a0a0a"/><text x="0" y="1" text-anchor="middle" font-size="10" font-weight="800" fill="#fff" font-family="Arial">Frozen ✓</text></g>
+          </svg>
+        </div>
+        <h3>Auto-Drawn <span class="mark">Trade Zone</span></h3>
+        <p>Risk and reward areas shade themselves in automatically the moment a trade opens, then freeze the instant it resolves — a complete visual record, zero drawing tools.</p>
+        <a href="features.html#entry-system" class="kf-link">See it in action →</a>
+      </div>
+
+      <!-- 4. Automatic Trap Zone Identification -->
+      <div class="key-card">
+        <span class="badge-star glow-badge"><svg viewBox="0 0 24 24" fill="#ffd400"><path d="M12 2l2.9 6.6L22 9.3l-5 4.9 1.2 7-6.2-3.6L5.8 21 7 14 2 9.3l7.1-.7z"/></svg> Top Feature</span>
+        <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="kf-demo">
+          <svg viewBox="0 0 340 120" width="100%" style="height:auto;">
+            <polyline points="10,68 40,46 70,80 100,40 130,86 160,50 190,74" fill="none" stroke="#0a0a0a" stroke-opacity="0.22" stroke-width="2.2"/>
+            <rect x="30" y="24" width="140" height="70" rx="6" fill="#0a0a0a" fill-opacity="0.055" stroke="#5b5d63" stroke-dasharray="3 3"/>
+            <text x="100" y="17" text-anchor="middle" font-size="9.5" font-weight="800" fill="#5b5d63" font-family="Arial">TRAP ZONE</text>
+            <g class="ping slow" style="transform-origin:100px 59px;"><circle cx="100" cy="59" r="19" fill="none" stroke="#a10d1e" stroke-width="2"/></g>
+            <g class="ping slow d2" style="transform-origin:100px 59px;"><circle cx="100" cy="59" r="19" fill="none" stroke="#a10d1e" stroke-width="2"/></g>
+            <g transform="translate(100,59)">
+              <circle r="17" fill="#fff" stroke="#a10d1e" stroke-width="2.4"/>
+              <path d="M-7 -7 L7 7 M7 -7 L-7 7" stroke="#a10d1e" stroke-width="2.6" stroke-linecap="round"/>
+            </g>
+            <text x="100" y="110" text-anchor="middle" font-size="9" font-weight="800" fill="#a10d1e" font-family="Arial">signals muted here</text>
+            <polyline class="draw-line" points="210,62 240,38 270,20 300,12" fill="none" stroke="#0a0a0a" stroke-width="2"/>
+            <g transform="translate(300,8)" class="glow-badge"><rect x="-22" y="-13" width="44" height="20" rx="6" fill="#e0102a"/><text x="0" y="0" text-anchor="middle" font-size="10" font-weight="800" fill="#fff" font-family="Arial">BUY</text></g>
+          </svg>
+        </div>
+        <h3>Automatic <span class="mark">Trap Zone</span> Detection</h3>
+        <p>Choppy, directionless price gets flagged and signals are automatically muted inside it — keeping you out of the fake-outs that hurt trend-followers most.</p>
+        <a href="features.html#trap-zone" class="kf-link">See it in action →</a>
+      </div>
+
+      <!-- 5. Win Rate Calculator -->
+      <div class="key-card">
+        <span class="badge-star glow-badge"><svg viewBox="0 0 24 24" fill="#ffd400"><path d="M12 2l2.9 6.6L22 9.3l-5 4.9 1.2 7-6.2-3.6L5.8 21 7 14 2 9.3l7.1-.7z"/></svg> Top Feature</span>
+        <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M8 21h8M12 17v4M6 4h12v3a6 6 0 0 1-12 0V4z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M6 6H3v1a4 4 0 0 0 4 4M18 6h3v1a4 4 0 0 1-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <div class="kf-demo">
+          <svg viewBox="0 0 340 120" width="100%" style="height:auto;">
+            <rect x="20" y="16" width="146" height="28" rx="8" fill="#fff" stroke="#e3e3e6"/>
+            <circle cx="34" cy="30" r="3.5" fill="#0a7a3d" class="live-dot"/>
+            <text x="44" y="34" font-size="11" font-weight="800" fill="#0a0a0a" font-family="Arial">ETHUSD · 1H ▾</text>
+            <g transform="translate(255,60)">
+              <circle r="40" fill="none" stroke="#f1f1f3" stroke-width="10"/>
+              <circle r="40" fill="none" stroke="#e0102a" stroke-width="10" stroke-dasharray="188 251" stroke-linecap="round" transform="rotate(-90)">
+                <animate attributeName="stroke-dasharray" from="0 251" to="188 251" dur="1.6s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1"/>
+              </circle>
+              <text y="6" text-anchor="middle" font-size="17" font-weight="900" fill="#0a0a0a" font-family="Arial">75%</text>
+            </g>
+            <text x="20" y="70" font-size="11" font-weight="800" fill="#5b5d63" font-family="Arial">Win Rate</text>
+            <text x="20" y="88" font-size="11" font-weight="800" fill="#5b5d63" font-family="Arial">on THIS symbol</text>
+            <text x="20" y="108" font-size="9.5" font-weight="700" fill="#8a8c92" font-family="Arial">Calculated automatically — instantly</text>
+          </svg>
+        </div>
+        <h3>Instant <span class="mark">Win Rate</span> on Any Symbol</h3>
+        <p>Drop QuantiVector on any stock, coin, or pair and it automatically calculates and displays its own real win rate for that exact chart — no spreadsheet required.</p>
+        <a href="features.html#win-rate" class="kf-link">See it in action →</a>
+      </div>
+
+      <!-- 6. Signal Strength Scoring -->
+      <div class="key-card">
+        <span class="badge-star glow-badge"><svg viewBox="0 0 24 24" fill="#ffd400"><path d="M12 2l2.9 6.6L22 9.3l-5 4.9 1.2 7-6.2-3.6L5.8 21 7 14 2 9.3l7.1-.7z"/></svg> Top Feature</span>
+        <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 1 1-9 9" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M12 12 17 7" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="12" r="1.6" fill="#fff"/></svg></div>
+        <div class="kf-demo">
+          <svg viewBox="0 0 340 120" width="100%" style="height:auto;">
+            <g class="glow-badge">
+              <rect x="20" y="16" width="92" height="36" rx="9" fill="#eafaf1" stroke="#0a7a3d" stroke-width="1.4"/>
+            </g>
+            <text x="34" y="40" font-size="15" font-weight="900" fill="#0a7a3d" font-family="Arial">91%</text>
+            <text x="66" y="40" font-size="9" font-weight="800" fill="#0a7a3d" font-family="Arial">★ TAKE</text>
+            <rect x="124" y="16" width="92" height="36" rx="9" fill="#fff6e9" stroke="#ffe6bd"/><text x="138" y="40" font-size="15" font-weight="900" fill="#b3690a" font-family="Arial">58%</text>
+            <rect x="228" y="16" width="92" height="36" rx="9" fill="#fff1f2" stroke="#ffd4d8"/><text x="242" y="40" font-size="15" font-weight="900" fill="#a10d1e" font-family="Arial">29%</text><text x="270" y="40" font-size="9" font-weight="800" fill="#a10d1e" font-family="Arial">SKIP</text>
+            <line x1="20" y1="66" x2="320" y2="66" stroke="#eee"/>
+            <text x="20" y="90" font-size="11" font-weight="700" fill="#5b5d63" font-family="Arial">Take the 91% setups.</text>
+            <text x="20" y="108" font-size="11" font-weight="700" fill="#5b5d63" font-family="Arial">Skip the 29% ones — automatically scored.</text>
+          </svg>
+        </div>
+        <h3>Auto-Scored <span class="mark">Signal Strength</span></h3>
+        <p>Every signal is automatically graded on 8 confluence factors and reduced to one percentage — so you always know which setups deserve your size and which don't.</p>
+        <a href="features.html#confidence-score" class="kf-link">See it in action →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIVIDER: flow path ============ -->
+<div class="sec-divider div-flow">
+  <div class="df-line">
+    <div class="df-track"><span class="df-arrow" style="left:30%;"></span><span class="df-arrow" style="left:70%;"></span></div>
+    <div class="df-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M12 4v16M6 14l6 6 6-6" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> See exactly how it works</div>
+    <div class="df-track"><span class="df-arrow" style="left:30%;"></span><span class="df-arrow" style="left:70%;"></span></div>
+  </div>
+</div>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how-it-works" class="band-tint">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>From <span class="mark">market reaction</span> to <span class="mark">confirmed trade</span> in four steps</h2>
+      <p>The exact detection method stays under the hood — what you see is a clean, repeatable process on every chart you open.</p>
+    </div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="num">1</div>
+        <h4>Trend Read</h4>
+        <p>QuantiVector continuously reads the market's underlying direction, bar by bar.</p>
+      </div>
+      <div class="flow-step">
+        <div class="num">2</div>
+        <h4>Setup Zone Marked</h4>
+        <p>A reaction against the trend is grouped into one clean shaded zone — no candle-by-candle clutter.</p>
+      </div>
+      <div class="flow-step">
+        <div class="num">3</div>
+        <h4>Breakout Confirms</h4>
+        <p>The moment price reclaims the trend direction, a large BUY or SELL label locks in — non-repainting.</p>
+      </div>
+      <div class="flow-step">
+        <div class="num">4</div>
+        <h4>Plan &amp; Score Attached</h4>
+        <p>Entry, SL, three TPs, and a confidence percentage are all plotted automatically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIVIDER: marker swoosh ============ -->
+<div class="sec-divider div-swoosh">
+  <svg class="swoosh-bg" viewBox="0 0 1440 76" preserveAspectRatio="none">
+    <path d="M0 44 C 200 12, 380 66, 600 30 C 850 -6, 1080 60, 1440 22" fill="none" stroke="#e0102a" stroke-width="7" stroke-linecap="round" opacity="0.85"/>
+  </svg>
+  <div class="sw-chip" style="left:10%;top:2px;"><b style="background:#eafaf1;color:#0a7a3d;">91% strong</b></div>
+  <div class="sw-chip" style="left:44%;top:38px;"><b style="background:#fff6e9;color:#b3690a;">58% moderate</b></div>
+  <div class="sw-chip" style="left:78%;top:0px;"><b style="background:#fff1f2;color:#a10d1e;">29% weak</b></div>
+</div>
+
+<!-- ============ CONFIDENCE SCORE HIGHLIGHT ============ -->
+<section>
+  <div class="wrap split-grid">
+    <div class="split-copy">
+      <span class="eyebrow">Signal Strength</span>
+      <h2 class="split-head">Not every signal deserves the same size trade — now you don't have to guess</h2>
+      <p>Every confirmed signal is stamped with a single, easy-to-read <span class="mark">confidence percentage</span>, blended from eight independent market-condition checks — momentum, structure, volume behavior, multi-timeframe agreement, and this indicator's own track record.</p>
+      <div class="f-list">
+        <li><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Color-coded green / orange / red by strength tier</li>
+        <li><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Displayed right at the Stop Loss line — zero extra clicks</li>
+        <li><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Weighting logic kept private — only the clean result is shown</li>
+      </div>
+      <a href="features.html#confidence-score" class="btn btn-outline">See how scoring works →</a>
+    </div>
+    <div class="f-visual">
+      <svg viewBox="0 0 420 300" width="100%">
+        <rect x="0" y="0" width="420" height="300" rx="12" fill="#fcfcfd"/>
+        <text x="30" y="40" font-size="13" font-weight="800" fill="#0a0a0a" font-family="Arial">Signal Strength Breakdown</text>
+        <g font-family="Arial" font-size="11.5" fill="#3a3c40">
+          <text x="30" y="72">HTF Alignment</text><rect x="200" y="60" width="150" height="10" rx="5" fill="#f1f1f3"/><rect x="200" y="60" width="132" height="10" rx="5" fill="#e0102a"/>
+          <text x="30" y="98">Reaction Depth</text><rect x="200" y="86" width="150" height="10" rx="5" fill="#f1f1f3"/><rect x="200" y="86" width="120" height="10" rx="5" fill="#e0102a"/>
+          <text x="30" y="124">Volume Character</text><rect x="200" y="112" width="150" height="10" rx="5" fill="#f1f1f3"/><rect x="200" y="112" width="105" height="10" rx="5" fill="#e0102a"/>
+          <text x="30" y="150">Trend Strength (ADX)</text><rect x="200" y="138" width="150" height="10" rx="5" fill="#f1f1f3"/><rect x="200" y="138" width="141" height="10" rx="5" fill="#e0102a"/>
+          <text x="30" y="176">Liquidity Sweep</text><rect x="200" y="164" width="150" height="10" rx="5" fill="#f1f1f3"/><rect x="200" y="164" width="96" height="10" rx="5" fill="#e0102a"/>
+          <text x="30" y="202">Momentum (MACD)</text><rect x="200" y="190" width="150" height="10" rx="5" fill="#f1f1f3"/><rect x="200" y="190" width="126" height="10" rx="5" fill="#e0102a"/>
+          <text x="30" y="228">Closing Strength</text><rect x="200" y="216" width="150" height="10" rx="5" fill="#f1f1f3"/><rect x="200" y="216" width="114" height="10" rx="5" fill="#e0102a"/>
+          <text x="30" y="254">Historical Win Rate</text><rect x="200" y="242" width="150" height="10" rx="5" fill="#f1f1f3"/><rect x="200" y="242" width="138" height="10" rx="5" fill="#e0102a"/>
+        </g>
+        <g transform="translate(365,150)">
+          <circle r="34" fill="none" stroke="#f1f1f3" stroke-width="8"/>
+          <circle r="34" fill="none" stroke="#e0102a" stroke-width="8" stroke-dasharray="192 214" stroke-linecap="round" transform="rotate(-90)"/>
+          <text y="6" text-anchor="middle" font-size="17" font-weight="900" fill="#0a0a0a" font-family="Arial">91%</text>
+        </g>
+      </svg>
+      <p class="cap">Illustrative confidence-score breakdown for a confirmed signal</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIVIDER: diagonal cut to black ============ -->
+<div class="sec-divider div-cut to-black">
+  <div class="cut-shape"></div>
+  <div class="cut-badge"><span style="width:6px;height:6px;border-radius:50%;background:#fff;display:inline-block;" class="live-dot"></span> Live Backtest Below</div>
+</div>
+
+<!-- ============ BACKTEST TEASER ============ -->
+<section class="band-black">
+  <div class="wrap split-grid">
+    <div class="split-copy">
+      <span class="eyebrow" style="background:rgba(224,16,42,.16);border-color:rgba(224,16,42,.3);color:#ff6b7d;">Proof, not promises</span>
+      <h2 class="split-head white">A live scoreboard, right on your chart</h2>
+      <p>No cherry-picked backtest screenshots. QuantiVector keeps a running, self-updating record of its own signals — win rate, trade count, and average score — so you always know exactly how it's performing on the symbol you're watching, right now.</p>
+      <a href="features.html#backtest" class="btn btn-red">See the backtest panel →</a>
+    </div>
+    <div class="report-panel">
+      <p class="report-panel-head"><span style="width:7px;height:7px;border-radius:50%;background:#ff4d63;display:inline-block;flex:none;" class="live-dot"></span> QuantiVector Report — Live</p>
+      <div class="report-stats">
+        <div>
+          <div class="val">73.4%</div>
+          <div class="lbl">Win Rate</div>
+        </div>
+        <div>
+          <div class="val">248</div>
+          <div class="lbl">Qualified Trades</div>
+        </div>
+        <div>
+          <div class="val" style="color:#ff6b7d;">88%</div>
+          <div class="lbl">Avg Score — Wins</div>
+        </div>
+      </div>
+      <div class="report-rule"></div>
+      <p class="report-foot">Adaptive quality bar auto-recalibrates as market behavior changes. Figures illustrative — your results depend on the chart, timeframe, and market you trade.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIVIDER: diagonal cut to white ============ -->
+<div class="sec-divider div-cut to-white">
+  <div class="cut-shape"></div>
+  <div class="cut-badge">More Tools Included ↓</div>
+</div>
+
+<!-- ============ FEATURE GRID TEASER ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Everything on one chart</span>
+      <h2>A <span class="mark">full toolkit</span>, not just a signal</h2>
+      <p>Every add-on below is independent — turn on only what you need, without touching the core signal logic.</p>
+    </div>
+    <div class="grid-3">
+      <a href="features.html#signal-engine" class="feat-mini"><span class="tag">Core Engine</span><h4>Trend-Continuation Signals</h4><p>Clean Setup Zones, confirmed BUY/SELL labels, and a Trap Zone filter that mutes signals in choppy conditions.</p></a>
+      <a href="features.html#entry-system" class="feat-mini"><span class="tag">Trade Plan</span><h4>Entry / SL / TP1-3</h4><p>Auto-plotted trade levels that grow live with the chart, then freeze the instant a trade resolves.</p></a>
+      <a href="features.html#confidence-score" class="feat-mini"><span class="tag">Scoring</span><h4>Signal Strength Score</h4><p>An 8-factor confidence percentage on every signal, color-coded by strength.</p></a>
+      <a href="features.html#backtest" class="feat-mini"><span class="tag">Transparency</span><h4>Live Backtest Panel</h4><p>Self-updating win rate, trade count, and quality stats — always current, always on-chart.</p></a>
+      <a href="features.html#mtf-bias" class="feat-mini"><span class="tag">Context</span><h4>Multi-Timeframe Bias Table</h4><p>6-timeframe trend read at a glance — 5m through 1D — without flipping a single chart tab.</p></a>
+      <a href="features.html#extra-tools" class="feat-mini"><span class="tag">Add-ons</span><h4>VWAP, EMAs, Zones &amp; Structure</h4><p>VWAP, extra EMAs, supply/demand zones, market structure (BOS/CHoCH), and order blocks — all optional.</p></a>
+      <a href="features.html#alerts" class="feat-mini"><span class="tag">Automation</span><h4>Native TradingView Alerts</h4><p>Get pinged the instant a signal confirms or price enters/exits a Trap Zone.</p></a>
+      <a href="features.html#customization" class="feat-mini"><span class="tag">Branding</span><h4>Full Visual Customization</h4><p>Every label, color, size, and text string is yours to restyle and re-brand.</p></a>
+      <a href="features.html" class="feat-mini" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--red-tint);border-style:dashed;border-color:var(--red-tint-2);"><h4 style="margin:0;color:var(--red-dark);">View All Features →</h4></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIVIDER: diamond strip ============ -->
+<div class="sec-divider div-diamonds">
+  <div class="dd-row">
+    <span class="dd-dot" style="background:#e0102a;"></span>
+    <span class="dd-text">Every Plan</span>
+    <span class="dd-dot" style="background:#0a0a0a;"></span>
+    <span class="dd-text">Full Toolkit</span>
+    <span class="dd-dot" style="background:#e0102a;"></span>
+    <span class="dd-text">No Feature Gates</span>
+    <span class="dd-dot" style="background:#0a0a0a;"></span>
+  </div>
+</div>
+
+<!-- ============ PRICING ============ -->
+<section id="pricing" class="band-tint">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Pricing</span>
+      <h2>Start with a <span class="mark">trial</span>, stay for the results</h2>
+      <p>Simple, transparent access. Cancel or switch plans anytime.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <div class="plan">
+        <span class="plan-name">Trial</span>
+        <div class="price">$1 <small>/ 3 days</small></div>
+        <p class="plan-desc">Kick the tires risk-free before committing to a full plan.</p>
+        <ul class="f-list">
+          <li><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Full indicator access</li>
+          <li><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> All signal &amp; scoring tools</li>
+          <li><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Live backtest panel</li>
+          <li><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> 3 days, unlimited charts</li>
+        </ul>
+        <a href="#" class="btn btn-outline btn-block">Start Trial</a>
+      </div>
+
+      <div class="plan pop">
+        <span class="plan-badge">Most Popular</span>
+        <span class="plan-name">1 Month</span>
+        <div class="price">$39 <small>/ month</small></div>
+        <p class="plan-desc">Full access, billed monthly — flexible, cancel anytime.</p>
+        <ul class="f-list">
+          <li><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Everything in Trial</li>
+          <li><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> All extra tools (VWAP, order blocks, structure)</li>
+          <li><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Full alert access</li>
+          <li><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Priority support</li>
+        </ul>
+        <a href="#" class="btn btn-red btn-block">Get 1-Month Access</a>
+      </div>
+
+      <div class="plan">
+        <span class="plan-name">3 Months</span>
+        <div class="price">$89 <small>/ 3 mo</small></div>
+        <p class="plan-desc">Best value for traders committing to a full quarter.</p>
+        <ul class="f-list">
+          <li><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Everything in 1-Month</li>
+          <li><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Save ~24% vs. monthly</li>
+          <li><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Locked-in pricing for 3 months</li>
+          <li><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Priority support</li>
+        </ul>
+        <a href="#" class="btn btn-outline btn-block">Get 3-Month Access</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIVIDER: measuring tape ============ -->
+<div class="sec-divider div-tape">
+  <div class="dt-row">
+    <div class="dt-line">
+      <span class="dt-tick" style="left:8%;"></span><span class="dt-label" style="left:8%;">SL</span>
+      <span class="dt-tick" style="left:30%;"></span><span class="dt-label" style="left:30%;">ENTRY</span>
+      <span class="dt-tick" style="left:55%;"></span><span class="dt-label" style="left:55%;">TP1</span>
+      <span class="dt-tick" style="left:75%;"></span><span class="dt-label" style="left:75%;">TP2</span>
+      <span class="dt-tick" style="left:94%;"></span><span class="dt-label" style="left:94%;">TP3</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>Questions, answered</h2>
+    </div>
+    <div class="faq">
+      <details class="faq-item" open>
+        <summary>Does QuantiVector repaint?</summary>
+        <p>No. Every signal is calculated from already-closed candle data, so historical BUY/SELL signals never move or disappear after the fact.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I see exactly how the trend or score is calculated?</summary>
+        <p>The core detection and scoring logic is kept internal to protect the strategy — you get full control over every visual, label, color, and alert instead.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Which markets and timeframes does it work on?</summary>
+        <p>QuantiVector runs on any symbol and timeframe available on TradingView — crypto, forex, indices, futures, and stocks.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do I need other indicators alongside it?</summary>
+        <p>No. Signal detection, trade planning, confidence scoring, multi-timeframe bias, and backtest tracking are all built in. Extra tools like VWAP and order blocks are optional add-ons.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I rebrand the labels and colors?</summary>
+        <p>Yes — every label's text, every zone color, and every panel's appearance is fully customizable.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What happens after my trial ends?</summary>
+        <p>You can move to the 1-Month or 3-Month plan at any time — no auto-lock-in, cancel whenever you like.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIVIDER: pulse ping ============ -->
+<div class="sec-divider div-ping">
+  <div class="dp-row">
+    <span class="dp-line"></span>
+    <span class="dp-center"><span class="dp-dotwrap"><span class="dp-ring"></span><span class="dp-core"></span></span> Ready when you are</span>
+    <span class="dp-line"></span>
+  </div>
+</div>
+
+<!-- ============ CTA BAND ============ -->
+<section>
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h3>Stop guessing which reaction is real.</h3>
+        <p>Get the signal, the trade plan, the confidence score, and the proof — all on one chart.</p>
+      </div>
+      <a href="#pricing" class="btn btn-red">Get Instant Access</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div style="max-width:320px;">
+        <a href="index.html" class="brand"><span class="dot"></span> QuantiVector</a>
+        <p class="foot-disc" style="margin-top:16px;">QuantiVector is a technical analysis tool for TradingView and does not constitute financial advice. Trading involves risk, and past performance — including any figures shown on this site — does not guarantee future results.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h5>Product</h5>
+          <a href="index.html#how-it-works">How It Works</a>
+          <a href="features.html">Features</a>
+          <a href="docs.html">Learning Center</a>
+          <a href="index.html#pricing">Pricing</a>
+        </div>
+        <div class="foot-col">
+          <h5>Resources</h5>
+          <a href="index.html#faq">FAQ</a>
+          <a href="features.html#alerts">Alerts</a>
+          <a href="features.html#customization">Customization</a>
+        </div>
+        <div class="foot-col">
+          <h5>Company</h5>
+          <a href="#">Contact</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 QuantiVector. All rights reserved.</span>
+      <span>Not affiliated with TradingView®.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.mobile-panel a').forEach(function(el){
+    el.addEventListener('click', function(){
+      var t = document.getElementById('nav-toggle');
+      if(t) t.checked = false;
+    });
+  });
+</script>
+
+</body>
+</html>
