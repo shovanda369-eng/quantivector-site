@@ -287,6 +287,17 @@ table.doc-table td.strong{color:var(--d-text);font-weight:700;}
 @keyframes docPing{0%{transform:scale(.6);opacity:.5;}75%{transform:scale(1.9);opacity:0;}100%{opacity:0;}}
 .doc-ping{transform-box:fill-box;transform-origin:center;animation:docPing 2.2s ease-out infinite;}
 
+/* ---------- Audio language switch demo ---------- */
+.lang-highlight{opacity:0;}
+@keyframes langActive1{0%,4%{opacity:0;}7%,30%{opacity:1;}33%,100%{opacity:0;}}
+@keyframes langActive2{0%,36%{opacity:0;}39%,63%{opacity:1;}66%,100%{opacity:0;}}
+@keyframes langActive3{0%,69%{opacity:0;}72%,96%{opacity:1;}99%,100%{opacity:0;}}
+.lang-h1{animation:langActive1 6s ease-in-out infinite;}
+.lang-h2{animation:langActive2 6s ease-in-out infinite;}
+.lang-h3{animation:langActive3 6s ease-in-out infinite;}
+@keyframes gearSpin{0%,80%{transform:rotate(0deg);}92%{transform:rotate(35deg);}100%{transform:rotate(0deg);}}
+.lang-gear{transform-box:fill-box;transform-origin:center;animation:gearSpin 6s ease-in-out infinite;}
+
 /* ---------- Compact term grid + icon pills (simple/graphical mode) ---------- */
 .term-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:16px 0;}
 .term-chip{display:flex;align-items:baseline;gap:7px;border:1px solid var(--d-border);background:var(--d-bg-2);border-radius:8px;padding:9px 12px;font-size:12.5px;}
