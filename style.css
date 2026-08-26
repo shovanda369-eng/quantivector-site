@@ -692,3 +692,39 @@ footer{background:#fff;border-top:1px solid var(--line);padding:56px 0 30px;}
   .hero-copy h1{font-size:28px;}
   .hero-badges{gap:7px;}
 }
+
+/* ===================================================
+   Real Chart Proof Gallery — used on index.html and sales.html
+   =================================================== */
+.proof-disclaimer{
+  max-width:720px;margin:0 auto 44px;text-align:center;
+  background:var(--red-tint);border:1px solid var(--red-tint-2);border-radius:12px;
+  padding:16px 22px;font-size:14.5px;font-weight:700;color:var(--ink-soft);line-height:1.55;
+}
+.proof-disclaimer b{color:var(--red-dark);}
+.proof-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.proof-card{
+  position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;box-shadow:var(--shadow-card);
+}
+.proof-card img{width:100%;height:auto;display:block;}
+.proof-badge{
+  position:absolute;top:14px;left:14px;z-index:2;
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--ink);color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.02em;
+  padding:7px 13px;border-radius:999px;box-shadow:0 10px 22px -10px rgba(10,10,10,.6);
+}
+.proof-badge svg{width:12px;height:12px;flex:none;}
+.proof-caption{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:14px 18px;border-top:1px solid var(--line);
+}
+.proof-caption .sym{font-weight:900;font-size:14.5px;}
+.proof-caption .tag{
+  font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--red-dark);background:var(--red-tint);border:1px solid var(--red-tint-2);
+  padding:4px 10px;border-radius:999px;
+}
+@media(max-width:800px){
+  .proof-gallery{grid-template-columns:1fr;}
+}
