@@ -40,6 +40,19 @@ body{padding-bottom:0;}
 .top-bar b{color:#ff6b7d;}
 .sales-nav .navlinks{display:flex;}
 .sales-nav .nav-cta{gap:10px;}
+/* Sticky top-bar + nav, stacked together, always visible */
+.sticky-top-group{position:sticky;top:0;z-index:60;}
+.sticky-top-group .nav{position:static;}
+@media(max-width:960px){
+  .sales-nav .navlinks{display:none;}
+  .sales-nav .nav-cta{display:flex;}
+  .sales-nav .nav-cta .btn-outline{display:none;}
+  .sales-nav .nav-cta .btn-red{padding:9px 14px;font-size:12.5px;}
+}
+@media(max-width:380px){
+  .sales-nav .brand{font-size:15px;}
+  .sales-nav .nav-cta .btn-red{padding:8px 11px;font-size:11.5px;}
+}
 .info-callout{
 display:flex;align-items:flex-start;gap:10px;max-width:560px;margin:22px auto 0;
 background:#fff8ea;border:1px solid #f5e2b3;color:#7a5a12;font-size:13.5px;font-weight:600;
@@ -85,14 +98,42 @@ padding:12px 16px;border-radius:10px;line-height:1.5;
 /* Top-of-page video demo */
 .video-frame{position:relative;width:100%;max-width:860px;margin:0 auto;aspect-ratio:16/9;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-card);border:1px solid var(--line);background:#0a0a0a;}
 .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+/* Hero headline/sub — page-specific sizing with real mobile scaling */
+.hero-h1{font-size:52px;margin-top:22px;}
+.hero-sub{max-width:620px;margin-left:auto;margin-right:auto;font-size:18px;}
+.setup-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;font-size:13.5px;font-weight:700;color:var(--ink-soft);}
+/* ---------- Sales-page responsive ---------- */
+@media(max-width:960px){
+  .hero-h1{font-size:40px;}
+}
+@media(max-width:800px){
+  .value-grid{grid-template-columns:repeat(2,1fr);}
+  .module-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:600px){
+  .hero-h1{font-size:30px;}
+  .hero-sub{font-size:15.5px;}
+  .stat-strip{grid-template-columns:repeat(2,1fr);}
+  .stat-strip > div{border-right:none;border-bottom:none;}
+  .stat-strip > div:nth-child(odd){border-right:1px solid rgba(255,255,255,.1);}
+  .stat-strip > div:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.1);}
+  .stat-strip b{font-size:21px;}
+  .setup-grid{grid-template-columns:repeat(2,1fr);gap:12px 10px;}
+  .value-grid{grid-template-columns:1fr;}
+  .module-grid{grid-template-columns:1fr;}
+  .info-callout{font-size:12.5px;}
+}
+@media(max-width:400px){
+  .hero-h1{font-size:26px;}
+}
 </style>
 </head>
 <body>
 
-<!-- ============ TOP ANNOUNCEMENT BAR ============ -->
+<!-- ============ TOP BAR + NAV (sticky, always visible) ============ -->
+<div class="sticky-top-group">
 <div class="top-bar">🔥 <b>Double Dhamaka</b> — Buy 3 Months, Get 6 Total · Buy 1 Year, Get 3 Total</div>
 
-<!-- ============ NAV ============ -->
 <header class="nav sales-nav">
 <div class="wrap">
 <a href="index.html" class="brand"><span class="dot"></span> QuantiVector</a>
@@ -107,6 +148,7 @@ padding:12px 16px;border-radius:10px;line-height:1.5;
 </div>
 </div>
 </header>
+</div>
 
 <!-- ============ HERO ============ -->
 <section class="hero" style="padding-top:56px;">
@@ -115,8 +157,8 @@ padding:12px 16px;border-radius:10px;line-height:1.5;
 <div class="wrap" style="position:relative;z-index:3;">
 <div style="max-width:720px;margin:0 auto;text-align:center;">
 <span class="eyebrow">Pine Script v6 · Most Powerful TradingView Signal Engine</span>
-<h1 style="font-size:52px;margin-top:22px;">Catch the trend's next leg with high-accuracy <span class="mark">BUY &amp; SELL signals</span></h1>
-<p class="sub" style="max-width:620px;margin-left:auto;margin-right:auto;font-size:18px;">QuantiVector reads every market reaction, waits for real confirmation, and marks the exact moment price turns back in the trend's favor — then hands you a complete trade plan, a confidence score, and a live scoreboard of its own results.</p>
+<h1 class="hero-h1">Catch the trend's next leg with high-accuracy <span class="mark">BUY &amp; SELL signals</span></h1>
+<p class="sub hero-sub">QuantiVector reads every market reaction, waits for real confirmation, and marks the exact moment price turns back in the trend's favor — then hands you a complete trade plan, a confidence score, and a live scoreboard of its own results.</p>
 
 <span class="eyebrow" style="margin-top:26px;display:inline-block;">▶ Watch It In Action</span>
 <div class="video-frame" style="margin:14px auto 16px;">
@@ -144,7 +186,7 @@ padding:12px 16px;border-radius:10px;line-height:1.5;
 <span style="background:var(--red);color:#fff;font-weight:900;font-size:13px;padding:6px 12px;border-radius:8px;">▲ BUY</span>
 <span style="font-weight:900;font-size:15px;">91% ★ Confidence</span>
 </div>
-<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;font-size:13.5px;font-weight:700;color:var(--ink-soft);">
+<div class="setup-grid">
 <div>ENTRY<br><b style="font-size:15px;">64,220</b></div>
 <div>SL<br><b style="font-size:15px;">63,410</b></div>
 <div>TP1<br><b style="font-size:15px;">65,340</b></div>
