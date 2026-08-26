@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuantiVector — High-Accuracy Buy/Sell Signal Indicator | Double Dhamaka Offer</title>
+<meta name="description" content="QuantiVector is a Pine Script v6 TradingView indicator that pinpoints high-accuracy trend-continuation BUY/SELL signals, auto-plots your trade plan, and scores every signal with a confidence score — backed by a live, on-chart backtest.">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ===== Sales-page-only additions (everything else reuses style.css) ===== */
+body{padding-bottom:0;}
+.top-bar{background:#0a0a0a;color:#fff;text-align:center;font-size:13px;font-weight:700;padding:9px 16px;}
+.top-bar b{color:#ff6b7d;}
+.sales-nav .navlinks{display:flex;}
+.sales-nav .nav-cta{gap:10px;}
+.info-callout{
+display:flex;align-items:flex-start;gap:10px;max-width:560px;margin:22px auto 0;
+background:#fff8ea;border:1px solid #f5e2b3;color:#7a5a12;font-size:13.5px;font-weight:600;
+padding:12px 16px;border-radius:10px;line-height:1.5;
+}
+.badge-strip{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:34px;}
+.badge-strip .hero-badge{background:#fff;}
+.pill-strip{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:16px;}
+.pill{font-size:12px;font-weight:700;color:var(--ink-soft);background:var(--red-tint);border:1px solid var(--red-tint-2);padding:6px 13px;border-radius:999px;}
+.stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);}
+.stat-strip > div{padding:30px 16px;text-align:center;border-right:1px solid rgba(255,255,255,.1);}
+.stat-strip > div:last-child{border-right:none;}
+.stat-strip b{display:block;font-size:26px;font-weight:900;color:#fff;}
+.stat-strip span{font-size:11.5px;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.05em;}
+.value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.value-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow-card);}
+.value-card .ic{width:44px;height:44px;border-radius:10px;background:var(--red-tint);color:var(--red);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px;}
+.value-card h3{font-size:16.5px;margin-bottom:8px;}
+.value-card p{font-size:13.8px;}
+.module-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.module-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-card);}
+.module-card .mod-tag{font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--red-dark);background:var(--red-tint);border:1px solid var(--red-tint-2);display:inline-block;padding:3px 9px;border-radius:999px;margin-bottom:12px;}
+.module-card h4{font-size:15.5px;margin-bottom:10px;}
+.module-card ul{display:flex;flex-direction:column;gap:7px;}
+.module-card li{font-size:13px;color:var(--ink-soft);display:flex;gap:8px;align-items:flex-start;}
+.module-card li::before{content:"✓";color:var(--red);font-weight:900;flex:none;}
+.trust-note{max-width:640px;margin:40px auto 0;text-align:center;font-size:13.5px;color:var(--muted);background:var(--red-tint);border:1px solid var(--red-tint-2);padding:14px 18px;border-radius:10px;}
+.trust-note b{color:var(--red-dark);}
+/* Exit-intent popup */
+.exit-overlay{position:fixed;inset:0;background:rgba(10,10,10,.6);z-index:300;display:none;align-items:center;justify-content:center;padding:20px;}
+.exit-overlay.show{display:flex;}
+.exit-modal{background:#fff;border-radius:18px;max-width:440px;width:100%;padding:36px 30px 30px;position:relative;box-shadow:var(--shadow-pop);text-align:center;}
+.exit-close{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:15px;color:var(--muted);}
+.exit-modal h3{font-size:22px;margin-top:6px;}
+.exit-modal p{margin-top:12px;font-size:14px;}
+.exit-price{margin-top:18px;font-size:15px;font-weight:800;}
+.exit-price s{color:var(--muted-2);font-weight:600;margin-right:6px;}
+.exit-modal .btn{margin-top:20px;}
+.exit-skip{display:block;margin-top:14px;font-size:12.5px;color:var(--muted-2);font-weight:600;}
+/* Checkmark contrast fix: chk circles use an icon-style bg/fg pairing, not the surrounding text color */
+.f-list .chk{color:#fff;font-size:12px;line-height:1;}
+.plan.pop .f-list .chk{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<!-- ============ TOP ANNOUNCEMENT BAR ============ -->
+<div class="top-bar">🔥 <b>Double Dhamaka</b> — Buy 3 Months, Get 6 Total · Buy 1 Year, Get 3 Total</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav sales-nav">
+<div class="wrap">
+<a href="index.html" class="brand"><span class="dot"></span> QuantiVector</a>
+<nav class="navlinks">
+<a href="#features">Features</a>
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+</nav>
+<div class="nav-cta">
+<a href="#how-it-works" class="btn btn-outline btn-sm">See How It Works</a>
+<a href="#pricing" class="btn btn-red btn-sm">Get Instant Access</a>
+</div>
+</div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" style="padding-top:56px;">
+<div class="hero-blob hero-blob-a"></div>
+<div class="hero-blob hero-blob-b"></div>
+<div class="wrap" style="position:relative;z-index:3;">
+<div style="max-width:720px;margin:0 auto;text-align:center;">
+<span class="eyebrow">Pine Script v6 · Most Powerful TradingView Signal Engine</span>
+<h1 style="font-size:52px;margin-top:22px;">Catch the trend's next leg with high-accuracy <span class="mark">BUY &amp; SELL signals</span></h1>
+<p class="sub" style="max-width:620px;margin-left:auto;margin-right:auto;font-size:18px;">QuantiVector reads every market reaction, waits for real confirmation, and marks the exact moment price turns back in the trend's favor — then hands you a complete trade plan, a confidence score, and a live scoreboard of its own results.</p>
+<div class="info-callout">ℹ️ Every signal is calculated only from already-closed candles — non-repainting, verified before it ever reaches your chart.</div>
+<div class="hero-cta-row" style="justify-content:center;margin-top:30px;">
+<a href="#pricing" class="btn btn-red">Get Instant Access</a>
+<a href="#how-it-works" class="btn btn-outline">See How It Works</a>
+</div>
+<p class="hero-micro">Works on any market &amp; timeframe · Non-repainting signals · One-click TradingView alerts</p>
+</div>
+
+<div class="hero-visual" style="max-width:760px;margin:40px auto 0;">
+<div class="chart-card">
+<div class="cc-head">
+<span class="cc-title"><span class="dotx"></span> QuantiVector — BTCUSD · 1H</span>
+<span class="cc-badge">● Live</span>
+</div>
+<div class="cc-inner" style="padding:26px;">
+<div style="font-size:13px;font-weight:800;color:var(--muted-2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;">Setup Zone</div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+<span style="background:var(--red);color:#fff;font-weight:900;font-size:13px;padding:6px 12px;border-radius:8px;">▲ BUY</span>
+<span style="font-weight:900;font-size:15px;">91% ★ Confidence</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;font-size:13.5px;font-weight:700;color:var(--ink-soft);">
+<div>ENTRY<br><b style="font-size:15px;">64,220</b></div>
+<div>SL<br><b style="font-size:15px;">63,410</b></div>
+<div>TP1<br><b style="font-size:15px;">65,340</b></div>
+<div>TP3<br><b style="font-size:15px;">66,900</b></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="badge-strip">
+<span class="hero-badge"><span class="dotcheck">✓</span> 100% Non-Repainting</span>
+<span class="hero-badge"><span class="dotcheck">✓</span> Every Signal Scored</span>
+<span class="hero-badge"><span class="dotcheck">✓</span> Works On Any Market</span>
+</div>
+<div class="pill-strip">
+<span class="pill">Trend Read</span>
+<span class="pill">Setup Zones</span>
+<span class="pill">Trap Zone Filter</span>
+<span class="pill">Fib Entry/SL/TP</span>
+<span class="pill">Confidence Score</span>
+<span class="pill">Live Backtest</span>
+</div>
+</div>
+</section>
+
+<!-- ============ DOUBLE DHAMAKA BANNER ============ -->
+<section class="dd-banner">
+<div class="wrap dd-banner-inner">
+<span class="eyebrow dd-eyebrow">🔥 Double Dhamaka Offer</span>
+<h2 class="dd-title">Buy 3 Months → Get 6 Months Total<br>Buy 1 Year → Get 3 Years Total</h2>
+<p class="dd-sub">Launch pricing plus bonus free months, stacked on top. <b>Offer resets daily at 11:59 PM IST</b> — the price on this page is the lowest it will ever be.</p>
+<div class="dd-timer" id="dd-timer-top">
+<div class="dd-tbox"><span class="dd-tval" id="t-hrs">00</span><span class="dd-tlabel">HRS</span></div>
+<div class="dd-tbox"><span class="dd-tval" id="t-min">00</span><span class="dd-tlabel">MIN</span></div>
+<div class="dd-tbox"><span class="dd-tval" id="t-sec">00</span><span class="dd-tlabel">SEC</span></div>
+</div>
+<div class="dd-valid">Offer valid till tonight, 11:59 PM IST</div>
+<a href="#pricing" class="btn btn-red dd-cta">Claim Double Dhamaka Offer →</a>
+</div>
+</section>
+
+<!-- ============ STATS STRIP (dark) ============ -->
+<div class="band-black">
+<div class="wrap stat-strip">
+<div><b>8</b><span>Confluence Factors Scored</span></div>
+<div><b>Real-Time</b><span>Signal Engine</span></div>
+<div><b>100%</b><span>Non-Repainting</span></div>
+<div><b>Direct</b><span>Activation On TradingView</span></div>
+</div>
+</div>
+
+<!-- ============ WHY QUANTIVECTOR ============ -->
+<section>
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow">Why QuantiVector</span>
+<h2>Trade the confirmed move, not the guess</h2>
+<p>Four things every trader is missing when they trade without it.</p>
+</div>
+<div class="value-grid">
+<div class="value-card"><div class="ic">🎯</div><h3>Clarity</h3><p>One clean shaded Setup Zone instead of a chart full of noise — see exactly where price is reacting.</p></div>
+<div class="value-card"><div class="ic">🛡️</div><h3>Protection</h3><p>Stop loss is calculated and placed for you the instant a signal fires — never guess your downside again.</p></div>
+<div class="value-card"><div class="ic">📐</div><h3>Precision Exits</h3><p>Three Fibonacci-projected take-profits on every signal, so you never guess where to bank profit.</p></div>
+<div class="value-card"><div class="ic">🧠</div><h3>Confidence Score</h3><p>Every signal is graded on 8 confluence factors before you act — high-confidence setups are instantly visible.</p></div>
+</div>
+</div>
+</section>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker-band">
+<div class="ticker-label">Signal Feed</div>
+<div class="ticker-viewport">
+<div class="ticker-track">
+<span class="ticker-item"><span class="tk-up">BTCUSD ▲ BUY 91%</span></span><span class="ticker-sep"></span>
+<span class="ticker-item"><span class="tk-dn">EURUSD ▼ SELL 84%</span></span><span class="ticker-sep"></span>
+<span class="ticker-item"><span class="tk-up">XAUUSD ▲ BUY 88%</span></span><span class="ticker-sep"></span>
+<span class="ticker-item"><span class="tk-up">AAPL ▲ BUY 76%</span></span><span class="ticker-sep"></span>
+<span class="ticker-item"><span class="tk-dn">ETHUSD ▼ SELL 69%</span></span><span class="ticker-sep"></span>
+<span class="ticker-item"><span class="tk-up">US30 ▲ BUY 93%</span></span><span class="ticker-sep"></span>
+<span class="ticker-item"><span class="tk-dn">GBPUSD ▼ SELL 71%</span></span><span class="ticker-sep"></span>
+<span class="ticker-item"><span class="tk-up">SOLUSD ▲ BUY 85%</span></span><span class="ticker-sep"></span>
+<span class="ticker-item"><span class="tk-up">BTCUSD ▲ BUY 91%</span></span><span class="ticker-sep"></span>
+<span class="ticker-item"><span class="tk-dn">EURUSD ▼ SELL 84%</span></span><span class="ticker-sep"></span>
+</div>
+</div>
+</div>
+
+<!-- ============ EVERYTHING INSIDE (module grid) ============ -->
+<section id="features" class="band-tint">
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow">Everything Inside QuantiVector</span>
+<h2>One indicator. A full toolkit.</h2>
+<p>Every module below runs on your chart automatically — turn on only what you need.</p>
+</div>
+<div class="module-grid">
+<div class="module-card"><span class="mod-tag">Core Engine</span><h4>Trend-Continuation Signals</h4><ul><li>Clean Setup Zones</li><li>Confirmed BUY/SELL labels</li><li>Trap Zone filter mutes chop</li></ul></div>
+<div class="module-card"><span class="mod-tag">Trade Plan</span><h4>Entry / SL / TP1–3</h4><ul><li>Auto-plotted trade levels</li><li>Grows live with the chart</li><li>Freezes the instant a trade resolves</li></ul></div>
+<div class="module-card"><span class="mod-tag">Scoring</span><h4>Signal Strength Score</h4><ul><li>8-factor confidence percentage</li><li>Color-coded by strength</li><li>Shown right at the SL line</li></ul></div>
+<div class="module-card"><span class="mod-tag">Transparency</span><h4>Live Backtest Panel</h4><ul><li>Self-updating win rate</li><li>Trade count &amp; quality stats</li><li>Always current, always on-chart</li></ul></div>
+<div class="module-card"><span class="mod-tag">Context</span><h4>Multi-Timeframe Bias Table</h4><ul><li>6-timeframe trend read</li><li>5m through 1D at a glance</li><li>No tab-switching needed</li></ul></div>
+<div class="module-card"><span class="mod-tag">Add-Ons</span><h4>VWAP, EMAs, Zones &amp; Structure</h4><ul><li>VWAP + extra EMAs</li><li>Supply/demand zones</li><li>BOS/CHoCH structure, order blocks</li></ul></div>
+<div class="module-card"><span class="mod-tag">Automation</span><h4>Native TradingView Alerts</h4><ul><li>Pinged on signal confirm</li><li>Trap Zone entry/exit alerts</li><li>Set once, notified anywhere</li></ul></div>
+<div class="module-card"><span class="mod-tag">Branding</span><h4>Full Visual Customization</h4><ul><li>Every label restyled</li><li>Colors, sizes, text strings</li><li>Re-brand it as your own</li></ul></div>
+<div class="module-card"><span class="mod-tag">Any Market</span><h4>Works On Any Chart</h4><ul><li>Crypto, forex, indices</li><li>Futures &amp; stocks</li><li>Any timeframe on TradingView</li></ul></div>
+</div>
+</div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how-it-works">
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow">How It Works</span>
+<h2>From market reaction to confirmed trade in four steps</h2>
+<p>The exact detection method stays under the hood — what you see is a clean, repeatable process on every chart you open.</p>
+</div>
+<div class="flow">
+<div class="flow-step"><span class="num">1</span><h4>Trend Read</h4><p>QuantiVector continuously reads the market's underlying direction, bar by bar.</p></div>
+<div class="flow-step"><span class="num">2</span><h4>Setup Zone Marked</h4><p>A reaction against the trend is grouped into one clean shaded zone — no candle-by-candle clutter.</p></div>
+<div class="flow-step"><span class="num">3</span><h4>Breakout Confirms</h4><p>The moment price reclaims the trend direction, a large BUY or SELL label locks in — non-repainting.</p></div>
+<div class="flow-step"><span class="num">4</span><h4>Plan &amp; Score Attached</h4><p>Entry, SL, three TPs, and a confidence percentage are all plotted automatically.</p></div>
+</div>
+</div>
+</section>
+
+<!-- ============ LIVE BACKTEST PROOF ============ -->
+<section class="band-black">
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow" style="background:rgba(224,16,42,.16);border-color:rgba(224,16,42,.3);color:#ff9aa6;">Proof, Not Promises</span>
+<h2 style="color:#fff;">A live scoreboard, right on your chart</h2>
+<p>No cherry-picked backtest screenshots. QuantiVector keeps a running, self-updating record of its own signals — so you always know exactly how it's performing on the symbol you're watching, right now.</p>
+</div>
+<div class="report-panel" style="max-width:520px;margin:0 auto;">
+<div class="report-panel-head"><span class="live-dot" style="width:7px;height:7px;border-radius:50%;background:var(--red);display:inline-block;"></span> QuantiVector Report — Live</div>
+<div class="report-stats">
+<div><div class="val">73.4%</div><div class="lbl">Win Rate</div></div>
+<div><div class="val">248</div><div class="lbl">Qualified Trades</div></div>
+<div><div class="val">88%</div><div class="lbl">Avg Score — Wins</div></div>
+</div>
+<div class="report-rule"></div>
+<div class="report-foot">Adaptive quality bar auto-recalibrates as market behavior changes. Figures illustrative — your results depend on the chart, timeframe, and market you trade.</div>
+</div>
+</div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section id="pricing">
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow dd-eyebrow">🔥 Double Dhamaka Pricing</span>
+<h2>Get QuantiVector on TradingView</h2>
+<p>Choose the plan that fits you — every plan unlocks the full toolkit, no feature gates.</p>
+</div>
+<div class="pricing-grid">
+
+<div class="plan">
+<span class="plan-name">🚀 1 Month</span>
+<span class="price-old">₹999</span>
+<div class="price">₹99 <small>/ month</small></div>
+<div class="plan-setup">+ ₹99 one-time setup</div>
+<div class="plan-total">₹198 total today</div>
+<span class="plan-save">Save ₹801 · 80% OFF</span>
+<p class="plan-desc" style="margin-top:16px;">Full access, billed monthly — flexible, cancel anytime.</p>
+<ul class="f-list">
+<li><span class="chk">✓</span> Full indicator access</li>
+<li><span class="chk">✓</span> All extra tools (VWAP, order blocks, structure)</li>
+<li><span class="chk">✓</span> Full alert access</li>
+<li><span class="chk">✓</span> Priority support</li>
+</ul>
+<a href="https://nestail.in/checkout.php?product=qunty-vector-1-month-subscription" class="btn btn-outline btn-block">Buy 1 Month</a>
+</div>
+
+<div class="plan pop">
+<span class="plan-badge">⭐ Most Popular</span>
+<span class="dd-chip">🔥 Double Dhamaka</span>
+<span class="plan-name">⭐ 3 Months</span>
+<span class="price-old">₹2,997</span>
+<div class="price">₹249 <small>/ 3 mo</small></div>
+<div class="plan-setup">+ ₹99 one-time setup</div>
+<div class="plan-total">₹348 total today</div>
+<span class="plan-save">Save ₹2,649 · 88% OFF</span>
+<div class="dd-bonus">🎁 +3 Months FREE → 6 Months Total Access<span>≈ ₹58/mo effective</span></div>
+<p class="plan-desc" style="margin-top:16px;">Best value for traders committing to a full quarter.</p>
+<ul class="f-list">
+<li><span class="chk">✓</span> Everything in 1-Month</li>
+<li><span class="chk">✓</span> Double duration — 6 months total access</li>
+<li><span class="chk">✓</span> Locked-in launch pricing</li>
+<li><span class="chk">✓</span> Priority support</li>
+</ul>
+<a href="https://nestail.in/checkout.php?product=qunty-vector-3-month-3-month-bonus" class="btn btn-red btn-block">Buy 3 Months + Bonus 3 Months</a>
+</div>
+
+<div class="plan">
+<span class="dd-chip">🔥 Double Dhamaka</span>
+<span class="plan-name">👑 1 Year</span>
+<span class="price-old">₹12,986</span>
+<div class="price">₹899 <small>/ year</small></div>
+<div class="plan-setup">Setup fee: FREE</div>
+<div class="plan-total">₹899 total today</div>
+<span class="plan-save">Save ₹12,087 · 93% OFF</span>
+<div class="dd-bonus">🎁 +2 Years FREE → 3 Years Total Access<span>≈ ₹25/mo effective</span></div>
+<p class="plan-desc" style="margin-top:16px;">Maximum savings for traders committing for the long run.</p>
+<ul class="f-list">
+<li><span class="chk">✓</span> Everything in 3-Months</li>
+<li><span class="chk">✓</span> Triple duration — 3 years total access</li>
+<li><span class="chk">✓</span> Locked-in launch pricing</li>
+<li><span class="chk">✓</span> Priority support</li>
+</ul>
+<a href="https://nestail.in/checkout.php?product=qunty-vector-1-year-1-year-bonus" class="btn btn-outline btn-block">Buy 1 Year + Bonus 2 Years</a>
+</div>
+
+</div>
+<div class="trust-note">Access is granted directly on <b>TradingView</b> — have your TradingView username ready at checkout, for any plan.</div>
+</div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="band-tint">
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow">FAQ</span>
+<h2>Questions, answered</h2>
+</div>
+<div class="faq">
+<details class="faq-item" open>
+<summary>Does QuantiVector repaint?</summary>
+<p>No. Every signal is calculated from already-closed candle data, so historical BUY/SELL signals never move or disappear after the fact.</p>
+</details>
+<details class="faq-item">
+<summary>Can I see exactly how the trend or score is calculated?</summary>
+<p>The core detection and scoring logic is kept internal to protect the strategy — you get full control over every visual, label, color, and alert instead.</p>
+</details>
+<details class="faq-item">
+<summary>Which markets and timeframes does it work on?</summary>
+<p>QuantiVector runs on any symbol and timeframe available on TradingView — crypto, forex, indices, futures, and stocks.</p>
+</details>
+<details class="faq-item">
+<summary>Do I need other indicators alongside it?</summary>
+<p>No. Signal detection, trade planning, confidence scoring, multi-timeframe bias, and backtest tracking are all built in. Extra tools like VWAP and order blocks are optional add-ons.</p>
+</details>
+<details class="faq-item">
+<summary>Can I rebrand the labels and colors?</summary>
+<p>Yes — every label's text, every zone color, and every panel's appearance is fully customizable.</p>
+</details>
+<details class="faq-item">
+<summary>How does access work after I pay?</summary>
+<p>Access is granted directly on your TradingView account — just have your TradingView username ready at checkout.</p>
+</details>
+<details class="faq-item">
+<summary>How does the Double Dhamaka bonus duration work?</summary>
+<p>On the 3-Month and 1-Year plans, we add extra months on top for free the moment you check out — 3 Months becomes 6 months of total access, and 1 Year becomes 3 years of total access. No separate claim needed.</p>
+</details>
+</div>
+</div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section>
+<div class="wrap">
+<div class="cta-band">
+<div>
+<h3>Stop guessing which reaction is real.</h3>
+<p>Get the signal, the trade plan, the confidence score, and the proof — all on one chart.</p>
+</div>
+<a href="#pricing" class="btn btn-red">Get Instant Access</a>
+</div>
+</div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+<div class="wrap">
+<div class="foot-top">
+<div style="max-width:420px;">
+<a href="index.html" class="brand"><span class="dot"></span> QuantiVector</a>
+<p class="foot-disc" style="margin-top:16px;">QuantiVector is a technical analysis tool for TradingView and does not constitute financial advice. Trading involves substantial risk of loss. Past performance — including any figures shown on this site — is not indicative of future results. Always conduct your own research and consult a qualified financial advisor before making trading decisions.</p>
+</div>
+</div>
+<div class="foot-bottom">
+<span>© 2026 QuantiVector. All rights reserved.</span>
+<span>Not affiliated with TradingView®.</span>
+</div>
+</div>
+</footer>
+
+<!-- ============ FIXED BOTTOM DOUBLE DHAMAKA BAR ============ -->
+<div class="dd-bottombar">
+<div class="dd-bottombar-inner">
+<div class="dd-bottombar-text">🔥 <b>Double Dhamaka</b> ends tonight — <span class="dd-bottombar-timer" id="dd-timer-bottom">00:00:00</span></div>
+<a href="#pricing" class="btn btn-sm dd-bottombar-cta">Get Extra Access →</a>
+</div>
+</div>
+
+<!-- ============ EXIT-INTENT POPUP ============ -->
+<div class="exit-overlay" id="exitOverlay">
+<div class="exit-modal">
+<button class="exit-close" id="exitClose" aria-label="Close">✕</button>
+<span class="eyebrow dd-eyebrow">🔥 Double Dhamaka</span>
+<h3>Wait — before you go</h3>
+<p>Your launch offer is still here. Every signal, the full trade plan, and the confidence score — granted directly on TradingView.</p>
+<div class="exit-price"><s>₹999</s> Plans from ₹99</div>
+<a href="#pricing" class="btn btn-red btn-block" id="exitCta">See Plans &amp; Pricing</a>
+<a href="#" class="exit-skip" id="exitSkip">No thanks, continue browsing</a>
+</div>
+</div>
+
+<script>
+// Evergreen daily countdown — always counts down to 11:59:59 PM local time "today",
+// rolling to the next day automatically once it passes. No fixed expiry date to go stale.
+function getDeadline(){
+  const d = new Date();
+  d.setHours(23,59,59,999);
+  if (d.getTime() <= Date.now()) d.setDate(d.getDate()+1);
+  return d;
+}
+function pad(n){ return String(n).padStart(2,'0'); }
+function tick(){
+  const diff = Math.max(0, getDeadline().getTime() - Date.now());
+  const hrs = Math.floor(diff/3600000);
+  const min = Math.floor((diff%3600000)/60000);
+  const sec = Math.floor((diff%60000)/1000);
+  const hh = pad(hrs), mm = pad(min), ss = pad(sec);
+  const top_h = document.getElementById('t-hrs'), top_m = document.getElementById('t-min'), top_s = document.getElementById('t-sec');
+  if (top_h) top_h.textContent = hh;
+  if (top_m) top_m.textContent = mm;
+  if (top_s) top_s.textContent = ss;
+  const bottom = document.getElementById('dd-timer-bottom');
+  if (bottom) bottom.textContent = hh+':'+mm+':'+ss;
+}
+tick();
+setInterval(tick, 1000);
+
+// Exit-intent popup — fires once when the cursor leaves the top of the viewport
+(function(){
+  const overlay = document.getElementById('exitOverlay');
+  let shown = false;
+  document.addEventListener('mouseout', function(e){
+    if (shown) return;
+    if (!e.relatedTarget && e.clientY <= 0){
+      overlay.classList.add('show');
+      shown = true;
+    }
+  });
+  document.getElementById('exitClose').addEventListener('click', function(){ overlay.classList.remove('show'); });
+  document.getElementById('exitSkip').addEventListener('click', function(e){ e.preventDefault(); overlay.classList.remove('show'); });
+  document.getElementById('exitCta').addEventListener('click', function(){ overlay.classList.remove('show'); });
+  overlay.addEventListener('click', function(e){ if (e.target === overlay) overlay.classList.remove('show'); });
+})();
+</script>
+
+</body>
+</html>
