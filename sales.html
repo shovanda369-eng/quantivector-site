@@ -55,6 +55,10 @@ padding:12px 16px;border-radius:10px;line-height:1.5;
 /* Checkmark contrast fix: chk circles use an icon-style bg/fg pairing, not the surrounding text color */
 .f-list .chk{color:#fff;font-size:12px;line-height:1;}
 .plan.pop .f-list .chk{color:var(--ink);}
+/* Top-of-page video demo */
+.video-demo{padding:52px 0 12px;}
+.video-frame{position:relative;width:100%;max-width:860px;margin:0 auto;aspect-ratio:16/9;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-card);border:1px solid var(--line);background:#0a0a0a;}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 </style>
 </head>
 <body>
@@ -72,7 +76,7 @@ padding:12px 16px;border-radius:10px;line-height:1.5;
 <a href="#faq">FAQ</a>
 </nav>
 <div class="nav-cta">
-<a href="#how-it-works" class="btn btn-outline btn-sm">See How It Works</a>
+<a href="#real-charts" class="btn btn-outline btn-sm">See Real Charts</a>
 <a href="#pricing" class="btn btn-red btn-sm">Get Instant Access</a>
 </div>
 </div>
@@ -90,7 +94,7 @@ padding:12px 16px;border-radius:10px;line-height:1.5;
 <div class="info-callout">ℹ️ Every signal is calculated only from already-closed candles — non-repainting, verified before it ever reaches your chart.</div>
 <div class="hero-cta-row" style="justify-content:center;margin-top:30px;">
 <a href="#pricing" class="btn btn-red">Get Instant Access</a>
-<a href="#how-it-works" class="btn btn-outline">See How It Works</a>
+<a href="#real-charts" class="btn btn-outline">See Real Charts</a>
 </div>
 <p class="hero-micro">Works on any market &amp; timeframe · Non-repainting signals · One-click TradingView alerts</p>
 </div>
@@ -133,6 +137,21 @@ padding:12px 16px;border-radius:10px;line-height:1.5;
 </div>
 </section>
 
+<!-- ============ VIDEO DEMO (multi-language, AI-dubbed) ============ -->
+<section class="video-demo">
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow">Watch It In Action</span>
+<h2>See QuantiVector plot a live trade in real time</h2>
+<p>Real TradingView chart, real signal, real trade plan — no slides, no design mockups.</p>
+</div>
+<div class="info-callout" style="max-width:640px;">🌐 <b>Multi-language audio</b> — this walkthrough is dubbed in multiple languages using AI voice technology. Tap <b>⚙ Settings → Audio Track</b> on the video player to switch language.</div>
+<div class="video-frame">
+<iframe src="https://www.youtube.com/embed/LdYkQ3BCM5Y" title="QuantiVector — TradingView Indicator Walkthrough" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+</div>
+</section>
+
 <!-- ============ DOUBLE DHAMAKA BANNER ============ -->
 <section class="dd-banner">
 <div class="wrap dd-banner-inner">
@@ -158,6 +177,40 @@ padding:12px 16px;border-radius:10px;line-height:1.5;
 <div><b>Direct</b><span>Activation On TradingView</span></div>
 </div>
 </div>
+
+<!-- ============ REAL CHART PROOF GALLERY ============ -->
+<section id="real-charts">
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow">Real Charts, Not Mockups</span>
+<h2>See QuantiVector draw it live</h2>
+<p>Pulled straight from TradingView — no mockups, no design tool.</p>
+</div>
+<div class="proof-disclaimer">⚡ <b>Everything on these charts is generated automatically by QuantiVector</b> — the Setup Zone, Entry, Stop Loss, all 3 Take-Profits, the Confidence Score, the Multi-Timeframe Bias table, and the Backtest Report. Nothing here is hand-drawn.</div>
+<div class="proof-gallery">
+<div class="proof-card">
+<span class="proof-badge">⚡ 100% Auto-Generated with QuantiVector</span>
+<img src="BTCUSDT_2026-08-26_14-08-37.png" alt="QuantiVector auto-plotted BUY signal on BTC/USDT 15m chart" loading="lazy">
+<div class="proof-caption"><span class="sym">BTC/USDT · 15m</span><span class="tag">Live Signal</span></div>
+</div>
+<div class="proof-card">
+<span class="proof-badge">⚡ 100% Auto-Generated with QuantiVector</span>
+<img src="SOLUSDT_2026-08-26_14-06-40.png" alt="QuantiVector auto-plotted BUY signal with Trap Zone detection on SOL/USDT 15m chart" loading="lazy">
+<div class="proof-caption"><span class="sym">SOL/USDT · 15m</span><span class="tag">Trap Zone Filter</span></div>
+</div>
+<div class="proof-card">
+<span class="proof-badge">⚡ 100% Auto-Generated with QuantiVector</span>
+<img src="XAUUSDT.P_2026-08-26_14-10-10.png" alt="QuantiVector auto-plotted signal with live backtest report on XAU Gold 15m chart" loading="lazy">
+<div class="proof-caption"><span class="sym">XAU/USDT · 15m</span><span class="tag">Live Backtest</span></div>
+</div>
+<div class="proof-card">
+<span class="proof-badge">⚡ 100% Auto-Generated with QuantiVector</span>
+<img src="SOLUSDT_2026-08-26_14-07-34.png" alt="QuantiVector auto-plotted multiple signals on SOL/USDT 15m chart" loading="lazy">
+<div class="proof-caption"><span class="sym">SOL/USDT · 15m</span><span class="tag">Multi-Timeframe Bias</span></div>
+</div>
+</div>
+</div>
+</section>
 
 <!-- ============ WHY QUANTIVECTOR ============ -->
 <section>
@@ -251,40 +304,6 @@ padding:12px 16px;border-radius:10px;line-height:1.5;
 </div>
 <div class="report-rule"></div>
 <div class="report-foot">Adaptive quality bar auto-recalibrates as market behavior changes. Figures illustrative — your results depend on the chart, timeframe, and market you trade.</div>
-</div>
-</div>
-</section>
-
-<!-- ============ REAL CHART PROOF GALLERY ============ -->
-<section id="real-charts">
-<div class="wrap">
-<div class="section-head">
-<span class="eyebrow">Real Charts, Not Mockups</span>
-<h2>See QuantiVector draw it live</h2>
-<p>Pulled straight from TradingView — no mockups, no design tool.</p>
-</div>
-<div class="proof-disclaimer">⚡ <b>Everything on these charts is generated automatically by QuantiVector</b> — the Setup Zone, Entry, Stop Loss, all 3 Take-Profits, the Confidence Score, the Multi-Timeframe Bias table, and the Backtest Report. Nothing here is hand-drawn.</div>
-<div class="proof-gallery">
-<div class="proof-card">
-<span class="proof-badge">⚡ 100% Auto-Generated</span>
-<img src="BTCUSDT_2026-08-26_14-08-37.png" alt="QuantiVector auto-plotted BUY signal on BTC/USDT 15m chart" loading="lazy">
-<div class="proof-caption"><span class="sym">BTC/USDT · 15m</span><span class="tag">Live Signal</span></div>
-</div>
-<div class="proof-card">
-<span class="proof-badge">⚡ 100% Auto-Generated</span>
-<img src="SOLUSDT_2026-08-26_14-06-40.png" alt="QuantiVector auto-plotted BUY signal with Trap Zone detection on SOL/USDT 15m chart" loading="lazy">
-<div class="proof-caption"><span class="sym">SOL/USDT · 15m</span><span class="tag">Trap Zone Filter</span></div>
-</div>
-<div class="proof-card">
-<span class="proof-badge">⚡ 100% Auto-Generated</span>
-<img src="XAUUSDT.P_2026-08-26_14-10-10.png" alt="QuantiVector auto-plotted signal with live backtest report on XAU Gold 15m chart" loading="lazy">
-<div class="proof-caption"><span class="sym">XAU/USDT · 15m</span><span class="tag">Live Backtest</span></div>
-</div>
-<div class="proof-card">
-<span class="proof-badge">⚡ 100% Auto-Generated</span>
-<img src="SOLUSDT_2026-08-26_14-07-34.png" alt="QuantiVector auto-plotted multiple signals on SOL/USDT 15m chart" loading="lazy">
-<div class="proof-caption"><span class="sym">SOL/USDT · 15m</span><span class="tag">Multi-Timeframe Bias</span></div>
-</div>
 </div>
 </div>
 </section>
