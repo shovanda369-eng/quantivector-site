@@ -713,15 +713,14 @@ padding:12px 16px;border-radius:10px;line-height:1.5;
 <span class="eyebrow dd-eyebrow">🔥 Double Dhamaka</span>
 <h3>Wait — before you go</h3>
 <p>Your launch offer is still here. Every signal, the full trade plan, and the confidence score — granted directly on TradingView.</p>
-<div class="exit-price"><s>₹999</s> Plans from ₹99</div>
+<div class="exit-price">Plans from ₹99</div>
 <a href="#pricing" class="btn btn-red btn-block" id="exitCta">See Plans &amp; Pricing</a>
 <a href="#" class="exit-skip" id="exitSkip">No thanks, continue browsing</a>
 </div>
 </div>
 
 <script>
-// Evergreen daily countdown — always counts down to 11:59:59 PM local time "today",
-// rolling to the next day automatically once it passes. No fixed expiry date to go stale.
+// Fixed one-time deadline: 28 Aug 2026, 11:59:59 PM IST.
 function getDeadline(){
   const d = new Date();
   d.setTime(Date.parse('2026-08-28T23:59:59+05:30'));
