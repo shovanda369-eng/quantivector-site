@@ -64,14 +64,25 @@ padding:12px 16px;border-radius:10px;line-height:1.5;
 .badge-strip .hero-badge{background:#fff;}
 .hero{padding-bottom:40px;}
 
-/* How It Works — alternating image/text showcase rows */
-.showcase-list{display:flex;flex-direction:column;gap:70px;}
-.showcase-row{display:flex;align-items:center;gap:52px;}
+/* How It Works — highlighted section + themed card rows */
+#how-it-works{
+  background:radial-gradient(1100px 500px at 50% -8%, rgba(224,16,42,.07), transparent 62%), #faf8f7;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.showcase-list{display:flex;flex-direction:column;gap:32px;}
+.showcase-row{
+  display:flex;align-items:center;gap:44px;
+  background:var(--accent-tint, #fff);border:1px solid var(--accent-tint-2, var(--line));
+  border-radius:22px;padding:34px 38px;box-shadow:var(--shadow-card);position:relative;overflow:hidden;
+}
 .showcase-row.reverse{flex-direction:row-reverse;}
 .showcase-media{flex:1 1 50%;min-width:0;}
 .showcase-media img{width:100%;height:auto;display:block;border-radius:var(--radius);box-shadow:var(--shadow-card);border:1px solid var(--line);background:#0a0a0a;}
 .showcase-text{flex:1 1 50%;min-width:0;}
-.showcase-num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:var(--red-tint);color:var(--red-dark);font-weight:900;font-size:13px;margin-bottom:16px;}
+.showcase-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:9px;background:var(--accent, var(--red));color:#fff;font-weight:900;font-size:13.5px;box-shadow:0 8px 18px -8px var(--accent, var(--red));}
+.showcase-kicker{display:inline-block;margin:0 0 12px;font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-dark, var(--red-dark));}
+.showcase-text .showcase-top{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.showcase-text .showcase-top .showcase-kicker{margin:0;}
 .showcase-text h3{font-size:24px;line-height:1.25;margin-bottom:12px;}
 .showcase-text p{font-size:14.5px;color:var(--muted);line-height:1.65;}
 
@@ -150,8 +161,8 @@ padding:28px 26px;text-align:center;box-shadow:var(--shadow-pop);position:relati
   .value-grid{grid-template-columns:repeat(2,1fr);}
   .module-grid{grid-template-columns:repeat(2,1fr);}
   .demo-grid{grid-template-columns:repeat(2,1fr);}
-  .showcase-row, .showcase-row.reverse{flex-direction:column;gap:22px;}
-  .showcase-list{gap:48px;}
+  .showcase-row, .showcase-row.reverse{flex-direction:column;gap:22px;padding:26px 22px;}
+  .showcase-list{gap:26px;}
   .showcase-text h3{font-size:21px;}
 }
 @media(max-width:600px){
@@ -276,46 +287,46 @@ padding:28px 26px;text-align:center;box-shadow:var(--shadow-pop);position:relati
 </div>
 <div class="showcase-list">
 
-<div class="showcase-row">
+<div class="showcase-row" style="--accent:#e0102a;--accent-dark:#a10d1e;--accent-tint:#fff5f6;--accent-tint-2:#ffd9df;">
 <div class="showcase-media"><img src="images/qv%201.PNG" alt="QuantiVector automated BUY signal with Entry, Stop Loss, and three Take-Profit levels" loading="lazy"></div>
 <div class="showcase-text">
-<span class="showcase-num">1</span>
+<div class="showcase-top"><span class="showcase-num">1</span><span class="showcase-kicker">Setup Plan</span></div>
 <h3>Every Trade Comes With a Full Plan</h3>
 <p>The moment a signal fires, QuantiVector auto-draws your Entry, Stop Loss, and three Take-Profit levels right on the chart — plus a shaded Setup Zone showing exactly where price reacted. No manual drawing, no guesswork, no lines to plot yourself.</p>
 </div>
 </div>
 
-<div class="showcase-row reverse">
+<div class="showcase-row reverse" style="--accent:#1d4ed8;--accent-dark:#1e40af;--accent-tint:#f0f5ff;--accent-tint-2:#d7e6ff;">
 <div class="showcase-media"><img src="images/backtest%20report%20panel.PNG" alt="QuantiVector live backtest report panel showing win rate, qualified trades, and average score" loading="lazy"></div>
 <div class="showcase-text">
-<span class="showcase-num">2</span>
+<div class="showcase-top"><span class="showcase-num">2</span><span class="showcase-kicker">Backtest Data</span></div>
 <h3>Know the Odds Before You Trade</h3>
 <p>A live Backtest Report panel sits right on your chart showing win rate, qualified trades, and the average score of winning setups — so you know how this exact pair and timeframe have performed before you risk a single rupee.</p>
 </div>
 </div>
 
-<div class="showcase-row">
+<div class="showcase-row" style="--accent:#7c3aed;--accent-dark:#6d28d9;--accent-tint:#f7f3ff;--accent-tint-2:#e6d9ff;">
 <div class="showcase-media"><img src="images/bos.PNG" alt="QuantiVector automated market structure showing HH, HL, LH, LL and break of structure" loading="lazy"></div>
 <div class="showcase-text">
-<span class="showcase-num">3</span>
+<div class="showcase-top"><span class="showcase-num">3</span><span class="showcase-kicker">Market Structure</span></div>
 <h3>See Market Structure Without the Guesswork</h3>
 <p>QuantiVector automatically marks Higher Highs, Higher Lows, Lower Highs, and Lower Lows — plus every Break of Structure — so you always know whether the trend is intact or shifting, without staring at candles for hours.</p>
 </div>
 </div>
 
-<div class="showcase-row reverse">
+<div class="showcase-row reverse" style="--accent:#15803d;--accent-dark:#166534;--accent-tint:#f1faf3;--accent-tint-2:#d3f0dc;">
 <div class="showcase-media"><img src="images/htf%20bias%20panel.PNG" alt="QuantiVector multi-timeframe bias table showing bullish, bearish, and neutral trend across timeframes" loading="lazy"></div>
 <div class="showcase-text">
-<span class="showcase-num">4</span>
+<div class="showcase-top"><span class="showcase-num">4</span><span class="showcase-kicker">Timeframe Bias</span></div>
 <h3>Check Every Timeframe In One Glance</h3>
 <p>The Multi-Timeframe Bias table reads 5m through 1D at the same time and tells you if each is Bullish, Bearish, or Neutral — so you never take a trade against the bigger trend again.</p>
 </div>
 </div>
 
-<div class="showcase-row">
+<div class="showcase-row" style="--accent:#b45309;--accent-dark:#92400e;--accent-tint:#fffaf0;--accent-tint-2:#ffe8bd;">
 <div class="showcase-media"><img src="images/trap%20and%20setup.PNG" alt="QuantiVector trap zone and setup zone detection with customizable settings" loading="lazy"></div>
 <div class="showcase-text">
-<span class="showcase-num">5</span>
+<div class="showcase-top"><span class="showcase-num">5</span><span class="showcase-kicker">Trap Detection</span></div>
 <h3>Avoid Fakeouts With Trap Zone Detection</h3>
 <p>Before a real move begins, price often fakes traders out. QuantiVector flags these Trap Zones automatically alongside the Buy/Sell Setup Zone — fully customizable in settings — so you don't get shaken out of good trades.</p>
 </div>
