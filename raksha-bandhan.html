@@ -187,7 +187,7 @@ padding:28px 26px;text-align:center;box-shadow:var(--shadow-pop);position:relati
 
 <!-- ============ TOP BAR + NAV (sticky, always visible) ============ -->
 <div class="sticky-top-group">
-<div class="top-bar">🎀 <b>Raksha Bandhan Special</b> — Full Year for ₹299 · Available Through 28 Aug 2026</div>
+<div class="top-bar">🎀 <b>Raksha Bandhan Special</b> — Full Year for ₹299 · Available Through 29 Aug 2026</div>
 
 <header class="nav sales-nav">
 <div class="wrap">
@@ -235,7 +235,7 @@ padding:28px 26px;text-align:center;box-shadow:var(--shadow-pop);position:relati
 
 <span class="rb-offer-now">₹299 <small>/ year</small></span>
 </div>
-<div class="rb-timer-label">Offer Ends 28 Aug 2026, 11:59 PM IST</div>
+<div class="rb-timer-label">Offer Ends 29 Aug 2026, 11:59 PM IST</div>
 <div class="rb-timer" id="rb-timer-top">
 <div class="rb-tbox"><span class="rb-tval" id="t-hrs">00</span><span class="rb-tlabel">HRS</span></div>
 <div class="rb-tbox"><span class="rb-tval" id="t-min">00</span><span class="rb-tlabel">MIN</span></div>
@@ -599,7 +599,7 @@ padding:28px 26px;text-align:center;box-shadow:var(--shadow-pop);position:relati
 <div class="section-head">
 <span class="eyebrow dd-eyebrow">🎀 Raksha Bandhan Pricing</span>
 <h2>1 Year of QuantiVector — ₹299</h2>
-<p>The full year plan, at Raksha Bandhan pricing. Available through 28 Aug 2026.</p>
+<p>The full year plan, at Raksha Bandhan pricing. Available through 29 Aug 2026.</p>
 </div>
 <div class="pricing-grid-single">
 <div class="plan pop">
@@ -635,7 +635,7 @@ padding:28px 26px;text-align:center;box-shadow:var(--shadow-pop);position:relati
 <div class="faq">
 <details class="faq-item" open>
 <summary>Is the ₹299 Raksha Bandhan offer really valid today?</summary>
-<p>Yes — ₹299 is available through Raksha Bandhan, 28 August 2026, 11:59 PM IST. After that it returns to regular pricing.</p>
+<p>Yes — ₹299 is available through Raksha Bandhan, 29 August 2026, 11:59 PM IST. After that it returns to regular pricing.</p>
 </details>
 <details class="faq-item">
 <summary>Does QuantiVector repaint?</summary>
@@ -663,7 +663,7 @@ padding:28px 26px;text-align:center;box-shadow:var(--shadow-pop);position:relati
 <div class="cta-band">
 <div>
 <h3>Don't let today's price slip away.</h3>
-<p>₹299 for a full year of QuantiVector — available through Raksha Bandhan, 28 August 2026.</p>
+<p>₹299 for a full year of QuantiVector — available through Raksha Bandhan, 29 August 2026.</p>
 </div>
 <a href="#offer" class="btn btn-red">Claim ₹299 Offer</a>
 </div>
@@ -689,7 +689,7 @@ padding:28px 26px;text-align:center;box-shadow:var(--shadow-pop);position:relati
 <!-- ============ FIXED BOTTOM BAR ============ -->
 <div class="dd-bottombar">
 <div class="dd-bottombar-inner">
-<div class="dd-bottombar-text">🎀 <b>Raksha Bandhan Special</b> ends 28 Aug 2026 — <span class="dd-bottombar-timer" id="rb-timer-bottom">00:00:00</span></div>
+<div class="dd-bottombar-text">🎀 <b>Raksha Bandhan Special</b> ends 29 Aug 2026 — <span class="dd-bottombar-timer" id="rb-timer-bottom">00:00:00</span></div>
 <a href="#offer" class="btn btn-sm dd-bottombar-cta">Claim ₹299 →</a>
 </div>
 </div>
@@ -708,7 +708,7 @@ padding:28px 26px;text-align:center;box-shadow:var(--shadow-pop);position:relati
 </div>
 
 <script>
-// Fixed one-time deadline: 28 Aug 2026, 11:59:59 PM IST.
+// Fixed one-time deadline: 29 Aug 2026, 11:59:59 PM IST.
 function pad(n){ return String(n).padStart(2,'0'); }
 
 // Get the current wall-clock time in IST, regardless of the visitor's own timezone.
@@ -720,7 +720,7 @@ function getISTNow(){
 function getDeadline(){
   const istNow = getISTNow();
   const deadlineIST = new Date(istNow.getTime());
-  deadlineIST.setTime(Date.parse('2026-08-28T23:59:59+05:30'));
+  deadlineIST.setTime(Date.parse('2026-08-29T23:59:59+05:30'));
   // fixed one-time deadline, no roll-forward
   const msRemaining = deadlineIST.getTime() - istNow.getTime();
   return Date.now() + msRemaining;
