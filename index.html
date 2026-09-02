@@ -82,19 +82,19 @@ src="https://www.facebook.com/tr?id=2265961560907677&ev=PageView&noscript=1"
   </div>
 </div>
 
-<!-- ============ DOUBLE DHAMAKA OFFER BANNER ============ -->
+<!-- ============ JANMASHTAMI OFFER BANNER ============ -->
 <section class="dd-banner">
   <div class="wrap dd-banner-inner">
-    <span class="eyebrow dd-eyebrow">🔥 Double Dhamaka Offer</span>
-    <h2 class="dd-title">DOUBLE DHAMAKA OFFER</h2>
-    <p class="dd-sub">Buy <b>3 Months</b> → Get <b>6 Months Total</b> &nbsp;|&nbsp; Buy <b>1 Year</b> → Get <b>3 Years Total</b></p>
+    <span class="eyebrow dd-eyebrow">🪈 Shri Krishna Janmashtami Special</span>
+    <h2 class="dd-title">JANMASHTAMI SPECIAL</h2>
+    <p class="dd-sub">1 Full Year of QuantiVector — <b>₹899 → ₹299</b></p>
     <div class="dd-timer">
       <div class="dd-tbox"><span class="dd-tval dd-hrs">00</span><span class="dd-tlabel">HRS</span></div>
       <div class="dd-tbox"><span class="dd-tval dd-min">00</span><span class="dd-tlabel">MIN</span></div>
       <div class="dd-tbox"><span class="dd-tval dd-sec">00</span><span class="dd-tlabel">SEC</span></div>
     </div>
-    <p class="dd-valid">Offer valid till <span class="dd-date">today</span>, 11:59 PM IST</p>
-    <a href="#pricing" class="btn btn-red dd-cta">Claim Double Dhamaka Offer →</a>
+    <p class="dd-valid">Offer valid till 5 Sept 2026, 11:59 PM IST</p>
+    <a href="janmashtami.html" class="btn btn-red dd-cta">Claim ₹299 Offer →</a>
   </div>
 </section>
 
@@ -825,11 +825,11 @@ src="https://www.facebook.com/tr?id=2265961560907677&ev=PageView&noscript=1"
   </div>
 </footer>
 
-<!-- ============ FIXED BOTTOM DOUBLE DHAMAKA BAR ============ -->
+<!-- ============ FIXED BOTTOM JANMASHTAMI BAR ============ -->
 <div class="dd-bottombar">
   <div class="dd-bottombar-inner">
-    <span class="dd-bottombar-text">🔥 <b>Double Dhamaka Offer</b> ends today, <span class="dd-date">today</span> &nbsp;<span class="dd-bottombar-timer"><span class="dd-hrs">00</span>:<span class="dd-min">00</span>:<span class="dd-sec">00</span></span></span>
-    <a href="#pricing" class="btn btn-red btn-sm dd-bottombar-cta">Get Extra Access →</a>
+    <span class="dd-bottombar-text">🪈 <b>Shri Krishna Janmashtami Special</b> ends 5 Sept 2026 &nbsp;<span class="dd-bottombar-timer"><span class="dd-hrs">00</span>:<span class="dd-min">00</span>:<span class="dd-sec">00</span></span></span>
+    <a href="janmashtami.html" class="btn btn-red btn-sm dd-bottombar-cta">Claim ₹299 →</a>
   </div>
 </div>
 
@@ -841,28 +841,28 @@ src="https://www.facebook.com/tr?id=2265961560907677&ev=PageView&noscript=1"
     });
   });
 
-  // ---------- Double Dhamaka evergreen countdown (always ends 11:59:59 PM IST, today) ----------
+  // ---------- Janmashtami countdown: fixed one-time deadline, 5 Sept 2026, 11:59:59 PM IST ----------
   (function(){
-    var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    function getISTNow(){
-      var now = new Date();
-      var utcMs = now.getTime() + (now.getTimezoneOffset() * 60000);
-      return new Date(utcMs + 5.5 * 60 * 60000);
-    }
     function pad(n){ return String(n).padStart(2, '0'); }
-    function formatDate(d){ return d.getDate() + ' ' + MONTHS[d.getMonth()]; }
+    function getISTNow(){
+      var istString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
+      return new Date(istString);
+    }
+    function getDeadline(){
+      var istNow = getISTNow();
+      var deadlineIST = new Date(istNow.getTime());
+      deadlineIST.setTime(Date.parse('2026-09-05T23:59:59+05:30'));
+      var msRemaining = deadlineIST.getTime() - istNow.getTime();
+      return Date.now() + msRemaining;
+    }
     function tick(){
-      var ist = getISTNow();
-      var deadline = new Date(Date.parse('2026-08-30T23:59:59+05:30') + 5.5*60*60000);
-      var diff = deadline.getTime() - ist.getTime();
-      if (diff < 0) diff = 0;
+      var diff = Math.max(0, getDeadline() - Date.now());
       var hrs = Math.floor(diff / 3600000);
       var mins = Math.floor((diff % 3600000) / 60000);
       var secs = Math.floor((diff % 60000) / 1000);
       document.querySelectorAll('.dd-hrs').forEach(function(el){ el.textContent = pad(hrs); });
       document.querySelectorAll('.dd-min').forEach(function(el){ el.textContent = pad(mins); });
       document.querySelectorAll('.dd-sec').forEach(function(el){ el.textContent = pad(secs); });
-      document.querySelectorAll('.dd-date').forEach(function(el){ el.textContent = formatDate(deadline); });
     }
     tick();
     setInterval(tick, 1000);
