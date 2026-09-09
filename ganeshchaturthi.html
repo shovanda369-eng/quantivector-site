@@ -240,7 +240,8 @@ padding:28px 26px;text-align:center;box-shadow:var(--shadow-pop);position:relati
 </div>
 <div class="rb-timer-label">Offer Ends 14 Sept 2026, 11:59 PM IST</div>
 <div class="rb-timer" id="rb-timer-top">
-<div class="rb-tbox"><span class="rb-tval" id="t-hrs">00</span><span class="rb-tlabel">HRS</span></div>
+<div class="rb-tbox"><span class="rb-tval" id="t-days">00</span><span class="rb-tlabel">DAYS</span></div>
+      <div class="rb-tbox"><span class="rb-tval" id="t-hrs">00</span><span class="rb-tlabel">HRS</span></div>
 <div class="rb-tbox"><span class="rb-tval" id="t-min">00</span><span class="rb-tlabel">MIN</span></div>
 <div class="rb-tbox"><span class="rb-tval" id="t-sec">00</span><span class="rb-tlabel">SEC</span></div>
 </div>
@@ -731,16 +732,18 @@ function getDeadline(){
 
 function tick(){
   const diff = Math.max(0, getDeadline() - Date.now());
-  const hrs = Math.floor(diff/3600000);
+  const days = Math.floor(diff/86400000);
+  const hrs = Math.floor((diff%86400000)/3600000);
   const min = Math.floor((diff%3600000)/60000);
   const sec = Math.floor((diff%60000)/1000);
-  const hh = pad(hrs), mm = pad(min), ss = pad(sec);
-  const top_h = document.getElementById('t-hrs'), top_m = document.getElementById('t-min'), top_s = document.getElementById('t-sec');
+  const dd = pad(days), hh = pad(hrs), mm = pad(min), ss = pad(sec);
+  const top_d = document.getElementById('t-days'), top_h = document.getElementById('t-hrs'), top_m = document.getElementById('t-min'), top_s = document.getElementById('t-sec');
+  if (top_d) top_d.textContent = dd;
   if (top_h) top_h.textContent = hh;
   if (top_m) top_m.textContent = mm;
   if (top_s) top_s.textContent = ss;
   const bottom = document.getElementById('rb-timer-bottom');
-  if (bottom) bottom.textContent = hh+':'+mm+':'+ss;
+  if (bottom) bottom.textContent = dd+'d '+hh+':'+mm+':'+ss;
 }
 tick();
 setInterval(tick, 1000);
