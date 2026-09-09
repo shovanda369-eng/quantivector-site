@@ -827,6 +827,18 @@ footer{background:#120A06;border-top:1px solid var(--line);}
 .jan-icon{filter:drop-shadow(0 10px 20px rgba(0,0,0,.5));}
 .demo-card{background:#1E1109;border:1px solid var(--line);}
 
+
+/* ===== FIX: hardcoded-white elements missed in first pass ===== */
+.hero{background-color:var(--bg);background-image:linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);}
+.hero::after{background:radial-gradient(62% 46% at 50% 0%, rgba(22,12,8,0) 0%, #160C08 94%);}
+.chart-card{background:#1E1109;}
+.proof-card{background:#1E1109;}
+.proof-badge{background:#1E1109;}
+.module-card{background:#1E1109;}
+.plan.pop{background:#1E1109;}
+.cta-band{background:#1E1109;background-image:radial-gradient(circle at 15% 20%, rgba(242,167,27,.25), transparent 45%);}
+.dd-bottombar-cta{background:var(--red);color:#1B0F06;}
+
 </style>
 </body>
 </html>
