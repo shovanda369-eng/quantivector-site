@@ -183,6 +183,58 @@ padding:28px 26px;text-align:center;box-shadow:var(--shadow-pop);position:relati
 @media(max-width:400px){
   .hero-h1{font-size:24px;}
 }
+
+/* ===== GANESH CHATURTHI — DEEP RED/ORANGE PREMIUM DARK THEME ===== */
+:root{
+  --bg:#150807;
+  --ink:#FBF1E6;
+  --ink-soft:#EDDBC9;
+  --muted:#CBB29C;
+  --muted-2:#A8886F;
+  --red:#E8452C;
+  --red-dark:#FF7A45;
+  --red-tint:rgba(232,69,44,0.14);
+  --red-tint-2:rgba(232,69,44,0.30);
+  --line:rgba(255,255,255,0.12);
+  --grid-line:rgba(255,255,255,0.05);
+  --shadow-card:0 1px 2px rgba(0,0,0,.6), 0 12px 30px -18px rgba(0,0,0,.8);
+  --shadow-pop:0 25px 70px -20px rgba(0,0,0,.85);
+}
+body{background:var(--bg);color:var(--ink);}
+.nav{background:rgba(13,5,4,0.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.btn-outline{background:transparent;color:var(--ink);border-color:var(--line);}
+footer{background:#0D0504;border-top:1px solid var(--line);}
+.plan{background:#1F0F0D;border:1px solid var(--line);}
+.value-card{background:#1F0F0D;border:1px solid var(--line);}
+.rb-offer-card{background:#1F0F0D;border:2px solid var(--red);}
+.exit-modal{background:#1F0F0D;}
+.exit-close{background:#1F0F0D;border:1px solid var(--line);color:var(--muted);}
+.top-bar{background:#0D0504;color:#fff;}
+.top-bar b{color:var(--red-dark);}
+.info-callout{background:var(--red-tint);border:1px solid var(--red-tint-2);color:var(--ink-soft);}
+.rb-tbox{background:#0D0504;color:#fff;}
+.trust-note{background:var(--red-tint);border:1px solid var(--red-tint-2);color:var(--ink-soft);}
+.trust-note b{color:var(--red-dark);}
+#how-it-works{background:radial-gradient(1100px 500px at 50% -8%, var(--red-tint), transparent 62%), #170908;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.band-tint{background:linear-gradient(180deg,#150807,#1B0B09 60%,#150807);}
+.showcase-row{background:#1F0F0D !important;border:1px solid var(--line) !important;}
+.hero-badge{background:#1F0F0D;border:1px solid var(--line);color:var(--ink-soft);}
+.badge-strip .hero-badge{background:#1F0F0D;}
+.chk{color:#fff;}
+.plan.pop .f-list .chk{color:#fff;}
+.exit-price s{color:var(--muted-2);}
+.jan-icon{filter:drop-shadow(0 10px 20px rgba(0,0,0,.6));}
+.demo-card{background:#1F0F0D;border:1px solid var(--line);}
+.hero{background-color:var(--bg);background-image:linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);}
+.hero::after{background:radial-gradient(62% 46% at 50% 0%, rgba(21,8,7,0) 0%, #150807 94%);}
+.chart-card{background:#1F0F0D;}
+.proof-card{background:#1F0F0D;}
+.proof-badge{background:#1F0F0D;}
+.module-card{background:#1F0F0D;}
+.plan.pop{background:linear-gradient(160deg,#2A1210,#1B0B09);}
+.cta-band{background:#1F0F0D;background-image:radial-gradient(circle at 15% 20%, var(--red-tint), transparent 45%);}
+.dd-bottombar-cta{background:var(--red);color:#fff;}
+
 </style>
 </head>
 <body>
@@ -785,60 +837,3 @@ setInterval(updateTodayDate, 60000);
 @media (max-width:480px){.wa-support-label{display:none}.wa-support-btn{padding:12px;border-radius:50%;}}
 
 
-/* ===== GANESH CHATURTHI — DARK THEME OVERRIDE (appended, wins by source order) ===== */
-:root{
-  --bg:#160C08;
-  --ink:#FBEEDD;
-  --ink-soft:#F3E2C8;
-  --muted:#D8C3A5;
-  --muted-2:#B39A78;
-  --red:#F2A71B;
-  --red-dark:#F7C948;
-  --red-tint:rgba(242,167,27,0.14);
-  --red-tint-2:rgba(242,167,27,0.30);
-  --line:rgba(255,255,255,0.12);
-  --grid-line:rgba(255,255,255,0.05);
-  --shadow-card:0 1px 2px rgba(0,0,0,.5), 0 12px 30px -18px rgba(0,0,0,.7);
-  --shadow-pop:0 25px 70px -20px rgba(0,0,0,.8);
-}
-body{background:var(--bg);color:var(--ink);}
-.nav{background:rgba(15,9,6,0.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
-.btn-outline{background:transparent;color:var(--ink);border-color:var(--line);}
-footer{background:#120A06;border-top:1px solid var(--line);}
-.plan{background:#1E1109;border:1px solid var(--line);}
-.value-card{background:#1E1109;border:1px solid var(--line);}
-.rb-offer-card{background:#1E1109;border:2px solid var(--red);}
-.exit-modal{background:#1E1109;}
-.exit-close{background:#1E1109;border:1px solid var(--line);color:var(--muted);}
-.top-bar{background:#0A0503;color:#fff;}
-.top-bar b{color:var(--red-dark);}
-.info-callout{background:rgba(242,167,27,0.10);border:1px solid rgba(242,167,27,0.25);color:var(--ink-soft);}
-.rb-tbox{background:#0A0503;color:#fff;}
-.trust-note{background:var(--red-tint);border:1px solid var(--red-tint-2);color:var(--ink-soft);}
-.trust-note b{color:var(--red-dark);}
-#how-it-works{background:radial-gradient(1100px 500px at 50% -8%, rgba(242,167,27,.12), transparent 62%), #150B07;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-.band-tint{background:linear-gradient(180deg,#160C08,#1A0F09 60%,#160C08);}
-.showcase-row{background:#1E1109 !important;border:1px solid var(--line) !important;}
-.hero-badge{background:#1E1109;border:1px solid var(--line);color:var(--ink-soft);}
-.badge-strip .hero-badge{background:#1E1109;}
-.chk{color:#1B0F06;}
-.plan.pop .f-list .chk{color:#1B0F06;}
-.exit-price s{color:var(--muted-2);}
-.jan-icon{filter:drop-shadow(0 10px 20px rgba(0,0,0,.5));}
-.demo-card{background:#1E1109;border:1px solid var(--line);}
-
-
-/* ===== FIX: hardcoded-white elements missed in first pass ===== */
-.hero{background-color:var(--bg);background-image:linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);}
-.hero::after{background:radial-gradient(62% 46% at 50% 0%, rgba(22,12,8,0) 0%, #160C08 94%);}
-.chart-card{background:#1E1109;}
-.proof-card{background:#1E1109;}
-.proof-badge{background:#1E1109;}
-.module-card{background:#1E1109;}
-.plan.pop{background:#1E1109;}
-.cta-band{background:#1E1109;background-image:radial-gradient(circle at 15% 20%, rgba(242,167,27,.25), transparent 45%);}
-.dd-bottombar-cta{background:var(--red);color:#1B0F06;}
-
-</style>
-</body>
-</html>
