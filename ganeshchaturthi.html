@@ -12,6 +12,7 @@
   gtag('js', new Date());
   gtag('config', 'G-Q3YGLEC0SH');
 </script>
+
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -29,141 +30,164 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=2265961560907677&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-
 <title>Ganesh Chaturthi Special — QuantiVector | ₹299 for 1 Full Year</title>
 <meta name="description" content="This Ganesh Chaturthi, get QuantiVector — the high-accuracy TradingView BUY/SELL signal indicator — for a full year at ₹299. Special festive-season price, available for a limited time.">
 <link rel="stylesheet" href="style.css">
 <style>
-/* ===== Ganesh Chaturthi offer page — new layout + new color system, everything else reuses style.css ===== */
+/* ===== Ganesh Chaturthi offer page — everything else reuses style.css ===== */
 body{padding-bottom:0;}
-
-:root{
-  --gc-saffron:#F4790C;
-  --gc-saffron-dark:#C2410C;
-  --gc-maroon:#7A1330;
-  --gc-maroon-dark:#5C0E24;
-  --gc-gold:#D9A214;
-  --gc-gold-light:#F5C451;
-  --gc-cream:#FFF7EC;
-  --gc-cream-2:#FFEFD9;
+.top-bar{background:#0a0a0a;color:#fff;text-align:center;font-size:13px;font-weight:700;padding:9px 16px;}
+.top-bar b{color:#ff6b7d;}
+.sales-nav .navlinks{display:flex;}
+.sales-nav .nav-cta{gap:10px;}
+.sticky-top-group{position:sticky;top:0;z-index:60;}
+.sticky-top-group .nav{position:static;}
+@media(max-width:960px){
+  .sales-nav .navlinks{display:none;}
+  .sales-nav .nav-cta{display:flex;}
+  .sales-nav .nav-cta .btn-outline{display:none;}
+  .sales-nav .nav-cta .btn-red{padding:9px 14px;font-size:12.5px;}
 }
+@media(max-width:380px){
+  .sales-nav .brand{font-size:15px;}
+  .sales-nav .nav-cta .btn-red{padding:8px 11px;font-size:11.5px;}
+}
+.hero-h1{font-size:48px;margin-top:22px;}
+.hero-sub{max-width:640px;margin-left:auto;margin-right:auto;font-size:18px;}
+.jan-icon{display:flex;justify-content:center;margin-bottom:6px;}
+.jan-icon img{width:130px;height:auto;filter:drop-shadow(0 10px 20px rgba(0,0,0,.25));animation:kBob 2.6s ease-in-out infinite;border-radius:16px;}
+@keyframes kBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.info-callout{
+display:flex;align-items:flex-start;gap:10px;max-width:560px;margin:22px auto 0;
+background:#fff8ea;border:1px solid #f5e2b3;color:#7a5a12;font-size:13.5px;font-weight:600;
+padding:12px 16px;border-radius:10px;line-height:1.5;
+}
+.badge-strip{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:34px;}
+.badge-strip .hero-badge{background:#fff;}
+.hero{padding-bottom:40px;}
 
-.top-bar{background:var(--gc-maroon);color:#fff;text-align:center;font-size:14px;font-weight:600;padding:10px 16px;}
-.top-bar b{color:var(--gc-gold-light);}
+/* How It Works — highlighted section + themed card rows */
+#how-it-works{
+  background:radial-gradient(1100px 500px at 50% -8%, rgba(224,16,42,.07), transparent 62%), #faf8f7;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.showcase-list{display:flex;flex-direction:column;gap:32px;}
+.showcase-row{
+  display:flex;align-items:center;gap:44px;
+  background:var(--accent-tint, #fff);border:1px solid var(--accent-tint-2, var(--line));
+  border-radius:22px;padding:34px 38px;box-shadow:var(--shadow-card);position:relative;overflow:hidden;
+}
+.showcase-row.reverse{flex-direction:row-reverse;}
+.showcase-media{flex:1 1 50%;min-width:0;}
+.showcase-media img{width:100%;height:auto;display:block;border-radius:var(--radius);box-shadow:var(--shadow-card);border:1px solid var(--line);background:#0a0a0a;}
+.showcase-text{flex:1 1 50%;min-width:0;}
+.showcase-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:9px;background:var(--accent, var(--red));color:#fff;font-weight:900;font-size:13.5px;box-shadow:0 8px 18px -8px var(--accent, var(--red));}
+.showcase-kicker{display:inline-block;margin:0 0 12px;font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-dark, var(--red-dark));}
+.showcase-text .showcase-top{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.showcase-text .showcase-top .showcase-kicker{margin:0;}
+.showcase-text h3{font-size:24px;line-height:1.25;margin-bottom:12px;}
+.showcase-text p{font-size:14.5px;color:var(--muted);line-height:1.65;}
 
-.sales-nav{border-bottom:1px solid rgba(122,19,48,0.12);}
-.sales-nav .btn-red{background:var(--gc-saffron);}
-.sales-nav .btn-red:hover{background:var(--gc-saffron-dark);}
-.sales-nav .btn-outline{border-color:var(--gc-maroon);color:var(--gc-maroon);}
+/* Offer callout card */
+.rb-offer-card{
+max-width:680px;margin:32px auto 0;background:#fff;border:2px solid var(--red);border-radius:18px;
+padding:28px 26px;text-align:center;box-shadow:var(--shadow-pop);position:relative;
+}
+.rb-offer-card .info-callout{max-width:100%;text-align:left;margin:12px 0 0;}
+.video-frame{position:relative;width:100%;max-width:600px;aspect-ratio:16/9;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-card);border:1px solid var(--line);background:#0a0a0a;margin:20px auto 0;}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.rb-offer-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:6px 16px;border-radius:999px;white-space:nowrap;}
+.rb-offer-date{font-size:12.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:6px;}
+.rb-offer-price-row{display:flex;align-items:baseline;justify-content:center;gap:10px;margin-top:14px;}
+.rb-offer-old{font-size:19px;color:var(--muted-2);text-decoration:line-through;font-weight:700;}
+.rb-offer-now{font-size:46px;font-weight:900;color:var(--red);line-height:1;}
+.rb-offer-now small{font-size:16px;font-weight:700;color:var(--ink-soft);}
+.rb-offer-save{display:inline-block;margin-top:10px;background:var(--red-tint);border:1px solid var(--red-tint-2);color:var(--red-dark);font-size:12.5px;font-weight:800;padding:5px 14px;border-radius:999px;}
+.rb-timer-label{margin-top:20px;font-size:12.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;}
+.rb-timer{display:flex;justify-content:center;gap:10px;margin-top:10px;}
+.rb-tbox{background:var(--ink);color:#fff;border-radius:10px;padding:10px 14px;min-width:60px;}
+.rb-tval{display:block;font-size:24px;font-weight:900;font-variant-numeric:tabular-nums;}
+.rb-tlabel{display:block;font-size:10px;font-weight:700;letter-spacing:.06em;color:rgba(255,255,255,.6);margin-top:2px;}
+.rb-offer-note{margin-top:16px;font-size:12.5px;color:var(--muted);}
+.rb-offer-card .btn{margin-top:20px;width:100%;}
 
-/* ---------- HERO : split two-column layout (offer visible immediately, no scrolling past a video first) ---------- */
-.gc-hero{padding:48px 0 40px;background:linear-gradient(180deg,var(--gc-cream) 0%,#ffffff 62%);position:relative;overflow:hidden;}
-.gc-hero::before{content:"";position:absolute;top:-140px;right:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(244,121,12,0.16),transparent 70%);}
-.gc-hero::after{content:"";position:absolute;bottom:-160px;left:-120px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(122,19,48,0.10),transparent 70%);}
-.gc-hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:48px;align-items:center;position:relative;z-index:2;}
-@media (max-width:900px){.gc-hero-grid{grid-template-columns:1fr;gap:32px;}}
+.value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.value-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow-card);}
+.value-card .ic{width:44px;height:44px;border-radius:10px;background:var(--red-tint);color:var(--red);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px;}
+.value-card h3{font-size:16.5px;margin-bottom:8px;}
+.value-card p{font-size:13.8px;}
 
-.gc-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--gc-maroon);color:#fff;font-weight:800;font-size:13px;letter-spacing:.02em;padding:8px 16px;border-radius:999px;margin-bottom:18px;}
-.gc-h1{font-size:clamp(32px,4.4vw,50px);font-weight:900;letter-spacing:-0.02em;color:var(--ink);margin:0 0 16px;}
-.gc-h1 .accent{color:var(--gc-saffron-dark);}
-.gc-pill-highlight{display:inline-block;background:var(--gc-maroon);color:#fff;font-weight:700;font-size:15px;line-height:1.5;padding:12px 20px;border-radius:14px;max-width:560px;margin-bottom:18px;}
-.gc-sub{font-size:17px;color:var(--muted);line-height:1.6;margin:0 0 22px;max-width:540px;}
+.pricing-grid-single{max-width:420px;margin:0 auto;}
+.trust-note{max-width:640px;margin:40px auto 0;text-align:center;font-size:13.5px;color:var(--muted);background:var(--red-tint);border:1px solid var(--red-tint-2);padding:14px 18px;border-radius:10px;}
+.trust-note b{color:var(--red-dark);}
 
-.gc-trust-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
-.gc-trust-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid rgba(122,19,48,0.16);color:var(--gc-maroon);font-weight:700;font-size:13px;padding:8px 14px;border-radius:999px;}
+/* Exit-intent popup */
+.exit-overlay{position:fixed;inset:0;background:rgba(10,10,10,.6);z-index:300;display:none;align-items:center;justify-content:center;padding:20px;}
+.exit-overlay.show{display:flex;}
+.exit-modal{background:#fff;border-radius:18px;max-width:440px;width:100%;padding:36px 30px 30px;position:relative;box-shadow:var(--shadow-pop);text-align:center;}
+.exit-close{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:15px;color:var(--muted);}
+.exit-modal h3{font-size:22px;margin-top:6px;}
+.exit-modal p{margin-top:12px;font-size:14px;}
+.exit-price{margin-top:18px;font-size:15px;font-weight:800;}
+.exit-price s{color:var(--muted-2);font-weight:600;margin-right:6px;}
+.exit-modal .btn{margin-top:20px;}
+.exit-skip{display:block;margin-top:14px;font-size:12.5px;color:var(--muted-2);font-weight:600;}
 
-.gc-cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:16px;}
-.btn-gc{display:inline-flex;align-items:center;gap:8px;background:var(--gc-saffron);color:#fff;font-weight:800;font-size:16px;padding:16px 30px;border-radius:14px;box-shadow:0 14px 30px -12px rgba(244,121,12,0.55);transition:transform .15s ease, background .15s ease;}
-.btn-gc:hover{background:var(--gc-saffron-dark);transform:translateY(-1px);}
-.gc-risk-note{font-size:12px;color:var(--muted-2);margin-top:10px;}
-.gc-hero-micro{font-size:13px;color:var(--muted-2);margin-top:22px;}
+.f-list .chk{color:#fff;font-size:12px;line-height:1;}
+.plan.pop .f-list .chk{color:var(--ink);}
 
-/* Right column: visual + floating offer badge + timer */
-.gc-visual-card{position:relative;background:#fff;border:1px solid rgba(122,19,48,0.10);border-radius:24px;padding:38px 30px 26px;box-shadow:0 30px 70px -30px rgba(122,19,48,0.30);text-align:center;}
-.gc-modak-wrap{display:flex;justify-content:center;margin-bottom:6px;}
-.gc-modak-wrap svg{width:180px;height:170px;filter:drop-shadow(0 14px 22px rgba(122,19,48,0.28));animation:gcFloat 3.2s ease-in-out infinite;}
-@keyframes gcFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+/* Hero live-setup chart-card visual */
+.setup-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;font-size:13.5px;font-weight:700;color:var(--ink-soft);}
 
-.gc-floating-badge{position:absolute;top:22px;right:-14px;background:var(--gc-gold);color:var(--gc-maroon-dark);font-weight:900;font-size:12.5px;letter-spacing:.02em;padding:9px 16px;border-radius:12px;box-shadow:0 10px 22px -8px rgba(217,162,20,0.7);transform:rotate(6deg);}
+/* Feature demo cards (illustrated mini charts, one per core feature) */
+.demo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.demo-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow-card);}
+.demo-card svg{width:100%;height:auto;display:block;border-radius:10px;margin-bottom:14px;}
+.demo-card h4{font-size:15px;margin-bottom:6px;}
+.demo-card p{font-size:13px;color:var(--muted);}
 
-.gc-offer-date{font-size:12.5px;font-weight:700;color:var(--muted-2);text-transform:uppercase;letter-spacing:.05em;margin:16px 0 4px;}
-.gc-price-row{display:flex;align-items:baseline;justify-content:center;gap:8px;margin:6px 0 4px;}
-.gc-price-now{font-size:44px;font-weight:900;color:var(--gc-maroon);}
-.gc-price-now small{font-size:15px;font-weight:700;color:var(--muted);}
-.gc-timer-label{font-size:13px;font-weight:700;color:var(--gc-saffron-dark);margin:6px 0 14px;}
+/* Everything Inside QuantiVector — module grid */
+.module-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.module-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-card);}
+.module-card .mod-tag{font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--red-dark);background:var(--red-tint);border:1px solid var(--red-tint-2);display:inline-block;padding:3px 9px;border-radius:999px;margin-bottom:12px;}
+.module-card h4{font-size:15.5px;margin-bottom:10px;}
+.module-card ul{display:flex;flex-direction:column;gap:7px;}
+.module-card li{font-size:13px;color:var(--ink-soft);display:flex;gap:8px;align-items:flex-start;}
+.module-card li::before{content:"✓";color:var(--red);font-weight:900;flex:none;}
 
-.gc-timer{display:flex;justify-content:center;gap:10px;margin-bottom:20px;}
-.gc-tbox{background:var(--gc-maroon);color:#fff;min-width:58px;padding:10px 4px;border-radius:10px;}
-.gc-tval{display:block;font-weight:900;font-size:20px;line-height:1;}
-.gc-tlabel{display:block;font-size:9.5px;font-weight:700;letter-spacing:.06em;color:var(--gc-gold-light);margin-top:4px;}
-
-.gc-offer-note{font-size:12px;color:var(--muted-2);margin-top:8px;}
-
-/* ---------- Video section (full width, below hero) ---------- */
-.gc-video-section{padding:8px 0 56px;}
-.info-callout.gc-callout{background:var(--gc-cream-2);border:1px solid rgba(244,121,12,0.20);color:var(--ink-soft);}
-
-/* ---------- How it works: horizontal timeline strip (different from a card grid) ---------- */
-.gc-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:36px;}
-.gc-timeline::before{content:"";position:absolute;top:34px;left:8%;right:8%;height:2px;background:repeating-linear-gradient(90deg,rgba(122,19,48,0.25) 0 10px, transparent 10px 18px);}
-@media (max-width:820px){.gc-timeline{grid-template-columns:1fr;gap:28px;}.gc-timeline::before{display:none;}}
-.gc-tl-item{text-align:center;padding:0 14px;position:relative;z-index:2;}
-.gc-tl-ic{width:68px;height:68px;border-radius:50%;background:#fff;border:2px solid var(--gc-saffron);display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 16px;box-shadow:0 10px 22px -12px rgba(244,121,12,0.5);}
-.gc-tl-item h4{font-size:16px;margin-bottom:8px;}
-.gc-tl-item p{font-size:13.5px;color:var(--muted);line-height:1.5;}
-
-/* ---------- Showcase rows (alternating, festive accent) ---------- */
-.gc-showcase-row{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;padding:40px 0;border-bottom:1px solid rgba(10,10,10,0.06);}
-.gc-showcase-row:last-child{border-bottom:none;}
-.gc-showcase-row.rev .gc-media{order:2;}
-.gc-showcase-row.rev .gc-text{order:1;}
-@media (max-width:860px){.gc-showcase-row{grid-template-columns:1fr;gap:20px;}.gc-showcase-row.rev .gc-media,.gc-showcase-row.rev .gc-text{order:0;}}
-.gc-media img{border-radius:16px;border:1px solid rgba(10,10,10,0.08);box-shadow:0 20px 44px -24px rgba(10,10,10,0.25);}
-.gc-num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--gc-maroon);color:#fff;font-weight:800;font-size:13px;margin-right:8px;}
-.gc-kicker{font-weight:800;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--gc-saffron-dark);}
-.gc-text h3{font-size:24px;margin:12px 0 10px;}
-.gc-text p{font-size:15px;color:var(--muted);line-height:1.6;}
-
-/* ---------- Value grid (festive gold-accent bordered cards) ---------- */
-.gc-value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:32px;}
-@media (max-width:860px){.gc-value-grid{grid-template-columns:1fr 1fr;}}
-@media (max-width:520px){.gc-value-grid{grid-template-columns:1fr;}}
-.gc-value-card{background:#fff;border:1px solid var(--gc-gold);border-top:4px solid var(--gc-gold);border-radius:14px;padding:22px 20px;}
-.gc-value-card .ic{font-size:26px;margin-bottom:10px;}
-.gc-value-card h3{font-size:16px;margin-bottom:8px;}
-.gc-value-card p{font-size:13.5px;color:var(--muted);line-height:1.55;}
-
-/* ---------- Toolkit grid (3-column) ---------- */
-.gc-toolkit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px;}
-@media (max-width:860px){.gc-toolkit-grid{grid-template-columns:1fr 1fr;}}
-@media (max-width:560px){.gc-toolkit-grid{grid-template-columns:1fr;}}
-.gc-toolkit-card{background:var(--gc-cream);border-radius:14px;padding:22px 20px;}
-.gc-toolkit-card h4{font-size:15px;margin-bottom:10px;color:var(--gc-maroon-dark);}
-.gc-toolkit-card ul{display:flex;flex-direction:column;gap:6px;}
-.gc-toolkit-card li{font-size:13px;color:var(--muted);padding-left:16px;position:relative;}
-.gc-toolkit-card li::before{content:"•";position:absolute;left:0;color:var(--gc-saffron);font-weight:900;}
-
-/* ---------- Pricing: festive ticket card ---------- */
-.gc-pricing-wrap{display:flex;justify-content:center;padding:16px 0 12px;}
-.gc-ticket{position:relative;max-width:460px;width:100%;background:#fff;border:2px dashed var(--gc-gold);border-radius:22px;padding:38px 34px 32px;text-align:center;box-shadow:0 30px 70px -30px rgba(122,19,48,0.28);}
-.gc-ticket-ribbon{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gc-maroon);color:#fff;font-weight:800;font-size:12.5px;letter-spacing:.03em;padding:8px 20px;border-radius:999px;white-space:nowrap;}
-.gc-ticket-price{font-size:52px;font-weight:900;color:var(--gc-maroon);margin:22px 0 2px;}
-.gc-ticket-price small{font-size:16px;color:var(--muted);font-weight:700;}
-.gc-ticket-desc{font-size:14px;color:var(--muted);margin-bottom:20px;}
-.gc-ticket-list{text-align:left;display:inline-flex;flex-direction:column;gap:10px;margin:0 auto 26px;}
-.gc-ticket-list li{font-size:14.5px;color:var(--ink-soft);}
-.gc-ticket-list li b{color:var(--gc-maroon);}
-
-/* ---------- FAQ accent ---------- */
-#gc-faq summary{color:var(--ink);}
-#gc-faq details[open] summary{color:var(--gc-maroon);}
-
-.gc-section-tag{color:var(--gc-saffron-dark)!important;}
+/* ---------- Responsive ---------- */
+@media(max-width:960px){
+  .hero-h1{font-size:36px;}
+}
+@media(max-width:800px){
+  .value-grid{grid-template-columns:repeat(2,1fr);}
+  .module-grid{grid-template-columns:repeat(2,1fr);}
+  .demo-grid{grid-template-columns:repeat(2,1fr);}
+  .showcase-row, .showcase-row.reverse{flex-direction:column;gap:22px;padding:26px 22px;}
+  .showcase-list{gap:26px;}
+  .showcase-text h3{font-size:21px;}
+}
+@media(max-width:600px){
+  .hero-h1{font-size:28px;}
+  .hero-sub{font-size:15px;}
+  .value-grid{grid-template-columns:1fr;}
+  .module-grid{grid-template-columns:1fr;}
+  .demo-grid{grid-template-columns:1fr;}
+  .setup-grid{grid-template-columns:repeat(2,1fr);gap:12px 10px;}
+  .info-callout{font-size:12.5px;}
+  .rb-offer-now{font-size:38px;}
+  .rb-offer-card{padding:24px 18px;}
+  .rb-tbox{min-width:52px;padding:8px 10px;}
+  .rb-tval{font-size:20px;}
+}
+@media(max-width:400px){
+  .hero-h1{font-size:24px;}
+}
 </style>
 </head>
 <body>
 
-<!-- ============ TOP BAR + NAV (sticky) ============ -->
+<!-- ============ TOP BAR + NAV (sticky, always visible) ============ -->
 <div class="sticky-top-group">
 <div class="top-bar">🐘 <b>Ganesh Chaturthi Special</b> — Full Year for ₹299 · Available Through 14 Sept 2026</div>
 
@@ -183,238 +207,434 @@ body{padding-bottom:0;}
 </header>
 </div>
 
-<!-- ============ HERO — split layout, offer visible above the fold ============ -->
-<section class="gc-hero">
-<div class="wrap">
-<div class="gc-hero-grid">
+<!-- ============ HERO ============ -->
+<section class="hero" style="padding-top:56px;">
+<div class="hero-blob hero-blob-a"></div>
+<div class="hero-blob hero-blob-b"></div>
+<div class="wrap" style="position:relative;z-index:3;">
+<div style="max-width:720px;margin:0 auto;text-align:center;">
+<span class="jan-icon" style="font-size:100px;line-height:1;">🐘</span><span class="eyebrow">Ganesh Chaturthi Special</span>
+<h1 class="hero-h1">Everything You Need In One Indicator</h1>
+      <div style="margin:16px auto 0;text-align:center;">
+        <span style="display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:15.5px;letter-spacing:.01em;line-height:1.5;padding:12px 22px;border-radius:14px;max-width:620px;">Automatically finds Perfect Entry, Target &amp; Stoploss, Market Structure, Candle Pattern, Liquidity Swing &amp; Trap.</span>
+      </div>
+<p class="sub hero-sub">This Ganesh Chaturthi, get the full QuantiVector signal engine — trend reads, setup zones, entry/SL/TP, confidence score, and live backtest — for a full year on TradingView, at ₹299. Celebrate with a gift for your trading, valid for a limited festive window.</p>
 
-<div>
-<span class="gc-eyebrow">🐘 Ganesh Chaturthi Special</span>
-<h1 class="gc-h1">Everything You Need <span class="accent">In One Indicator</span></h1>
-<span class="gc-pill-highlight">Automatically finds Perfect Entry, Target &amp; Stoploss, Market Structure, Candle Pattern, Liquidity Swing &amp; Trap.</span>
-<p class="gc-sub">This Ganesh Chaturthi, get the full QuantiVector signal engine — trend reads, setup zones, entry/SL/TP, confidence score, and live backtest — for a full year on TradingView, at ₹299. Celebrate with a gift for your trading, valid for a limited festive window.</p>
+<div class="info-callout" style="margin-top:20px;">⚙️ <b>Switch your language</b> — tap <b>Settings → Audio Track</b> on the video player below to choose Hindi, Bengali, or English.</div>
+<div class="info-callout">🤖 <b>Multiple AI voiceovers</b> — every language track for this video was generated using AI voice technology.</div>
 
-<div class="gc-trust-row">
-<span class="gc-trust-badge">✓ Non-Repainting</span>
-<span class="gc-trust-badge">✓ Every Signal Scored</span>
-<span class="gc-trust-badge">✓ Works On Any Market</span>
-</div>
-
-<div class="gc-cta-row">
-<a href="https://nestail.in/checkout.php?product=quantivector-ganesh-chaturthi-special-299-for-1-year" class="btn-gc">Get 1 Full Year — ₹299 →</a>
-</div>
-<p class="gc-risk-note">Trading involves risk. Past/backtested performance does not guarantee future results.</p>
-<p class="gc-hero-micro">Works on any market &amp; timeframe · Non-repainting signals · One-click TradingView alerts</p>
-</div>
-
-<div class="gc-visual-card" id="offer">
-<span class="gc-floating-badge">🪔 Festive Offer</span>
-<div class="gc-modak-wrap">
-<svg viewBox="0 0 200 190" fill="none" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="100" cy="170" rx="70" ry="10" fill="#7A1330" opacity="0.08"/>
-<path d="M100 40 C60 40 38 78 42 112 C45 140 70 160 100 160 C130 160 155 140 158 112 C162 78 140 40 100 40 Z" fill="#F4790C"/>
-<path d="M100 40 C60 40 38 78 42 112 C45 140 70 160 100 160 C130 160 155 140 158 112 C162 78 140 40 100 40 Z" fill="url(#gcGrad)"/>
-<path d="M100 38 C93 26 96 14 108 8 C100 20 100 30 106 38 Z" fill="#2F7D46"/>
-<circle cx="100" cy="100" r="3" fill="#7A1330" opacity="0.35"/>
-<defs>
-<linearGradient id="gcGrad" x1="42" y1="40" x2="158" y2="160" gradientUnits="userSpaceOnUse">
-<stop stop-color="#F9A03F"/>
-<stop offset="1" stop-color="#D9A214"/>
-</linearGradient>
-</defs>
-</svg>
-</div>
-<div class="gc-offer-date">1 Year Access</div>
-<div class="gc-price-row"><span class="gc-price-now">₹299 <small>/ year</small></span></div>
-<div class="gc-timer-label">Offer Ends 14 Sept 2026, 11:59 PM IST</div>
-<div class="gc-timer" id="gcTimer">
-<div class="gc-tbox"><span class="gc-tval" id="gc-d">00</span><span class="gc-tlabel">DAYS</span></div>
-<div class="gc-tbox"><span class="gc-tval" id="gc-h">00</span><span class="gc-tlabel">HRS</span></div>
-<div class="gc-tbox"><span class="gc-tval" id="gc-m">00</span><span class="gc-tlabel">MIN</span></div>
-<div class="gc-tbox"><span class="gc-tval" id="gc-s">00</span><span class="gc-tlabel">SEC</span></div>
-</div>
-<div class="gc-offer-note">Access granted directly on TradingView · Have your TradingView username ready at checkout.</div>
-</div>
-
-</div>
-</div>
-</section>
-
-<!-- ============ VIDEO WALKTHROUGH ============ -->
-<section class="gc-video-section">
-<div class="wrap" style="max-width:820px;">
-<div class="info-callout gc-callout" style="margin-bottom:12px;">⚙️ <b>Switch your language</b> — tap <b>Settings → Audio Track</b> on the video player below to choose Hindi, Bengali, or English.</div>
-<div class="info-callout gc-callout">🤖 <b>Multiple AI voiceovers</b> — every language track for this video was generated using AI voice technology.</div>
-<div class="video-frame" style="margin-top:20px;">
+<div class="video-frame">
 <iframe src="https://www.youtube.com/embed/LdYkQ3BCM5Y" title="QuantiVector — TradingView Indicator Walkthrough" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
+
+<!-- ============ OFFER CARD + COUNTDOWN ============ -->
+<div id="offer" class="rb-offer-card" style="margin-top:26px;">
+<span class="rb-offer-badge">🐘 Ganesh Chaturthi Special</span>
+<div class="rb-offer-date">Today's Date — <span class="js-today-date">Today</span></div>
+
+<div class="rb-offer-price-row">
+
+<span class="rb-offer-now">₹299 <small>/ year</small></span>
+</div>
+<div class="rb-timer-label">Offer Ends 14 Sept 2026, 11:59 PM IST</div>
+<div class="rb-timer" id="rb-timer-top">
+<div class="rb-tbox"><span class="rb-tval" id="t-hrs">00</span><span class="rb-tlabel">HRS</span></div>
+<div class="rb-tbox"><span class="rb-tval" id="t-min">00</span><span class="rb-tlabel">MIN</span></div>
+<div class="rb-tbox"><span class="rb-tval" id="t-sec">00</span><span class="rb-tlabel">SEC</span></div>
+</div>
+<a href="https://nestail.in/checkout.php?product=quantivector-ganesh-chaturthi-special-299-for-1-year" class="btn btn-red">Get 1 Full Year — ₹299 →</a><p style="font-size:12px;color:#8a8d93;margin-top:10px;">Trading involves risk. Past/backtested performance does not guarantee future results.</p>
+<div class="rb-offer-note">Access granted directly on TradingView · Have your TradingView username ready at checkout.</div>
+</div>
+
+<p class="hero-micro">Works on any market &amp; timeframe · Non-repainting signals · One-click TradingView alerts</p>
+</div>
+
+<!-- ============ LIVE SETUP VISUAL ============ -->
+<div class="hero-visual" style="max-width:760px;margin:40px auto 0;">
+<div class="chart-card">
+<div class="cc-head">
+<span class="cc-title"><span class="dotx"></span> QuantiVector — BTCUSD · 1H</span>
+<span class="cc-badge">● Live</span>
+</div>
+<div class="cc-inner" style="padding:26px;">
+<div style="font-size:13px;font-weight:800;color:var(--muted-2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;">Setup Zone</div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+<span style="background:var(--red);color:#fff;font-weight:900;font-size:13px;padding:6px 12px;border-radius:8px;">▲ BUY</span>
+<span style="font-weight:900;font-size:15px;">91% ★ Confidence</span>
+</div>
+<div class="setup-grid">
+<div>ENTRY<br><b style="font-size:15px;">64,220</b></div>
+<div>SL<br><b style="font-size:15px;">63,410</b></div>
+<div>TP1<br><b style="font-size:15px;">65,340</b></div>
+<div>TP3<br><b style="font-size:15px;">66,900</b></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="badge-strip">
+<span class="hero-badge"><span class="dotcheck">✓</span> Non-Repainting</span>
+<span class="hero-badge"><span class="dotcheck">✓</span> Every Signal Scored</span>
+<span class="hero-badge"><span class="dotcheck">✓</span> Works On Any Market</span>
+</div>
 </div>
 </section>
 
-<!-- ============ HOW IT WORKS — timeline strip ============ -->
-<section id="features">
+<!-- ============ HOW IT WORKS (alternating image/text showcase) ============ -->
+<section id="how-it-works" style="padding-top:60px;">
 <div class="wrap">
 <div class="section-head">
-<span class="eyebrow gc-section-tag">How It Works</span>
+<span class="eyebrow">How It Works</span>
 <h2>Every Signal, Fully Explained</h2>
 <p>Here's exactly what QuantiVector draws on your chart — and how each piece helps you trade with more confidence.</p>
 </div>
-<div class="gc-timeline">
-<div class="gc-tl-item">
-<div class="gc-tl-ic">🎯</div>
-<h4>Clarity — Setup Zone</h4>
-<p>Every reaction against the trend is grouped into one clean shaded zone — no candle-by-candle noise to read.</p>
-</div>
-<div class="gc-tl-item">
-<div class="gc-tl-ic">🛡️</div>
-<h4>Protection — Stop Loss</h4>
-<p>The moment a signal fires, your stop loss is calculated and plotted — you always know your downside instantly.</p>
-</div>
-<div class="gc-tl-item">
-<div class="gc-tl-ic">📐</div>
-<h4>Precision Exits — 3 Take-Profits</h4>
-<p>Three Fibonacci-projected take-profit levels are drawn on every signal, so you never guess where to bank profit.</p>
-</div>
-<div class="gc-tl-item">
-<div class="gc-tl-ic">🧠</div>
-<h4>Confidence Score</h4>
-<p>Every signal is graded on 8 confluence factors before you act — high-confidence setups are instantly visible.</p>
-</div>
-</div>
-</div>
-</section>
+<div class="showcase-list">
 
-<!-- ============ SHOWCASE ROWS ============ -->
-<section style="padding-top:40px;">
-<div class="wrap">
-<div class="section-head">
-<span class="eyebrow gc-section-tag">Real Charts, Not Mockups</span>
-<h2>See QuantiVector draw it live</h2>
-<p>Pulled straight from TradingView — no mockups, no design tool.</p>
-</div>
-
-<div class="gc-showcase-row">
-<div class="gc-media"><img src="images/qv%201.PNG" alt="QuantiVector automated BUY signal with Entry, Stop Loss, and three Take-Profit levels" loading="lazy"></div>
-<div class="gc-text">
-<span class="gc-num">1</span><span class="gc-kicker">Setup Plan</span>
+<div class="showcase-row" style="--accent:#e0102a;--accent-dark:#a10d1e;--accent-tint:#fff5f6;--accent-tint-2:#ffd9df;">
+<div class="showcase-media"><img src="images/qv%201.PNG" alt="QuantiVector automated BUY signal with Entry, Stop Loss, and three Take-Profit levels" loading="lazy"></div>
+<div class="showcase-text">
+<div class="showcase-top"><span class="showcase-num">1</span><span class="showcase-kicker">Setup Plan</span></div>
 <h3>Every Trade Comes With a Full Plan</h3>
 <p>The moment a signal fires, QuantiVector auto-draws your Entry, Stop Loss, and three Take-Profit levels right on the chart — plus a shaded Setup Zone showing exactly where price reacted. No manual drawing, no guesswork, no lines to plot yourself.</p>
 </div>
 </div>
 
-<div class="gc-showcase-row rev">
-<div class="gc-media"><img src="images/backtest%20report%20panel.PNG" alt="QuantiVector live backtest report panel showing win rate, qualified trades, and average score" loading="lazy"></div>
-<div class="gc-text">
-<span class="gc-num">2</span><span class="gc-kicker">Backtest Data</span>
+<div class="showcase-row reverse" style="--accent:#1d4ed8;--accent-dark:#1e40af;--accent-tint:#f0f5ff;--accent-tint-2:#d7e6ff;">
+<div class="showcase-media"><img src="images/backtest%20report%20panel.PNG" alt="QuantiVector live backtest report panel showing win rate, qualified trades, and average score" loading="lazy"></div>
+<div class="showcase-text">
+<div class="showcase-top"><span class="showcase-num">2</span><span class="showcase-kicker">Backtest Data</span></div>
 <h3>Know the Odds Before You Trade</h3>
 <p>A live Backtest Report panel sits right on your chart showing win rate, qualified trades, and the average score of winning setups — so you know how this exact pair and timeframe have performed before you risk a single rupee.</p>
 </div>
 </div>
 
-<div class="gc-showcase-row">
-<div class="gc-media"><img src="images/bos.PNG" alt="QuantiVector automated market structure showing HH, HL, LH, LL and break of structure" loading="lazy"></div>
-<div class="gc-text">
-<span class="gc-num">3</span><span class="gc-kicker">Market Structure</span>
+<div class="showcase-row" style="--accent:#7c3aed;--accent-dark:#6d28d9;--accent-tint:#f7f3ff;--accent-tint-2:#e6d9ff;">
+<div class="showcase-media"><img src="images/bos.PNG" alt="QuantiVector automated market structure showing HH, HL, LH, LL and break of structure" loading="lazy"></div>
+<div class="showcase-text">
+<div class="showcase-top"><span class="showcase-num">3</span><span class="showcase-kicker">Market Structure</span></div>
 <h3>See Market Structure Without the Guesswork</h3>
 <p>QuantiVector automatically marks Higher Highs, Higher Lows, Lower Highs, and Lower Lows — plus every Break of Structure — so you always know whether the trend is intact or shifting, without staring at candles for hours.</p>
 </div>
 </div>
 
-<div class="gc-showcase-row rev">
-<div class="gc-media"><img src="images/htf%20bias%20panel.PNG" alt="QuantiVector multi-timeframe bias table showing bullish, bearish, and neutral trend across timeframes" loading="lazy"></div>
-<div class="gc-text">
-<span class="gc-num">4</span><span class="gc-kicker">Timeframe Bias</span>
+<div class="showcase-row reverse" style="--accent:#15803d;--accent-dark:#166534;--accent-tint:#f1faf3;--accent-tint-2:#d3f0dc;">
+<div class="showcase-media"><img src="images/htf%20bias%20panel.PNG" alt="QuantiVector multi-timeframe bias table showing bullish, bearish, and neutral trend across timeframes" loading="lazy"></div>
+<div class="showcase-text">
+<div class="showcase-top"><span class="showcase-num">4</span><span class="showcase-kicker">Timeframe Bias</span></div>
 <h3>Check Every Timeframe In One Glance</h3>
 <p>The Multi-Timeframe Bias table reads 5m through 1D at the same time and tells you if each is Bullish, Bearish, or Neutral — so you never take a trade against the bigger trend again.</p>
 </div>
 </div>
 
-<div class="gc-showcase-row">
-<div class="gc-media"><img src="images/trap%20and%20setup.PNG" alt="QuantiVector trap zone and setup zone detection with customizable settings" loading="lazy"></div>
-<div class="gc-text">
-<span class="gc-num">5</span><span class="gc-kicker">Trap Detection</span>
+<div class="showcase-row" style="--accent:#b45309;--accent-dark:#92400e;--accent-tint:#fffaf0;--accent-tint-2:#ffe8bd;">
+<div class="showcase-media"><img src="images/trap%20and%20setup.PNG" alt="QuantiVector trap zone and setup zone detection with customizable settings" loading="lazy"></div>
+<div class="showcase-text">
+<div class="showcase-top"><span class="showcase-num">5</span><span class="showcase-kicker">Trap Detection</span></div>
 <h3>Avoid Fakeouts With Trap Zone Detection</h3>
 <p>Before a real move begins, price often fakes traders out. QuantiVector flags these Trap Zones automatically alongside the Buy/Sell Setup Zone — fully customizable in settings — so you don't get shaken out of good trades.</p>
 </div>
 </div>
 
 </div>
+</div>
 </section>
 
-<!-- ============ WHAT YOU'RE GETTING — value grid ============ -->
-<section style="padding-top:52px;">
+<!-- ============ REAL CHART PROOF GALLERY ============ -->
+<section id="real-charts">
 <div class="wrap">
 <div class="section-head">
-<span class="eyebrow gc-section-tag">What You're Getting</span>
+<span class="eyebrow">Real Charts, Not Mockups</span>
+<h2>See QuantiVector draw it live</h2>
+<p>Pulled straight from TradingView — no mockups, no design tool.</p>
+</div>
+<div class="proof-disclaimer">⚡ <b>Everything on these charts is generated automatically by QuantiVector</b> — the Setup Zone, Entry, Stop Loss, all 3 Take-Profits, the Confidence Score, the Multi-Timeframe Bias table, and the Backtest Report. Nothing here is hand-drawn.</div>
+<div class="proof-gallery">
+<div class="proof-card">
+<span class="proof-badge">⚡ Auto-Generated with QuantiVector</span>
+<img src="BTCUSDT_2026-08-26_14-08-37.png" alt="QuantiVector auto-plotted BUY signal on BTC/USDT 15m chart" loading="lazy">
+<div class="proof-caption"><span class="sym">BTC/USDT · 15m</span><span class="tag">Live Signal</span></div>
+</div>
+<div class="proof-card">
+<span class="proof-badge">⚡ Auto-Generated with QuantiVector</span>
+<img src="SOLUSDT_2026-08-26_14-06-40.png" alt="QuantiVector auto-plotted BUY signal with Trap Zone detection on SOL/USDT 15m chart" loading="lazy">
+<div class="proof-caption"><span class="sym">SOL/USDT · 15m</span><span class="tag">Trap Zone Filter</span></div>
+</div>
+<div class="proof-card">
+<span class="proof-badge">⚡ Auto-Generated with QuantiVector</span>
+<img src="XAUUSDT.P_2026-08-26_14-10-10.png" alt="QuantiVector auto-plotted signal with live backtest report on XAU Gold 15m chart" loading="lazy">
+<div class="proof-caption"><span class="sym">XAU/USDT · 15m</span><span class="tag">Live Backtest</span></div>
+</div>
+<div class="proof-card">
+<span class="proof-badge">⚡ Auto-Generated with QuantiVector</span>
+<img src="SOLUSDT_2026-08-26_14-07-34.png" alt="QuantiVector auto-plotted multiple signals on SOL/USDT 15m chart" loading="lazy">
+<div class="proof-caption"><span class="sym">SOL/USDT · 15m</span><span class="tag">Multi-Timeframe Bias</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ FEATURE DEMOS (illustrated per-feature mini charts) ============ -->
+<section id="feature-demos" class="band-tint">
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow">See How Each Feature Works</span>
+<h2>Four core features, visualized</h2>
+<p>A quick look at exactly what QuantiVector draws on your chart for each core feature.</p>
+</div>
+<div class="demo-grid">
+<div class="demo-card">
+<svg viewBox="0 0 320 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Setup Zone demo chart">
+<rect x="0" y="0" width="320" height="170" fill="#0a0a0c"/>
+<line x1="0" y1="30" x2="320" y2="30" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<line x1="0" y1="60" x2="320" y2="60" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<line x1="0" y1="90" x2="320" y2="90" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<line x1="0" y1="120" x2="320" y2="120" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<line x1="0" y1="150" x2="320" y2="150" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<rect x="55.9" y="62" width="134.8" height="46" fill="rgba(224,16,42,0.16)" stroke="#e0102a" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="21.0" y1="72.7" x2="21.0" y2="92.3" stroke="#17c883" stroke-width="1.4"/>
+<rect x="14.0" y="80.6" width="13.9" height="4.4" fill="#17c883"/>
+<line x1="43.4" y1="75.1" x2="43.4" y2="92.8" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="36.5" y="80.6" width="13.9" height="7.1" fill="#ea3943"/>
+<line x1="65.9" y1="80.2" x2="65.9" y2="106.1" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="58.9" y="87.7" width="13.9" height="15.8" fill="#ea3943"/>
+<line x1="88.3" y1="95.6" x2="88.3" y2="108.9" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="81.4" y="103.5" width="13.9" height="1.6" fill="#ea3943"/>
+<line x1="110.8" y1="101.8" x2="110.8" y2="114.1" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="103.8" y="103.8" width="13.9" height="5.1" fill="#ea3943"/>
+<line x1="133.3" y1="105.4" x2="133.3" y2="121.3" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="126.3" y="109.0" width="13.9" height="3.7" fill="#ea3943"/>
+<line x1="155.7" y1="110.4" x2="155.7" y2="119.6" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="148.8" y="112.6" width="13.9" height="4.8" fill="#ea3943"/>
+<line x1="178.2" y1="108.4" x2="178.2" y2="122.1" stroke="#17c883" stroke-width="1.4"/>
+<rect x="171.2" y="117.0" width="13.9" height="1.6" fill="#17c883"/>
+<line x1="200.7" y1="110.6" x2="200.7" y2="119.2" stroke="#17c883" stroke-width="1.4"/>
+<rect x="193.7" y="115.6" width="13.9" height="1.6" fill="#17c883"/>
+<line x1="223.1" y1="93.1" x2="223.1" y2="121.0" stroke="#17c883" stroke-width="1.4"/>
+<rect x="216.2" y="98.2" width="13.9" height="17.3" fill="#17c883"/>
+<line x1="245.6" y1="81.4" x2="245.6" y2="101.7" stroke="#17c883" stroke-width="1.4"/>
+<rect x="238.6" y="85.0" width="13.9" height="13.2" fill="#17c883"/>
+<line x1="268.0" y1="72.5" x2="268.0" y2="87.2" stroke="#17c883" stroke-width="1.4"/>
+<rect x="261.1" y="76.5" width="13.9" height="8.5" fill="#17c883"/>
+<line x1="290.5" y1="68.7" x2="290.5" y2="83.0" stroke="#17c883" stroke-width="1.4"/>
+<rect x="283.5" y="74.6" width="13.9" height="1.9" fill="#17c883"/>
+<text x="123.3" y="56" fill="#ff8f9c" font-size="10" font-weight="700" text-anchor="middle" font-family="Arial,Helvetica,sans-serif">SETUP ZONE</text>
+</svg>
+<h4>🎯 Clarity — Setup Zone</h4>
+<p>Every reaction against the trend is grouped into one clean shaded zone — no candle-by-candle noise to read.</p>
+</div>
+<div class="demo-card">
+<svg viewBox="0 0 320 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stop Loss demo chart">
+<rect x="0" y="0" width="320" height="170" fill="#0a0a0c"/>
+<line x1="0" y1="30" x2="320" y2="30" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<line x1="0" y1="60" x2="320" y2="60" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<line x1="0" y1="90" x2="320" y2="90" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<line x1="0" y1="120" x2="320" y2="120" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<line x1="0" y1="150" x2="320" y2="150" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<line x1="21.0" y1="76.4" x2="21.0" y2="92.9" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="14.0" y="85.0" width="13.9" height="5.5" fill="#ea3943"/>
+<line x1="43.4" y1="73.6" x2="43.4" y2="97.6" stroke="#17c883" stroke-width="1.4"/>
+<rect x="36.5" y="81.5" width="13.9" height="9.0" fill="#17c883"/>
+<line x1="65.9" y1="73.4" x2="65.9" y2="87.7" stroke="#17c883" stroke-width="1.4"/>
+<rect x="58.9" y="77.5" width="13.9" height="4.0" fill="#17c883"/>
+<line x1="88.3" y1="68.7" x2="88.3" y2="80.6" stroke="#17c883" stroke-width="1.4"/>
+<rect x="81.4" y="74.8" width="13.9" height="2.7" fill="#17c883"/>
+<line x1="110.8" y1="67.2" x2="110.8" y2="81.9" stroke="#17c883" stroke-width="1.4"/>
+<rect x="103.8" y="72.0" width="13.9" height="2.8" fill="#17c883"/>
+<line x1="133.3" y1="63.3" x2="133.3" y2="82.7" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="126.3" y="72.0" width="13.9" height="4.9" fill="#ea3943"/>
+<line x1="155.7" y1="73.0" x2="155.7" y2="88.5" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="148.8" y="76.9" width="13.9" height="9.3" fill="#ea3943"/>
+<line x1="178.2" y1="81.0" x2="178.2" y2="96.8" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="171.2" y="86.3" width="13.9" height="6.3" fill="#ea3943"/>
+<line x1="200.7" y1="84.3" x2="200.7" y2="110.8" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="193.7" y="92.6" width="13.9" height="12.6" fill="#ea3943"/>
+<line x1="223.1" y1="101.5" x2="223.1" y2="118.0" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="216.2" y="105.1" width="13.9" height="10.7" fill="#ea3943"/>
+<line x1="245.6" y1="112.9" x2="245.6" y2="127.3" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="238.6" y="115.9" width="13.9" height="5.9" fill="#ea3943"/>
+<line x1="268.0" y1="115.0" x2="268.0" y2="130.0" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="261.1" y="121.8" width="13.9" height="8.2" fill="#ea3943"/>
+<line x1="290.5" y1="122.4" x2="290.5" y2="130.0" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="283.5" y="130.0" width="13.9" height="1.6" fill="#ea3943"/>
+<line x1="0" y1="132" x2="320" y2="132" stroke="#ea3943" stroke-width="1.4" stroke-dasharray="5 3"/>
+<text x="314" y="127" fill="#ff8f9c" font-size="10" font-weight="700" text-anchor="end" font-family="Arial,Helvetica,sans-serif">SL 41,208</text>
+<polygon points="127.3,84.4 139.3,84.4 133.3,73.4" fill="#e0102a"/>
+<text x="133.3" y="96.4" fill="#fff" font-size="9.5" font-weight="800" text-anchor="middle" font-family="Arial,Helvetica,sans-serif">BUY</text>
+</svg>
+<h4>🛡️ Protection — Stop Loss</h4>
+<p>The moment a signal fires, your stop loss is calculated and plotted — you always know your downside instantly.</p>
+</div>
+<div class="demo-card">
+<svg viewBox="0 0 320 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Take profit levels demo chart">
+<rect x="0" y="0" width="320" height="170" fill="#0a0a0c"/>
+<line x1="0" y1="30" x2="320" y2="30" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<line x1="0" y1="60" x2="320" y2="60" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<line x1="0" y1="90" x2="320" y2="90" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<line x1="0" y1="120" x2="320" y2="120" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<line x1="0" y1="150" x2="320" y2="150" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<line x1="21.0" y1="78.5" x2="21.0" y2="92.1" stroke="#17c883" stroke-width="1.4"/>
+<rect x="14.0" y="84.4" width="13.9" height="3.1" fill="#17c883"/>
+<line x1="43.4" y1="77.2" x2="43.4" y2="86.8" stroke="#17c883" stroke-width="1.4"/>
+<rect x="36.5" y="83.6" width="13.9" height="1.6" fill="#17c883"/>
+<line x1="65.9" y1="66.9" x2="65.9" y2="87.4" stroke="#17c883" stroke-width="1.4"/>
+<rect x="58.9" y="74.8" width="13.9" height="8.8" fill="#17c883"/>
+<line x1="88.3" y1="61.6" x2="88.3" y2="80.1" stroke="#17c883" stroke-width="1.4"/>
+<rect x="81.4" y="70.6" width="13.9" height="4.2" fill="#17c883"/>
+<line x1="110.8" y1="65.2" x2="110.8" y2="82.1" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="103.8" y="70.6" width="13.9" height="5.0" fill="#ea3943"/>
+<line x1="133.3" y1="68.0" x2="133.3" y2="83.7" stroke="#17c883" stroke-width="1.4"/>
+<rect x="126.3" y="74.4" width="13.9" height="1.6" fill="#17c883"/>
+<line x1="155.7" y1="67.2" x2="155.7" y2="91.4" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="148.8" y="74.4" width="13.9" height="10.3" fill="#ea3943"/>
+<line x1="178.2" y1="77.4" x2="178.2" y2="94.6" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="171.2" y="84.7" width="13.9" height="3.8" fill="#ea3943"/>
+<line x1="200.7" y1="86.2" x2="200.7" y2="102.1" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="193.7" y="88.5" width="13.9" height="5.6" fill="#ea3943"/>
+<line x1="223.1" y1="87.0" x2="223.1" y2="111.9" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="216.2" y="94.1" width="13.9" height="9.7" fill="#ea3943"/>
+<line x1="245.6" y1="95.3" x2="245.6" y2="120.1" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="238.6" y="103.8" width="13.9" height="11.6" fill="#ea3943"/>
+<line x1="268.0" y1="110.2" x2="268.0" y2="135.5" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="261.1" y="115.3" width="13.9" height="11.6" fill="#ea3943"/>
+<line x1="290.5" y1="124.3" x2="290.5" y2="140.0" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="283.5" y="126.9" width="13.9" height="11.5" fill="#ea3943"/>
+<line x1="0" y1="96" x2="320" y2="96" stroke="#17c883" stroke-width="1.1" stroke-dasharray="4 3"/>
+<line x1="0" y1="74" x2="320" y2="74" stroke="#17c883" stroke-width="1.1" stroke-dasharray="4 3"/>
+<line x1="0" y1="52" x2="320" y2="52" stroke="#17c883" stroke-width="1.1" stroke-dasharray="4 3"/>
+<text x="6" y="92" fill="#7fe8bd" font-size="9.5" font-weight="700" font-family="Arial,Helvetica,sans-serif">TP1</text>
+<text x="6" y="70" fill="#7fe8bd" font-size="9.5" font-weight="700" font-family="Arial,Helvetica,sans-serif">TP2</text>
+<text x="6" y="48" fill="#7fe8bd" font-size="9.5" font-weight="700" font-family="Arial,Helvetica,sans-serif">TP3</text>
+<polygon points="127.3,85.0 139.3,85.0 133.3,74.0" fill="#e0102a"/>
+</svg>
+<h4>📐 Precision Exits — 3 Take-Profits</h4>
+<p>Three Fibonacci-projected take-profit levels are drawn on every signal, so you never guess where to bank profit.</p>
+</div>
+<div class="demo-card">
+<svg viewBox="0 0 320 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Confidence score demo chart">
+<rect x="0" y="0" width="320" height="170" fill="#0a0a0c"/>
+<line x1="0" y1="30" x2="320" y2="30" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<line x1="0" y1="60" x2="320" y2="60" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<line x1="0" y1="90" x2="320" y2="90" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<line x1="0" y1="120" x2="320" y2="120" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<line x1="0" y1="150" x2="320" y2="150" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+<line x1="21.0" y1="121.8" x2="21.0" y2="133.3" stroke="#17c883" stroke-width="1.4"/>
+<rect x="14.0" y="124.6" width="13.9" height="3.4" fill="#17c883"/>
+<line x1="43.4" y1="110.5" x2="43.4" y2="128.4" stroke="#17c883" stroke-width="1.4"/>
+<rect x="36.5" y="115.2" width="13.9" height="9.4" fill="#17c883"/>
+<line x1="65.9" y1="104.1" x2="65.9" y2="117.4" stroke="#17c883" stroke-width="1.4"/>
+<rect x="58.9" y="108.6" width="13.9" height="6.5" fill="#17c883"/>
+<line x1="88.3" y1="97.8" x2="88.3" y2="111.1" stroke="#17c883" stroke-width="1.4"/>
+<rect x="81.4" y="100.1" width="13.9" height="8.5" fill="#17c883"/>
+<line x1="110.8" y1="88.4" x2="110.8" y2="102.7" stroke="#17c883" stroke-width="1.4"/>
+<rect x="103.8" y="94.5" width="13.9" height="5.6" fill="#17c883"/>
+<line x1="133.3" y1="78.1" x2="133.3" y2="101.2" stroke="#17c883" stroke-width="1.4"/>
+<rect x="126.3" y="83.3" width="13.9" height="11.2" fill="#17c883"/>
+<line x1="155.7" y1="73.9" x2="155.7" y2="90.2" stroke="#17c883" stroke-width="1.4"/>
+<rect x="148.8" y="77.9" width="13.9" height="5.4" fill="#17c883"/>
+<line x1="178.2" y1="61.0" x2="178.2" y2="81.4" stroke="#17c883" stroke-width="1.4"/>
+<rect x="171.2" y="67.3" width="13.9" height="10.6" fill="#17c883"/>
+<line x1="200.7" y1="51.8" x2="200.7" y2="70.8" stroke="#17c883" stroke-width="1.4"/>
+<rect x="193.7" y="54.4" width="13.9" height="12.8" fill="#17c883"/>
+<line x1="223.1" y1="48.1" x2="223.1" y2="59.3" stroke="#17c883" stroke-width="1.4"/>
+<rect x="216.2" y="51.0" width="13.9" height="3.5" fill="#17c883"/>
+<line x1="245.6" y1="40.2" x2="245.6" y2="55.7" stroke="#17c883" stroke-width="1.4"/>
+<rect x="238.6" y="44.1" width="13.9" height="6.9" fill="#17c883"/>
+<line x1="268.0" y1="40.0" x2="268.0" y2="47.1" stroke="#17c883" stroke-width="1.4"/>
+<rect x="261.1" y="40.0" width="13.9" height="4.1" fill="#17c883"/>
+<line x1="290.5" y1="40.0" x2="290.5" y2="43.6" stroke="#ea3943" stroke-width="1.4"/>
+<rect x="283.5" y="40.0" width="13.9" height="1.6" fill="#ea3943"/>
+<path d="M 232.0 44.0 A 26 26 0 1 1 284.0 44.0" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
+<path d="M 232.0 44.0 A 26 26 0 1 1 281.9 33.7" fill="none" stroke="#17c883" stroke-width="6" stroke-linecap="round"/>
+<text x="258" y="49" fill="#fff" font-size="15" font-weight="900" text-anchor="middle" font-family="Arial,Helvetica,sans-serif">87%</text>
+<text x="258" y="64" fill="#9aa0a6" font-size="8" font-weight="700" text-anchor="middle" font-family="Arial,Helvetica,sans-serif">CONFIDENCE</text>
+</svg>
+<h4>🧠 Confidence Score</h4>
+<p>Every signal is graded on 8 confluence factors before you act — high-confidence setups are instantly visible.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ WHY QUANTIVECTOR ============ -->
+<section id="why-quantivector">
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow">What You're Getting</span>
 <h2>One indicator, everything included</h2>
 <p>No feature gates — the ₹299 Ganesh Chaturthi year gets the full toolkit.</p>
 </div>
-<div class="gc-value-grid">
-<div class="gc-value-card"><div class="ic">🎯</div><h3>Clarity</h3><p>One clean shaded Setup Zone instead of a chart full of noise — see exactly where price is reacting.</p></div>
-<div class="gc-value-card"><div class="ic">🛡️</div><h3>Protection</h3><p>Stop loss is calculated and placed for you the instant a signal fires — never guess your downside again.</p></div>
-<div class="gc-value-card"><div class="ic">📐</div><h3>Precision Exits</h3><p>Three Fibonacci-projected take-profits on every signal, so you never guess where to bank profit.</p></div>
-<div class="gc-value-card"><div class="ic">🧠</div><h3>Confidence Score</h3><p>Every signal is graded on 8 confluence factors before you act — high-confidence setups are instantly visible.</p></div>
+<div class="value-grid">
+<div class="value-card"><div class="ic">🎯</div><h3>Clarity</h3><p>One clean shaded Setup Zone instead of a chart full of noise — see exactly where price is reacting.</p></div>
+<div class="value-card"><div class="ic">🛡️</div><h3>Protection</h3><p>Stop loss is calculated and placed for you the instant a signal fires — never guess your downside again.</p></div>
+<div class="value-card"><div class="ic">📐</div><h3>Precision Exits</h3><p>Three Fibonacci-projected take-profits on every signal, so you never guess where to bank profit.</p></div>
+<div class="value-card"><div class="ic">🧠</div><h3>Confidence Score</h3><p>Every signal is graded on 8 confluence factors before you act — high-confidence setups are instantly visible.</p></div>
 </div>
 </div>
 </section>
 
-<!-- ============ TOOLKIT GRID ============ -->
-<section style="padding-top:52px;">
+<!-- ============ EVERYTHING INSIDE QUANTIVECTOR (module grid) ============ -->
+<section id="features" class="band-tint">
 <div class="wrap">
 <div class="section-head">
-<span class="eyebrow gc-section-tag">Everything Inside QuantiVector</span>
+<span class="eyebrow">Everything Inside QuantiVector</span>
 <h2>One indicator. A full toolkit.</h2>
 <p>Every module below runs on your chart automatically — turn on only what you need.</p>
 </div>
-<div class="gc-toolkit-grid">
-<div class="gc-toolkit-card"><h4>Trend-Continuation Signals</h4><ul><li>Clean Setup Zones</li><li>Confirmed BUY/SELL labels</li><li>Trap Zone filter mutes chop</li></ul></div>
-<div class="gc-toolkit-card"><h4>Entry / SL / TP1–3</h4><ul><li>Auto-plotted trade levels</li><li>Grows live with the chart</li><li>Freezes the instant a trade resolves</li></ul></div>
-<div class="gc-toolkit-card"><h4>Signal Strength Score</h4><ul><li>8-factor confidence percentage</li><li>Color-coded by strength</li><li>Shown right at the SL line</li></ul></div>
-<div class="gc-toolkit-card"><h4>Live Backtest Panel</h4><ul><li>Self-updating win rate</li><li>Trade count &amp; quality stats</li><li>Always current, always on-chart</li></ul></div>
-<div class="gc-toolkit-card"><h4>Multi-Timeframe Bias Table</h4><ul><li>6-timeframe trend read</li><li>5m through 1D at a glance</li><li>No tab-switching needed</li></ul></div>
-<div class="gc-toolkit-card"><h4>VWAP, EMAs, Zones &amp; Structure</h4><ul><li>VWAP + extra EMAs</li><li>Supply/demand zones</li><li>BOS/CHoCH structure, order blocks</li></ul></div>
-<div class="gc-toolkit-card"><h4>Native TradingView Alerts</h4><ul><li>Pinged on signal confirm</li><li>Trap Zone entry/exit alerts</li><li>Set once, notified anywhere</li></ul></div>
-<div class="gc-toolkit-card"><h4>Full Visual Customization</h4><ul><li>Every label restyled</li><li>Colors, sizes, text strings</li><li>Re-brand it as your own</li></ul></div>
-<div class="gc-toolkit-card"><h4>Works On Any Chart</h4><ul><li>Crypto, forex, indices</li><li>Futures &amp; stocks</li><li>Any timeframe on TradingView</li></ul></div>
+<div class="module-grid">
+<div class="module-card"><span class="mod-tag">Core Engine</span><h4>Trend-Continuation Signals</h4><ul><li>Clean Setup Zones</li><li>Confirmed BUY/SELL labels</li><li>Trap Zone filter mutes chop</li></ul></div>
+<div class="module-card"><span class="mod-tag">Trade Plan</span><h4>Entry / SL / TP1–3</h4><ul><li>Auto-plotted trade levels</li><li>Grows live with the chart</li><li>Freezes the instant a trade resolves</li></ul></div>
+<div class="module-card"><span class="mod-tag">Scoring</span><h4>Signal Strength Score</h4><ul><li>8-factor confidence percentage</li><li>Color-coded by strength</li><li>Shown right at the SL line</li></ul></div>
+<div class="module-card"><span class="mod-tag">Transparency</span><h4>Live Backtest Panel</h4><ul><li>Self-updating win rate</li><li>Trade count &amp; quality stats</li><li>Always current, always on-chart</li></ul></div>
+<div class="module-card"><span class="mod-tag">Context</span><h4>Multi-Timeframe Bias Table</h4><ul><li>6-timeframe trend read</li><li>5m through 1D at a glance</li><li>No tab-switching needed</li></ul></div>
+<div class="module-card"><span class="mod-tag">Add-Ons</span><h4>VWAP, EMAs, Zones &amp; Structure</h4><ul><li>VWAP + extra EMAs</li><li>Supply/demand zones</li><li>BOS/CHoCH structure, order blocks</li></ul></div>
+<div class="module-card"><span class="mod-tag">Automation</span><h4>Native TradingView Alerts</h4><ul><li>Pinged on signal confirm</li><li>Trap Zone entry/exit alerts</li><li>Set once, notified anywhere</li></ul></div>
+<div class="module-card"><span class="mod-tag">Branding</span><h4>Full Visual Customization</h4><ul><li>Every label restyled</li><li>Colors, sizes, text strings</li><li>Re-brand it as your own</li></ul></div>
+<div class="module-card"><span class="mod-tag">Any Market</span><h4>Works On Any Chart</h4><ul><li>Crypto, forex, indices</li><li>Futures &amp; stocks</li><li>Any timeframe on TradingView</li></ul></div>
 </div>
 </div>
 </section>
 
-<!-- ============ PRICING — festive ticket ============ -->
-<section style="padding:56px 0;">
+<!-- ============ PRICING (single Ganesh Chaturthi plan) ============ -->
+<section class="band-tint">
 <div class="wrap">
 <div class="section-head">
-<span class="eyebrow gc-section-tag">🐘 Ganesh Chaturthi Pricing</span>
+<span class="eyebrow dd-eyebrow">🐘 Ganesh Chaturthi Pricing</span>
 <h2>1 Year of QuantiVector — ₹299</h2>
 <p>The full year plan, at Ganesh Chaturthi pricing. Available through 14 Sept 2026.</p>
 </div>
-<div class="gc-pricing-wrap">
-<div class="gc-ticket">
-<span class="gc-ticket-ribbon">🐘 Ganesh Chaturthi Special</span>
-<div class="gc-ticket-price">₹299 <small>/ year</small></div>
-<p class="gc-ticket-desc">Full year of access, at the lowest price QuantiVector has ever offered.</p>
-<ul class="gc-ticket-list">
-<li><b>✓</b> Full indicator access</li>
-<li><b>✓</b> All extra tools (VWAP, order blocks, structure)</li>
-<li><b>✓</b> Full alert access</li>
-<li><b>✓</b> Multi-timeframe bias table + live backtest panel</li>
-<li><b>✓</b> Priority support</li>
+<div class="pricing-grid-single">
+<div class="plan pop">
+<span class="plan-badge">🐘 Ganesh Chaturthi Special</span>
+<span class="plan-name">👑 1 Year</span>
+
+<div class="price"><span style="display:inline-block;text-decoration:line-through;color:var(--muted-2);font-size:26px;font-weight:700;margin-right:12px;vertical-align:middle;">₹899</span>₹299 <small>/ year</small></div>
+<div class="plan-setup">Setup fee: FREE</div>
+<div class="plan-total">₹299 total today</div>
+
+<p class="plan-desc" style="margin-top:16px;">Full year of access, at the lowest price QuantiVector has ever offered.</p>
+<ul class="f-list">
+<li><span class="chk">✓</span> Full indicator access</li>
+<li><span class="chk">✓</span> All extra tools (VWAP, order blocks, structure)</li>
+<li><span class="chk">✓</span> Full alert access</li>
+<li><span class="chk">✓</span> Multi-timeframe bias table + live backtest panel</li>
+<li><span class="chk">✓</span> Priority support</li>
 </ul>
-<a href="https://nestail.in/checkout.php?product=quantivector-ganesh-chaturthi-special-299-for-1-year" class="btn-gc" style="width:100%;justify-content:center;">Claim Ganesh Chaturthi Offer — ₹299</a>
+<a href="https://nestail.in/checkout.php?product=quantivector-ganesh-chaturthi-special-299-for-1-year" class="btn btn-red btn-block">Claim Ganesh Chaturthi Offer — ₹299</a>
 </div>
 </div>
+<div class="trust-note">Access is granted directly on <b>TradingView</b> — have your TradingView username ready at checkout.</div>
 </div>
 </section>
 
 <!-- ============ FAQ ============ -->
-<section id="faq" style="padding-bottom:56px;">
-<div class="wrap" style="max-width:760px;">
+<section id="faq">
+<div class="wrap">
 <div class="section-head">
-<span class="eyebrow gc-section-tag">FAQ</span>
+<span class="eyebrow">FAQ</span>
 <h2>Questions, answered</h2>
 </div>
-<div id="gc-faq">
-<details class="faq-item">
+<div class="faq">
+<details class="faq-item" open>
 <summary>Is the ₹299 Ganesh Chaturthi offer really valid today?</summary>
 <p>Yes — ₹299 is available through Ganesh Chaturthi, 14 September 2026, 11:59 PM IST. After that it returns to regular pricing.</p>
 </details>
@@ -438,6 +658,19 @@ body{padding-bottom:0;}
 </div>
 </section>
 
+<!-- ============ FINAL CTA ============ -->
+<section>
+<div class="wrap">
+<div class="cta-band">
+<div>
+<h3>Don't let this Ganesh Chaturthi price slip away.</h3>
+<p>₹299 for a full year of QuantiVector — available through Ganesh Chaturthi, 14 September 2026.</p>
+</div>
+<a href="#offer" class="btn btn-red">Claim ₹299 Offer</a>
+</div>
+</div>
+</section>
+
 <!-- ============ FOOTER ============ -->
 <footer>
 <div class="wrap">
@@ -454,34 +687,146 @@ body{padding-bottom:0;}
 </div>
 </footer>
 
+<!-- ============ FIXED BOTTOM BAR ============ -->
+<div class="dd-bottombar">
+<div class="dd-bottombar-inner">
+<div class="dd-bottombar-text">🐘 <b>Ganesh Chaturthi Special</b> ends 14 Sept 2026 — <span class="dd-bottombar-timer" id="rb-timer-bottom">00:00:00</span></div>
+<a href="#offer" class="btn btn-sm dd-bottombar-cta">Claim ₹299 →</a>
+</div>
+</div>
+
+<!-- ============ EXIT-INTENT POPUP ============ -->
+<div class="exit-overlay" id="exitOverlay">
+<div class="exit-modal">
+<button class="exit-close" id="exitClose" aria-label="Close">✕</button>
+<span class="eyebrow dd-eyebrow">🐘 Ganesh Chaturthi Special</span>
+<h3>Wait — before you go</h3>
+<p>1 full year of QuantiVector is still ₹299 today. Granted directly on TradingView.</p>
+<div class="exit-price"><s>₹899</s> Today — ₹299 / year</div>
+<a href="#offer" class="btn btn-red btn-block" id="exitCta">Claim ₹299 Offer</a>
+<a href="#" class="exit-skip" id="exitSkip">No thanks, continue browsing</a>
+</div>
+</div>
+
 <script>
-// Fixed one-time deadline: 14 Sept 2026, 11:59:59 PM IST. No roll-forward.
+// Fixed one-time deadline: 14 Sept 2026, 11:59:59 PM IST.
 function pad(n){ return String(n).padStart(2,'0'); }
 
+// Get the current wall-clock time in IST, regardless of the visitor's own timezone.
 function getISTNow(){
   const istString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
   return new Date(istString);
 }
 
-function getDeadlineEpoch(){
+function getDeadline(){
   const istNow = getISTNow();
-  const deadlineIST = Date.parse('2026-09-14T23:59:59+05:30');
-  const msRemaining = deadlineIST - istNow.getTime();
+  const deadlineIST = new Date(istNow.getTime());
+  deadlineIST.setTime(Date.parse('2026-09-14T23:59:59+05:30'));
+  // fixed one-time deadline, no roll-forward
+  const msRemaining = deadlineIST.getTime() - istNow.getTime();
   return Date.now() + msRemaining;
 }
 
-function gcTick(){
-  const diff = Math.max(0, getDeadlineEpoch() - Date.now());
-  const d = Math.floor(diff/86400000);
-  const h = Math.floor((diff%86400000)/3600000);
-  const m = Math.floor((diff%3600000)/60000);
-  const s = Math.floor((diff%60000)/1000);
-  var ed=document.getElementById('gc-d'), eh=document.getElementById('gc-h'), em=document.getElementById('gc-m'), es=document.getElementById('gc-s');
-  if(ed){ ed.textContent=pad(d); eh.textContent=pad(h); em.textContent=pad(m); es.textContent=pad(s); }
+function tick(){
+  const diff = Math.max(0, getDeadline() - Date.now());
+  const hrs = Math.floor(diff/3600000);
+  const min = Math.floor((diff%3600000)/60000);
+  const sec = Math.floor((diff%60000)/1000);
+  const hh = pad(hrs), mm = pad(min), ss = pad(sec);
+  const top_h = document.getElementById('t-hrs'), top_m = document.getElementById('t-min'), top_s = document.getElementById('t-sec');
+  if (top_h) top_h.textContent = hh;
+  if (top_m) top_m.textContent = mm;
+  if (top_s) top_s.textContent = ss;
+  const bottom = document.getElementById('rb-timer-bottom');
+  if (bottom) bottom.textContent = hh+':'+mm+':'+ss;
 }
-gcTick();
-setInterval(gcTick, 1000);
+tick();
+setInterval(tick, 1000);
+
+// ===== Evergreen "today's date" display (IST) =====
+function updateTodayDate(){
+  const opts = { timeZone: 'Asia/Kolkata', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const str = new Date().toLocaleDateString('en-IN', opts);
+  document.querySelectorAll('.js-today-date').forEach(function(el){ el.textContent = str; });
+}
+updateTodayDate();
+setInterval(updateTodayDate, 60000);
+
+// ===== Exit-intent popup — fires once when the cursor leaves the top of the viewport =====
+(function(){
+  const overlay = document.getElementById('exitOverlay');
+  let shown = false;
+  document.addEventListener('mouseout', function(e){
+    if (shown) return;
+    if (!e.relatedTarget && e.clientY <= 0){
+      overlay.classList.add('show');
+      shown = true;
+    }
+  });
+  document.getElementById('exitClose').addEventListener('click', function(){ overlay.classList.remove('show'); });
+  document.getElementById('exitSkip').addEventListener('click', function(e){ e.preventDefault(); overlay.classList.remove('show'); });
+  document.getElementById('exitCta').addEventListener('click', function(){ overlay.classList.remove('show'); });
+  overlay.addEventListener('click', function(e){ if (e.target === overlay) overlay.classList.remove('show'); });
+})();
 </script>
 
+<!-- ===== WhatsApp Help & Support Widget ===== -->
+<a href="https://wa.me/916290829277?text=I%20have%20a%20Query%20for%20Quanty%20Vector%20Indicator" target="_blank" rel="noopener noreferrer" class="wa-support-btn" aria-label="Help &amp; Support on WhatsApp">
+  <span class="wa-support-icon">
+    <svg viewBox="0 0 32 32" width="26" height="26" fill="#fff" aria-hidden="true"><path d="M16.02 3C9.37 3 3.98 8.39 3.98 15.04c0 2.65.87 5.1 2.34 7.09L4.9 28.5l6.55-1.72a11.98 11.98 0 0 0 4.57.9h.01c6.65 0 12.04-5.39 12.04-12.04C28.06 8.39 22.67 3 16.02 3zm0 21.94h-.01a9.86 9.86 0 0 1-5.02-1.38l-.36-.21-3.75.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.5-5.27c0-5.46 4.44-9.9 9.9-9.9 2.64 0 5.13 1.03 6.99 2.9a9.82 9.82 0 0 1 2.9 6.99c0 5.46-4.44 9.9-9.9 9.9zm5.42-7.42c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.34.45-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.66-1.59-.9-2.18-.24-.57-.48-.5-.66-.5h-.56c-.2 0-.52.07-.79.37-.27.3-1.03 1.01-1.03 2.46 0 1.45 1.06 2.85 1.2 3.05.15.2 2.09 3.19 5.06 4.47.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.75-.71 2-1.4.25-.68.25-1.27.17-1.4-.07-.13-.27-.2-.57-.35z"/></svg>
+  </span>
+  <span class="wa-support-label">Help &amp; Support</span>
+</a>
+<style>
+.wa-support-btn{position:fixed;right:20px;bottom:84px;z-index:999;display:flex;align-items:center;gap:9px;background:#25D366;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 18px 12px 12px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.22);animation:waPulse 2.4s ease-in-out infinite;}
+.wa-support-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.28);}
+.wa-support-icon{display:flex;align-items:center;justify-content:center;width:30px;height:30px;background:rgba(255,255,255,.16);border-radius:50%;flex-shrink:0;}
+@keyframes waPulse{0%,100%{box-shadow:0 6px 20px rgba(37,211,102,.35)}50%{box-shadow:0 6px 20px rgba(37,211,102,.7)}}
+@media (max-width:480px){.wa-support-label{display:none}.wa-support-btn{padding:12px;border-radius:50%;}}
+
+
+/* ===== GANESH CHATURTHI — DARK THEME OVERRIDE (appended, wins by source order) ===== */
+:root{
+  --bg:#160C08;
+  --ink:#FBEEDD;
+  --ink-soft:#F3E2C8;
+  --muted:#D8C3A5;
+  --muted-2:#B39A78;
+  --red:#F2A71B;
+  --red-dark:#F7C948;
+  --red-tint:rgba(242,167,27,0.14);
+  --red-tint-2:rgba(242,167,27,0.30);
+  --line:rgba(255,255,255,0.12);
+  --grid-line:rgba(255,255,255,0.05);
+  --shadow-card:0 1px 2px rgba(0,0,0,.5), 0 12px 30px -18px rgba(0,0,0,.7);
+  --shadow-pop:0 25px 70px -20px rgba(0,0,0,.8);
+}
+body{background:var(--bg);color:var(--ink);}
+.nav{background:rgba(15,9,6,0.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.btn-outline{background:transparent;color:var(--ink);border-color:var(--line);}
+footer{background:#120A06;border-top:1px solid var(--line);}
+.plan{background:#1E1109;border:1px solid var(--line);}
+.value-card{background:#1E1109;border:1px solid var(--line);}
+.rb-offer-card{background:#1E1109;border:2px solid var(--red);}
+.exit-modal{background:#1E1109;}
+.exit-close{background:#1E1109;border:1px solid var(--line);color:var(--muted);}
+.top-bar{background:#0A0503;color:#fff;}
+.top-bar b{color:var(--red-dark);}
+.info-callout{background:rgba(242,167,27,0.10);border:1px solid rgba(242,167,27,0.25);color:var(--ink-soft);}
+.rb-tbox{background:#0A0503;color:#fff;}
+.trust-note{background:var(--red-tint);border:1px solid var(--red-tint-2);color:var(--ink-soft);}
+.trust-note b{color:var(--red-dark);}
+#how-it-works{background:radial-gradient(1100px 500px at 50% -8%, rgba(242,167,27,.12), transparent 62%), #150B07;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.band-tint{background:linear-gradient(180deg,#160C08,#1A0F09 60%,#160C08);}
+.showcase-row{background:#1E1109 !important;border:1px solid var(--line) !important;}
+.hero-badge{background:#1E1109;border:1px solid var(--line);color:var(--ink-soft);}
+.badge-strip .hero-badge{background:#1E1109;}
+.chk{color:#1B0F06;}
+.plan.pop .f-list .chk{color:#1B0F06;}
+.exit-price s{color:var(--muted-2);}
+.jan-icon{filter:drop-shadow(0 10px 20px rgba(0,0,0,.5));}
+.demo-card{background:#1E1109;border:1px solid var(--line);}
+
+</style>
 </body>
 </html>
