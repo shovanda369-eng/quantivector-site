@@ -191,7 +191,7 @@ padding:28px 26px;text-align:center;box-shadow:var(--shadow-pop);position:relati
 
 <!-- ============ TOP BAR + NAV (sticky, always visible) ============ -->
 <div class="sticky-top-group">
-<div class="top-bar">🐘 <b>Ganesh Chaturthi Special</b> — Full Year for ₹299 · Available Through 25 Sept 2026 (Ganesh Visarjan)</div>
+<div class="top-bar">🐘 <b>Ganesh Chaturthi Special</b> — Full Year for ₹299 · Available Through 27 Sept 2026</div>
 
 <header class="nav sales-nav">
 <div class="wrap">
@@ -238,7 +238,7 @@ padding:28px 26px;text-align:center;box-shadow:var(--shadow-pop);position:relati
 
 <span class="rb-offer-now">₹299 <small>/ year</small></span>
 </div>
-<div class="rb-timer-label">Offer Ends 25 Sept 2026 (Ganesh Visarjan), 11:59 PM IST</div>
+<div class="rb-timer-label">Offer Ends 27 Sept 2026, 11:59 PM IST</div>
 <div class="rb-timer" id="rb-timer-top">
 <div class="rb-tbox"><span class="rb-tval" id="t-days">00</span><span class="rb-tlabel">DAYS</span></div>
       <div class="rb-tbox"><span class="rb-tval" id="t-hrs">00</span><span class="rb-tlabel">HRS</span></div>
@@ -603,7 +603,7 @@ padding:28px 26px;text-align:center;box-shadow:var(--shadow-pop);position:relati
 <div class="section-head">
 <span class="eyebrow dd-eyebrow">🐘 Ganesh Chaturthi Pricing</span>
 <h2>1 Year of QuantiVector — ₹299</h2>
-<p>The full year plan, at Ganesh Chaturthi pricing. Available through 25 Sept 2026 (Ganesh Visarjan).</p>
+<p>The full year plan, at Ganesh Chaturthi pricing. Available through 27 Sept 2026.</p>
 </div>
 <div class="pricing-grid-single">
 <div class="plan pop">
@@ -693,7 +693,7 @@ padding:28px 26px;text-align:center;box-shadow:var(--shadow-pop);position:relati
 <!-- ============ FIXED BOTTOM BAR ============ -->
 <div class="dd-bottombar">
 <div class="dd-bottombar-inner">
-<div class="dd-bottombar-text">🐘 <b>Ganesh Chaturthi Special</b> ends 25 Sept 2026 (Ganesh Visarjan) — <span class="dd-bottombar-timer" id="rb-timer-bottom">00:00:00</span></div>
+<div class="dd-bottombar-text">🐘 <b>Ganesh Chaturthi Special</b> ends 27 Sept 2026 — <span class="dd-bottombar-timer" id="rb-timer-bottom">00:00:00</span></div>
 <a href="#offer" class="btn btn-sm dd-bottombar-cta">Claim ₹299 →</a>
 </div>
 </div>
@@ -712,7 +712,7 @@ padding:28px 26px;text-align:center;box-shadow:var(--shadow-pop);position:relati
 </div>
 
 <script>
-// Fixed one-time deadline: 25 Sept 2026 (Ganesh Visarjan), 11:59:59 PM IST.
+// Fixed one-time deadline: 27 Sept 2026, 11:59:59 PM IST.
 function pad(n){ return String(n).padStart(2,'0'); }
 
 // Get the current wall-clock time in IST, regardless of the visitor's own timezone.
@@ -724,7 +724,7 @@ function getISTNow(){
 function getDeadline(){
   const istNow = getISTNow();
   const deadlineIST = new Date(istNow.getTime());
-  deadlineIST.setTime(Date.parse('2026-09-25T23:59:59+05:30'));
+  deadlineIST.setTime(Date.parse('2026-09-27T23:59:59+05:30'));
   // fixed one-time deadline, no roll-forward
   const msRemaining = deadlineIST.getTime() - istNow.getTime();
   return Date.now() + msRemaining;
