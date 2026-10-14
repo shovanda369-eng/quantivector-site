@@ -38,8 +38,8 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1778656280052738&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-<title>QuantiVector — High-Accuracy Buy/Sell Signal Indicator | Double Dhamaka Offer</title>
-<meta name="description" content="QuantiVector is a Pine Script v6 TradingView indicator that pinpoints high-accuracy trend-continuation BUY/SELL signals, auto-plots your trade plan, and scores every signal with a confidence score — backed by a live, on-chart backtest.">
+<title>QuantiVector — Buy/Sell Signal Indicator | Double Dhamaka Offer</title>
+<meta name="description" content="QuantiVector is a Pine Script v6 TradingView indicator that marks entry, stop loss and take-profit levels on your chart for trend-continuation BUY/SELL signals, and scores every signal with a confidence score, backed by a live, on-chart backtest.">
 <link rel="stylesheet" href="style.css">
 <style>
 /* ===== Sales-page-only additions (everything else reuses style.css) ===== */
@@ -89,17 +89,6 @@ padding:12px 16px;border-radius:10px;line-height:1.5;
 .module-card li::before{content:"✓";color:var(--red);font-weight:900;flex:none;}
 .trust-note{max-width:640px;margin:40px auto 0;text-align:center;font-size:13.5px;color:var(--muted);background:var(--red-tint);border:1px solid var(--red-tint-2);padding:14px 18px;border-radius:10px;}
 .trust-note b{color:var(--red-dark);}
-/* Exit-intent popup */
-.exit-overlay{position:fixed;inset:0;background:rgba(10,10,10,.6);z-index:300;display:none;align-items:center;justify-content:center;padding:20px;}
-.exit-overlay.show{display:flex;}
-.exit-modal{background:#fff;border-radius:18px;max-width:440px;width:100%;padding:36px 30px 30px;position:relative;box-shadow:var(--shadow-pop);text-align:center;}
-.exit-close{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:15px;color:var(--muted);}
-.exit-modal h3{font-size:22px;margin-top:6px;}
-.exit-modal p{margin-top:12px;font-size:14px;}
-.exit-price{margin-top:18px;font-size:15px;font-weight:800;}
-.exit-price s{color:var(--muted-2);font-weight:600;margin-right:6px;}
-.exit-modal .btn{margin-top:20px;}
-.exit-skip{display:block;margin-top:14px;font-size:12.5px;color:var(--muted-2);font-weight:600;}
 /* Checkmark contrast fix: chk circles use an icon-style bg/fg pairing, not the surrounding text color */
 .f-list .chk{color:#fff;font-size:12px;line-height:1;}
 .plan.pop .f-list .chk{color:var(--ink);}
@@ -717,19 +706,6 @@ padding:12px 16px;border-radius:10px;line-height:1.5;
 </div>
 </div>
 
-<!-- ============ EXIT-INTENT POPUP ============ -->
-<div class="exit-overlay" id="exitOverlay">
-<div class="exit-modal">
-<button class="exit-close" id="exitClose" aria-label="Close">✕</button>
-<span class="eyebrow dd-eyebrow">🔥 Double Dhamaka</span>
-<h3>Wait — before you go</h3>
-<p>Your launch offer is still here. Every signal, the full trade plan, and the confidence score — granted directly on TradingView.</p>
-<div class="exit-price">Plans from ₹99</div>
-<a href="#pricing" class="btn btn-red btn-block" id="exitCta">See Plans &amp; Pricing</a>
-<a href="#" class="exit-skip" id="exitSkip">No thanks, continue browsing</a>
-</div>
-</div>
-
 <script>
 // Fixed one-time deadline: 30 Aug 2026, 11:59:59 PM IST.
 function getDeadline(){
@@ -755,22 +731,6 @@ function tick(){
 tick();
 setInterval(tick, 1000);
 
-// Exit-intent popup — fires once when the cursor leaves the top of the viewport
-(function(){
-  const overlay = document.getElementById('exitOverlay');
-  let shown = false;
-  document.addEventListener('mouseout', function(e){
-    if (shown) return;
-    if (!e.relatedTarget && e.clientY <= 0){
-      overlay.classList.add('show');
-      shown = true;
-    }
-  });
-  document.getElementById('exitClose').addEventListener('click', function(){ overlay.classList.remove('show'); });
-  document.getElementById('exitSkip').addEventListener('click', function(e){ e.preventDefault(); overlay.classList.remove('show'); });
-  document.getElementById('exitCta').addEventListener('click', function(){ overlay.classList.remove('show'); });
-  overlay.addEventListener('click', function(e){ if (e.target === overlay) overlay.classList.remove('show'); });
-})();
 </script>
 
 <!-- ===== WhatsApp Help & Support Widget ===== -->
