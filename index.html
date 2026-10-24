@@ -29,11 +29,13 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1778656280052738&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-<title>QuantiVector — Buy/Sell Signal Indicator for TradingView</title>
-<meta name="description" content="QuantiVector is a Pine Script v6 TradingView indicator that marks entry, stop loss and take-profit levels on your chart for trend-continuation BUY/SELL signals, and scores every signal with a confidence score, backed by a live, on-chart backtest.">
+<title>QuantiVector — Technical Analysis &amp; Chart Pattern Education Tool for TradingView</title>
+<meta name="description" content="QuantiVector is an educational Pine Script v6 TradingView indicator for studying trend-continuation chart patterns. It marks setup zones and example entry, stop-loss and take-profit reference points, plus a confluence score, for learning technical analysis. Not investment advice.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div style="background:#eef6ff;color:#1a4480;text-align:center;font-size:12.5px;font-weight:600;padding:8px 16px;border-bottom:1px solid #cfe0f5;">📚 Educational technical-analysis tool for TradingView — not investment advice, and not a recommendation to buy or sell any security.</div>
 
 <!-- ============ NAV ============ -->
 <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
@@ -86,7 +88,7 @@ src="https://www.facebook.com/tr?id=1778656280052738&ev=PageView&noscript=1"
           <svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M2 14 C 40 4, 80 18, 120 9 C 160 2, 200 16, 240 8 C 265 4, 285 12, 298 7" fill="none" stroke="#e0102a" stroke-width="6" stroke-linecap="round"/></svg>
         </span>
         BUY &amp; SELL signals</h1>
-      <p class="sub">QuantiVector reads every market reaction, waits for real confirmation, and marks the exact moment price turns back in the trend's favor — then hands you a complete trade plan, a confidence score, and a live scoreboard of its own results.</p>
+      <p class="sub">QuantiVector reads every market reaction, waits for real confirmation, and marks the exact moment price turns back in the trend's favor — then plots a reference setup (entry, stop, targets) and a confluence score on your own chart, for you to study and apply at your own discretion.</p>
       <div class="hero-cta-row">
         <a href="#pricing" class="btn btn-red">Get Instant Access</a>
         <a href="features.html" class="btn btn-outline">Explore All Features</a>
@@ -115,7 +117,7 @@ src="https://www.facebook.com/tr?id=1778656280052738&ev=PageView&noscript=1"
       <div class="chart-card">
         <div class="float-chip float-chip-top">
           <div class="fc-ic" style="background:linear-gradient(135deg,#ff4d63,#a10d1e);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 16l5-6 4 4 7-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div><b>91%</b><span>Confidence</span></div>
+          <div><b>91%</b><span>Confluence Score</span></div>
         </div>
         <div class="float-chip float-chip-bottom">
           <div class="fc-ic" style="background:linear-gradient(135deg,#26272b,#0a0a0a);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 20h16M7 20V10M12 20V4M17 20v-7" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg></div>
@@ -123,8 +125,8 @@ src="https://www.facebook.com/tr?id=1778656280052738&ev=PageView&noscript=1"
         </div>
         <div class="cc-inner">
         <div class="cc-head">
-          <div class="cc-title"><span class="dotx"></span> QuantiVector — BTCUSD · 1H</div>
-          <span class="cc-badge">● Live</span>
+          <div class="cc-title"><span class="dotx"></span> QuantiVector — Illustrative Example</div>
+          <span class="cc-badge">Example</span>
         </div>
         <svg viewBox="0 0 520 380" width="100%" style="height:auto;">
           <!-- grid -->
@@ -210,7 +212,7 @@ src="https://www.facebook.com/tr?id=1778656280052738&ev=PageView&noscript=1"
 
 <!-- ============ LIVE TICKER MARQUEE ============ -->
 <section class="ticker-band">
-  <span class="ticker-label"><span style="width:6px;height:6px;border-radius:50%;background:#ff4d63;display:inline-block;" class="live-dot"></span> Sample Signal Feed</span>
+  <span class="ticker-label"><span style="width:6px;height:6px;border-radius:50%;background:#ff4d63;display:inline-block;" class="live-dot"></span> Example Signals — Illustrative, Not Current Calls</span>
   <div class="ticker-viewport">
   <div class="ticker-track">
     <span class="ticker-item">BTCUSD <span class="tk-up">▲ BUY 91%</span></span><span class="ticker-sep"></span>
@@ -263,12 +265,12 @@ src="https://www.facebook.com/tr?id=1778656280052738&ev=PageView&noscript=1"
       <h2>See QuantiVector draw it live</h2>
       <p>Pulled straight from TradingView — no mockups, no design tool.</p>
     </div>
-    <div class="proof-disclaimer">⚡ <b>Everything on these charts is generated automatically by QuantiVector</b> — the Setup Zone, Entry, Stop Loss, all 3 Take-Profits, the Confidence Score, the Multi-Timeframe Bias table, and the Backtest Report. Nothing here is hand-drawn.</div>
+    <div class="proof-disclaimer">⚡ <b>Everything on these charts is generated automatically by QuantiVector</b> — the Setup Zone, Entry, Stop Loss, all 3 Take-Profits, the Confluence Score, the Multi-Timeframe Bias table, and the Backtest Report. Nothing here is hand-drawn. These are historical/backtested examples shown for illustration — not live recommendations or a promise of future results.</div>
     <div class="proof-gallery">
       <div class="proof-card">
         <span class="proof-badge">⚡ Auto-Generated with QuantiVector</span>
         <img src="BTCUSDT_2026-08-26_14-08-37.png" alt="QuantiVector auto-plotted BUY signal on BTC/USDT 15m chart" loading="lazy">
-        <div class="proof-caption"><span class="sym">BTC/USDT · 15m</span><span class="tag">Live Signal</span></div>
+        <div class="proof-caption"><span class="sym">BTC/USDT · 15m</span><span class="tag">Example Signal</span></div>
       </div>
       <div class="proof-card">
         <span class="proof-badge">⚡ Auto-Generated with QuantiVector</span>
@@ -278,7 +280,7 @@ src="https://www.facebook.com/tr?id=1778656280052738&ev=PageView&noscript=1"
       <div class="proof-card">
         <span class="proof-badge">⚡ Auto-Generated with QuantiVector</span>
         <img src="XAUUSDT.P_2026-08-26_14-10-10.png" alt="QuantiVector auto-plotted signal with live backtest report on XAU Gold 15m chart" loading="lazy">
-        <div class="proof-caption"><span class="sym">XAU/USDT · 15m</span><span class="tag">Live Backtest</span></div>
+        <div class="proof-caption"><span class="sym">XAU/USDT · 15m</span><span class="tag">Backtest Example</span></div>
       </div>
       <div class="proof-card">
         <span class="proof-badge">⚡ Auto-Generated with QuantiVector</span>
@@ -423,7 +425,7 @@ src="https://www.facebook.com/tr?id=1778656280052738&ev=PageView&noscript=1"
           </svg>
         </div>
         <h3>Instant <span class="mark">Win Rate</span> on Any Symbol</h3>
-        <p>Drop QuantiVector on any stock, coin, or pair and it automatically calculates and displays its own real win rate for that exact chart — no spreadsheet required.</p>
+        <p>Drop QuantiVector on any stock, coin, or pair and it automatically calculates and displays the historical win rate for that exact chart — a study reference, not a prediction of future results.</p>
         <a href="features.html#win-rate" class="kf-link">See it in action →</a>
       </div>
 
@@ -446,7 +448,7 @@ src="https://www.facebook.com/tr?id=1778656280052738&ev=PageView&noscript=1"
           </svg>
         </div>
         <h3>Auto-Scored <span class="mark">Signal Strength</span></h3>
-        <p>Every signal is automatically graded on 8 confluence factors and reduced to one percentage — so you always know which setups deserve your size and which don't.</p>
+        <p>Every signal is automatically graded on 8 confluence factors and reduced to one score — a study aid for comparing setups, not a recommendation on position size.</p>
         <a href="features.html#confidence-score" class="kf-link">See it in action →</a>
       </div>
 
@@ -490,7 +492,7 @@ src="https://www.facebook.com/tr?id=1778656280052738&ev=PageView&noscript=1"
       <div class="flow-step">
         <div class="num">4</div>
         <h4>Plan &amp; Score Attached</h4>
-        <p>Entry, SL, three TPs, and a confidence percentage are all plotted automatically.</p>
+        <p>Entry, SL, three TPs, and a confluence score are all plotted on your chart automatically — reference points to study, not instructions to follow.</p>
       </div>
     </div>
   </div>
@@ -511,8 +513,8 @@ src="https://www.facebook.com/tr?id=1778656280052738&ev=PageView&noscript=1"
   <div class="wrap split-grid">
     <div class="split-copy">
       <span class="eyebrow">Signal Strength</span>
-      <h2 class="split-head">Not every signal deserves the same size trade — here's how each one is scored</h2>
-      <p>Every confirmed signal is stamped with a single, easy-to-read <span class="mark">confidence percentage</span>, blended from eight independent market-condition checks — momentum, structure, volume behavior, multi-timeframe agreement, and this indicator's own track record.</p>
+      <h2 class="split-head">How the confluence score is built — a study aid, not a recommendation</h2>
+      <p>Every confirmed signal is stamped with a single, easy-to-read <span class="mark">confluence score</span>, blended from eight independent technical conditions — momentum, structure, volume behavior, and multi-timeframe agreement. It's for comparing setups as you study the chart — what you do with any signal is your own decision.</p>
       <div class="f-list">
         <li><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Color-coded green / orange / red by strength tier</li>
         <li><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Displayed right at the Stop Loss line — zero extra clicks</li>
@@ -540,7 +542,7 @@ src="https://www.facebook.com/tr?id=1778656280052738&ev=PageView&noscript=1"
           <text y="6" text-anchor="middle" font-size="17" font-weight="900" fill="#0a0a0a" font-family="Arial">91%</text>
         </g>
       </svg>
-      <p class="cap">Illustrative confidence-score breakdown for a confirmed signal</p>
+      <p class="cap">Illustrative confluence-score breakdown for a confirmed signal — for study purposes, not a recommendation</p>
     </div>
   </div>
 </section>
@@ -557,7 +559,7 @@ src="https://www.facebook.com/tr?id=1778656280052738&ev=PageView&noscript=1"
     <div class="split-copy">
       <span class="eyebrow" style="background:rgba(224,16,42,.16);border-color:rgba(224,16,42,.3);color:#ff6b7d;">Proof, not promises</span>
       <h2 class="split-head white">A live scoreboard, right on your chart</h2>
-      <p>No cherry-picked backtest screenshots. QuantiVector keeps a running, self-updating record of its own signals — win rate, trade count, and average score — so you always know exactly how it's performing on the symbol you're watching, right now.</p>
+      <p>No cherry-picked backtest screenshots. QuantiVector keeps a running, self-updating historical record for the symbol you're studying — win rate, trade count, and average score — for your own research. Historical performance is not a guarantee or prediction of future results.</p>
       <a href="features.html#backtest" class="btn btn-red">See the backtest panel →</a>
     </div>
     <div class="report-panel">
@@ -598,9 +600,9 @@ src="https://www.facebook.com/tr?id=1778656280052738&ev=PageView&noscript=1"
     </div>
     <div class="grid-3">
       <a href="features.html#signal-engine" class="feat-mini"><span class="tag">Core Engine</span><h4>Trend-Continuation Signals</h4><p>Clean Setup Zones, confirmed BUY/SELL labels, and a Trap Zone filter that mutes signals in choppy conditions.</p></a>
-      <a href="features.html#entry-system" class="feat-mini"><span class="tag">Trade Plan</span><h4>Entry / SL / TP1-3</h4><p>Auto-plotted trade levels that grow live with the chart, then freeze the instant a trade resolves.</p></a>
-      <a href="features.html#confidence-score" class="feat-mini"><span class="tag">Scoring</span><h4>Signal Strength Score</h4><p>An 8-factor confidence percentage on every signal, color-coded by strength.</p></a>
-      <a href="features.html#backtest" class="feat-mini"><span class="tag">Transparency</span><h4>Live Backtest Panel</h4><p>Self-updating win rate, trade count, and quality stats — always current, always on-chart.</p></a>
+      <a href="features.html#entry-system" class="feat-mini"><span class="tag">Chart Levels</span><h4>Entry / SL / TP1-3</h4><p>Auto-plotted reference levels that grow live with the chart, then freeze the instant price resolves them — for study, not instruction.</p></a>
+      <a href="features.html#confidence-score" class="feat-mini"><span class="tag">Scoring</span><h4>Signal Strength Score</h4><p>An 8-factor confluence score on every signal, color-coded by strength.</p></a>
+      <a href="features.html#backtest" class="feat-mini"><span class="tag">Transparency</span><h4>Live Backtest Panel</h4><p>Self-updating historical win-rate, trade-count, and quality stats — always current, always on-chart, for your own study.</p></a>
       <a href="features.html#mtf-bias" class="feat-mini"><span class="tag">Context</span><h4>Multi-Timeframe Bias Table</h4><p>6-timeframe trend read at a glance — 5m through 1D — without flipping a single chart tab.</p></a>
       <a href="features.html#extra-tools" class="feat-mini"><span class="tag">Add-ons</span><h4>VWAP, EMAs, Zones &amp; Structure</h4><p>VWAP, extra EMAs, supply/demand zones, market structure (BOS/CHoCH), and order blocks — all optional.</p></a>
       <a href="features.html#alerts" class="feat-mini"><span class="tag">Automation</span><h4>Native TradingView Alerts</h4><p>Get pinged the instant a signal confirms or price enters/exits a Trap Zone.</p></a>
@@ -641,7 +643,7 @@ src="https://www.facebook.com/tr?id=1778656280052738&ev=PageView&noscript=1"
         <span class="price-badge">Save 67%</span>
         <p class="plan-setup">Setup fee: FREE</p>
         <p class="plan-total">₹299 total today</p>
-        <p class="plan-desc" style="margin-top:16px;">Full access to every tool on QuantiVector, for a full year.</p>
+        <p class="plan-desc" style="margin-top:16px;">A 1-year license to run the QuantiVector script on your own TradingView charts — full toolkit included.</p>
         <ul class="f-list">
           <li><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Full indicator access</li>
           <li><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5 11-11" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> All extra tools (VWAP, order blocks, structure)</li>
@@ -690,7 +692,7 @@ src="https://www.facebook.com/tr?id=1778656280052738&ev=PageView&noscript=1"
       </details>
       <details class="faq-item">
         <summary>Do I need other indicators alongside it?</summary>
-        <p>No. Signal detection, trade planning, confidence scoring, multi-timeframe bias, and backtest tracking are all built in. Extra tools like VWAP and order blocks are optional add-ons.</p>
+        <p>No. Signal detection, chart-level marking, confluence scoring, multi-timeframe bias, and backtest tracking are all built in. Extra tools like VWAP and order blocks are optional add-ons.</p>
       </details>
       <details class="faq-item">
         <summary>Can I rebrand the labels and colors?</summary>
@@ -715,7 +717,7 @@ src="https://www.facebook.com/tr?id=1778656280052738&ev=PageView&noscript=1"
     <div class="cta-band">
       <div>
         <h3>See which reaction is real.</h3>
-        <p>Get the signal, the trade plan, the confidence score, and the proof — all on one chart.</p>
+        <p>Get the signal, the reference levels, the confluence score, and the backtest — all on one chart.</p>
       </div>
       <a href="#pricing" class="btn btn-red">Get Instant Access</a>
     </div>
@@ -728,7 +730,7 @@ src="https://www.facebook.com/tr?id=1778656280052738&ev=PageView&noscript=1"
     <div class="foot-top">
       <div style="max-width:320px;">
         <a href="index.html" class="brand"><span class="dot"></span> QuantiVector</a>
-        <p class="foot-disc" style="margin-top:16px;">QuantiVector is a technical analysis tool for TradingView and does not constitute financial advice. Trading involves risk, and past performance — including any figures shown on this site — does not guarantee future results.</p>
+        <p class="foot-disc" style="margin-top:16px;">QuantiVector is an educational technical-analysis tool for TradingView. It does not provide investment advice, recommendations, or signals to buy or sell any security, and nothing on this site constitutes financial advice. You are solely responsible for your own trading decisions. Trading involves substantial risk of loss, and past or backtested performance — including any figures shown on this site — is not indicative of future results.</p>
       </div>
       <div class="foot-cols">
         <div class="foot-col">
@@ -754,7 +756,7 @@ src="https://www.facebook.com/tr?id=1778656280052738&ev=PageView&noscript=1"
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 QuantiVector. All rights reserved.</span>
+      <span>© 2026 QuantiVector, operated by Nestail. All rights reserved.</span>
       <span>Not affiliated with TradingView®.</span>
     </div>
   </div>
